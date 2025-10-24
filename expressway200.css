@@ -2,6 +2,12 @@ body {
   margin-right: 20px;
   margin-left: 20px;
   font-family: Arial, sans-serif;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+body.loaded {
+  opacity: 1;
 }
 
 .goTopBtn {
@@ -101,11 +107,6 @@ a:hover {
   width: 100%;
 }
 
-.western .expresswayList {
-  margin-top: 20px;
-  box-sizing: border-box;
-  border: 3px solid black;
-}
 
 .western p {
   padding: 3px;

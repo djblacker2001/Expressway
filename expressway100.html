@@ -33,10 +33,10 @@
 					<a class="nav-link active text-decoration-underline" href="expressway100.html">Trang chủ</a>
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link" href="expressway101.html">Tuyến đường</a>
+					<a class="nav-link" href="expressway200.html">Tuyến đường</a>
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link" href="expressway102.html">Biển báo</a>
+					<a class="nav-link" href="expressway300.html">Biển báo</a>
 				</li>
 				</ul>
 			</div>
@@ -160,6 +160,11 @@
 	</footer>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script>
+		//Hiệu ứng hiện trang web khi tải xong
+		window.addEventListener("load", () => {
+			document.body.classList.add("loaded");
+		});
+
 		const navCollapse = document.getElementById('mainNavbar');
 		navCollapse.addEventListener('hidden.bs.collapse', () => {
 			iconBars.classList.remove('d-none');
