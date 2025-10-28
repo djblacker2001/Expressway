@@ -40,7 +40,8 @@ a:hover {
 }
 
 .bottom-header img {
-  width: 1280px;
+  width: 100%;
+  height: 600px;
   border-radius: 5px;
 }
 
