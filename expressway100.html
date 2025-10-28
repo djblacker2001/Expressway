@@ -10,12 +10,13 @@
 	<link rel="stylesheet" type="text/css" href="expressway100.css">
 </head>
 <body>
+	<div id="loader"><img src="expresswayicon.png" alt="Logo Đường Cao Tốc Việt Nam"></div>
 	<div class="goTopBtn"><button id="" class="goTopBtn"><i class="fa-solid fa-angle-up"></i></button></div>
 	<header>
 		<div class="top-header">
 			<nav class="navbar navbar-expand-md text-uppercase">
 				<a class="navbar-brand d-flex align-items-center" href="expressway100.html">
-					<img src="highway.png" width="70px">
+					<img src="expresswayicon.png" width="70px">
 				</a>
 			<div>
 			<span class="navbar-toggler" type="button" style="border: 0;">
@@ -162,13 +163,26 @@
 	<script>
 		//Hiệu ứng hiện trang web khi tải xong
 		window.addEventListener("load", () => {
-			document.body.classList.add("loaded");
-		});
+			const loader = document.getElementById("loader");
+			const hasSeenLoader = localStorage.getItem("hasSeenLoader");
 
-		const navCollapse = document.getElementById('mainNavbar');
-		navCollapse.addEventListener('hidden.bs.collapse', () => {
-			iconBars.classList.remove('d-none');
-			iconXmark.classList.add('d-none');
+			if (!hasSeenLoader) {
+			// Hiển thị logo trong 2 giây
+			setTimeout(() => {
+				loader.style.opacity = "0";
+				setTimeout(() => {
+				loader.style.display = "none";
+				document.body.classList.add("show");
+				document.body.style.overflow = "auto";
+				localStorage.setItem("hasSeenLoader", "true");
+				}, 1000);
+			}, 2000);
+			} else {
+			// Nếu đã xem loader, bỏ qua và hiển thị web ngay
+			loader.style.display = "none";
+			document.body.classList.add("show");
+			document.body.style.overflow = "auto";
+			}
 		});
 
 		//Hiệu ứng nút go to top
