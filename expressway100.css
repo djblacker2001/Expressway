@@ -1,5 +1,4 @@
 body {
-
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
@@ -16,11 +15,9 @@ body.show {
   color: white;
   background-color: #fff;
   transition: all 0.5s ease;
-  /* mượt hơn */
   z-index: 1000;
 }
 
-/* Khi scroll xuống */
 #mainHeader.scrolled {
   font-family: arial, sans-serif;
   position: fixed;
@@ -53,13 +50,11 @@ body.show {
 
 #loader img {
   width: 160px;
-  /* chỉnh tùy kích thước logo */
   height: auto;
   animation: zoomInOut 1.8s ease-in-out infinite;
 }
 
 @keyframes zoomInOut {
-
   0%,
   100% {
     transform: scale(1);
@@ -119,6 +114,10 @@ body.show {
 .sidebar a.active {
   font-weight: 700;
   color: black;
+}
+
+.fade-section h2{
+  color: #0A9646;
 }
 
 a {
@@ -278,6 +277,10 @@ footer {
 @media (max-width: 768px) {
   #mainHeader.scrolled {
     position: static;
+  }
+
+  footer {
+    background-image: url(footermobile.png);
   }
 
   .footer {
