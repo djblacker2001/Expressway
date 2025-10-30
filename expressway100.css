@@ -12,10 +12,9 @@ body.show {
   font-family: arial, sans-serif;
   left: 0;
   width: 100%;
-  padding: 20px;
+  padding: 5px;
   color: white;
   background-color: #fff;
-  box-shadow: none;
   transition: all 0.5s ease; /* mượt hơn */
   z-index: 1000;
 }
@@ -24,7 +23,17 @@ body.show {
 #mainHeader.scrolled {
   font-family: arial, sans-serif;
   position: fixed;
+}
 
+#mainBody {
+  top: 100px;
+  margin-top: 1px;
+  z-index: 1000;
+}
+
+#mainBody.scrolled-body {
+  font-family: arial, sans-serif;
+  position: fixed;
 }
 
 #loader {
@@ -73,6 +82,31 @@ body.show {
 .goTopBtn button:hover {
   background-color: #292929;
   
+}
+
+.sidebar {
+  position: sticky;
+  top: 100px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.sidebar a:hover, .sidebar a.active {
+  background-color: #007bff;
+  color: white;
 }
 
 a {
