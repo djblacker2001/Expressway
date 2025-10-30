@@ -1,5 +1,5 @@
 body {
-  
+
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
@@ -15,7 +15,8 @@ body.show {
   padding: 5px;
   color: white;
   background-color: #fff;
-  transition: all 0.5s ease; /* mượt hơn */
+  transition: all 0.5s ease;
+  /* mượt hơn */
   z-index: 1000;
 }
 
@@ -51,14 +52,24 @@ body.show {
 }
 
 #loader img {
-  width: 160px; /* chỉnh tùy kích thước logo */
+  width: 160px;
+  /* chỉnh tùy kích thước logo */
   height: auto;
   animation: zoomInOut 1.8s ease-in-out infinite;
 }
 
 @keyframes zoomInOut {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.9; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
 }
 
 .goTopBtn {
@@ -81,7 +92,7 @@ body.show {
 
 .goTopBtn button:hover {
   background-color: #292929;
-  
+
 }
 
 .sidebar {
@@ -90,7 +101,7 @@ body.show {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(8px);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
@@ -104,9 +115,10 @@ body.show {
   font-weight: 500;
 }
 
-.sidebar a:hover, .sidebar a.active {
-  background-color: #007bff;
-  color: white;
+.sidebar a:hover,
+.sidebar a.active {
+  font-weight: 700;
+  color: black;
 }
 
 a {
@@ -133,17 +145,18 @@ a:hover {
 }
 
 .bottom-header .carousel-indicators [data-bs-target] {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: white;
-    margin: 0 4px;
-    opacity: 0.5;
-    transition: opacity 0.3s, background-color 0.3s;
-  }
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  margin: 0 4px;
+  opacity: 0.5;
+  transition: opacity 0.3s, background-color 0.3s;
+}
 
 .bottom-header .carousel-indicators .active {
-  background-color: white;     /* Màu khi được chọn */
+  background-color: white;
+  /* Màu khi được chọn */
   opacity: 1;
 }
 
@@ -185,7 +198,7 @@ footer {
 }
 
 /* ========== CÁC CỘT ========== */
-.footer-col h3 {
+.footer-top h3 {
   color: #fff;
   font-size: 18px;
   margin-bottom: 15px;
@@ -193,27 +206,27 @@ footer {
   letter-spacing: 0.5px;
 }
 
-.footer-col p {
+.footer-top p {
   font-size: 14px;
   line-height: 1.6;
 }
 
-.footer-col ul {
+.footer-top ul {
   list-style: none;
   padding: 0;
 }
 
-.footer-col ul li {
+.footer-top ul li {
   margin-bottom: 8px;
 }
 
-.footer-col ul li a {
+.footer-top ul li a {
   color: #d1d5db;
   text-decoration: none;
   transition: 0.3s;
 }
 
-.footer-col ul li a:hover {
+.footer-top ul li a:hover {
   color: #60a5fa;
   padding-left: 5px;
 }
@@ -263,13 +276,14 @@ footer {
 }
 
 @media (max-width: 768px) {
-  
   #mainHeader.scrolled {
     position: static;
   }
+
   .footer {
     padding: 40px 15px;
   }
+
   .footer-col h3 {
     font-size: 16px;
   }
