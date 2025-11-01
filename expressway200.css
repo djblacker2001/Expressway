@@ -117,25 +117,16 @@ section h2 {
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
-  box-shadow: 0 2px 2px gray;
+  box-shadow: 0 2px 2px rgb(97, 97, 97);
 }
 
 .expresswayList:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px lightgray;
-}
-
-.eastern p {
-  padding: 3px;
+  box-shadow: 0 8px 10px gray;
 }
 
 .western img {
   width: 100%;
-}
-
-
-.western p {
-  padding: 3px;
 }
 
 .differentWays img {
