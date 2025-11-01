@@ -275,6 +275,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+  #mainBody {
+    display: none;
+  }
+
   #mainHeader.scrolled {
     position: static;
   }
