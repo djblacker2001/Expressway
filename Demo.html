@@ -130,22 +130,9 @@ header {
   margin-bottom: 15px;
 }
 
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar li {
-  margin-bottom: 10px;
-}
-
 .sidebar a {
   text-decoration: none;
   color: #004b8d;
-}
-
-.sidebar a:hover {
-  text-decoration: underline;
 }
 
 /* FOOTER */
@@ -205,44 +192,52 @@ footer a:hover {
 
     <section class="main-column">
       <h2>Tin tức cao tốc mới nhất</h2>
-
-      <article class="article">
-        <img src="https://picsum.photos/300/200" alt="">
-        <div>
-          <h3>Khởi công tuyến cao tốc Hòa Bình – Mộc Châu</h3>
-          <p>Dự án dài 85km, tổng vốn đầu tư hơn 20.000 tỷ đồng, hứa hẹn thúc đẩy phát triển du lịch Tây Bắc.</p>
-        </div>
+      <article class="nearly" id="nearlyID">
+        <a href="https://vnexpress.net/dieu-chinh-toc-do-tren-cao-toc-tp-hcm-long-thanh-dau-giay-4957746.html">
+          <div class="row">
+            <div class="col-4 align-self-center">
+              <img src="bienbao/CT01.png" alt="" width="100%">
+            </div>
+            <div class="col-8 align-self-center">
+              <b>Khởi công tuyến cao tốc Hòa Bình – Mộc Châu</b>
+              <p>Dự án dài 85km, tổng vốn đầu tư hơn 20.000 tỷ đồng, hứa hẹn thúc đẩy phát triển du lịch Tây Bắc.</p>
+            </div>
+          </div>
+        </a>
       </article>
-
-      <article class="article">
-        <img src="https://picsum.photos/301/200" alt="">
-        <div>
-          <h3>Cao tốc Bến Lức – Long Thành hoàn thành 90%</h3>
-          <p>Bộ GTVT cho biết dự án đang gấp rút hoàn thiện phần cầu chính, dự kiến thông xe toàn tuyến trong năm 2026.</p>
-        </div>
-      </article>
-
-      <article class="article">
-        <img src="https://picsum.photos/302/200" alt="">
-        <div>
-          <h3>Đề xuất mở rộng tuyến Pháp Vân – Cầu Giẽ lên 10 làn xe</h3>
-          <p>Tổng cục Đường bộ đang nghiên cứu phương án mở rộng để đáp ứng nhu cầu giao thông tăng cao trên tuyến cửa ngõ Hà Nội.</p>
-        </div>
+      <article class="nearly" id="nearlyID">
+        <a href="https://vnexpress.net/dieu-chinh-toc-do-tren-cao-toc-tp-hcm-long-thanh-dau-giay-4957746.html">
+          <div class="row">
+            <div class="col-4 align-self-center">
+              <img src="bienbao/CT01.png" alt="" width="100%">
+            </div>
+            <div class="col-8 align-self-center">
+              <b>Khởi công tuyến cao tốc Hòa Bình – Mộc Châu</b>
+              <p>Dự án dài 85km, tổng vốn đầu tư hơn 20.000 tỷ đồng, hứa hẹn thúc đẩy phát triển du lịch Tây Bắc.</p>
+            </div>
+          </div>
+        </a>
       </article>
     </section>
 
     <!-- SIDEBAR -->
     <aside class="sidebar">
-      <h3>Bản đồ cao tốc</h3>
-      <img src="https://picsum.photos/350/250" alt="Bản đồ cao tốc Việt Nam">
-      
-      <h3>Tin xem nhiều</h3>
-      <ul>
-        <li><a href="#">Tiến độ cao tốc Bắc Nam 2025</a></li>
-        <li><a href="#">Tổng hợp chi phí thu phí từng tuyến</a></li>
-        <li><a href="#">Chính sách PPP trong đầu tư hạ tầng</a></li>
-      </ul>
-    </aside>
+			<h2><b>Tin xem nhiều</b></h2>
+			<div class="view" id="viewID">
+				<a href="https://vnexpress.net/dieu-chinh-toc-do-tren-cao-toc-tp-hcm-long-thanh-dau-giay-4957746.html">
+					<article class="nearly">
+						<div class="row">
+							<div class="col-md-4 align-self-center">
+								<img src="https://i1-vnexpress.vnecdn.net/2025/10/30/z4304395212480-c407985f271aba6-3190-7513-1761798097.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=VET7N4ci-qeJMbEE3xVvPA" alt="">
+							</div>
+							<div class="col-md-8">
+								Điều chỉnh tốc độ trên cao tốc TP HCM - Long Thành - Dầu Giây
+							</div>
+						</div>
+					</article>
+				</a>
+			</div>
+		</aside>
 
   </main>
 
@@ -253,6 +248,33 @@ footer a:hover {
       <p><a href="#">Giới thiệu</a> | <a href="#">Liên hệ</a> | <a href="#">Chính sách bảo mật</a></p>
     </div>
   </footer>
+  <script>
+    newsData1 [
+    {
+        link: "https://vnexpress.net/dieu-chinh-toc-do-tren-cao-toc-tp-hcm-long-thanh-dau-giay-4957746.html",
+        image: "https://i1-vnexpress.vnecdn.net/2025/10/30/z4304395212480-c407985f271aba6-3190-7513-1761798097.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=VET7N4ci-qeJMbEE3xVvPA",
+        name: "jjjj",
+        content: "Điều chỉnh tốc độ trên cao tốc TP HCM - Long Thành - Dầu Giây"
+    }
+];
+
+    const container1 = document.getElementById("nearlyID");
+    newsData1.forEach(news => {
+    container1.innerHTML += `
+        <a href="${news.link}">
+            <div class="row">
+                <div class="col-4 align-self-center">
+                    <img src="${news.image}" alt="">
+                </div>
+                <div class="col-8 align-self-center">
+                    <b>${news.name}</b>
+                    <p>${news.content}</p>
+                </div>
+            </div>
+        </a>
+      `;
+    });
+  </script>
 
 </body>
 </html>
