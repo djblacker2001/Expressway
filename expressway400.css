@@ -48,10 +48,6 @@ body {
   border-radius: 10px;
 }
 
-.main-column h2 {
-  color: #004b8d;
-}
-
 .article {
   display: flex;
   gap: 15px;
@@ -71,14 +67,8 @@ body {
   border-radius: 10px;
 }
 
-.sidebar h3 {
-  color: #004b8d;
-}
-
 .sidebar img {
   width: 100%;
-  border-radius: 8px;
-  margin-bottom: 15px;
 }
 
 .sidebar ul {
@@ -96,7 +86,7 @@ body {
 }
 
 .sidebar a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 body.show {
@@ -210,10 +200,6 @@ body.show {
 .sidebar a.active {
   font-weight: 700;
   color: black;
-}
-
-.fade-section h2{
-  color: #0A9646;
 }
 
 a {

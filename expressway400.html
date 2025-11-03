@@ -92,14 +92,14 @@
 	<main class="container main-layout">
 
 		<section class="main-column">
-		<h2>Tin tức cao tốc mới nhất</h2>
-		<article class="article">
-			<img src="https://picsum.photos/300/200" alt="">
-			<div>
-			<h3>Khởi công tuyến cao tốc Hòa Bình – Mộc Châu</h3>
-			<p>Dự án dài 85km, tổng vốn đầu tư hơn 20.000 tỷ đồng, hứa hẹn thúc đẩy phát triển du lịch Tây Bắc.</p>
-			</div>
-		</article>
+			<h2><b>Tin tức cao tốc mới nhất</b></h2>
+			<article class="article">
+				<img src="https://picsum.photos/300/200" alt="">
+				<div>
+				<h3>Khởi công tuyến cao tốc Hòa Bình – Mộc Châu</h3>
+				<p>Dự án dài 85km, tổng vốn đầu tư hơn 20.000 tỷ đồng, hứa hẹn thúc đẩy phát triển du lịch Tây Bắc.</p>
+				</div>
+			</article>
 
 		<article class="article">
 			<img src="https://picsum.photos/301/200" alt="">
@@ -121,11 +121,32 @@
 		<!-- SIDEBAR -->
 		<aside class="sidebar">
 			<h2><b>Tin xem nhiều</b></h2>
-			<ul>
-				<li><a href="#">Tiến độ cao tốc Bắc Nam 2025</a></li>
-				<li><a href="#">Tổng hợp chi phí thu phí từng tuyến</a></li>
-				<li><a href="#">Chính sách PPP trong đầu tư hạ tầng</a></li>
-			</ul>
+			<div class="view">
+				<a href="https://vnexpress.net/dieu-chinh-toc-do-tren-cao-toc-tp-hcm-long-thanh-dau-giay-4957746.html">
+					<article class="nearly">
+						<div class="row">
+							<div class="col-md-4 align-self-center">
+								<img src="https://i1-vnexpress.vnecdn.net/2025/10/30/z4304395212480-c407985f271aba6-3190-7513-1761798097.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=VET7N4ci-qeJMbEE3xVvPA" alt="">
+							</div>
+							<div class="col-md-8">
+								Điều chỉnh tốc độ trên cao tốc TP HCM - Long Thành - Dầu Giây
+							</div>
+						</div>
+					</article>
+				</a>
+				<a href="https://i1-vnexpress.vnecdn.net/2025/10/29/Ban-sao-cua-Ban-sao-cua-Lan-1-2-1761708258.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=fL5nIEXfNh3YzQBSE6dtrA">
+					<article class="nearly">
+						<div class="row">
+							<div class="col-md-4 align-self-center">
+								<img src="https://i1-vnexpress.vnecdn.net/2025/10/30/z4304395212480-c407985f271aba6-3190-7513-1761798097.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=VET7N4ci-qeJMbEE3xVvPA" alt="">
+							</div>
+							<div class="col-md-8">
+								Điều chỉnh tốc độ trên cao tốc TP HCM - Long Thành - Dầu Giây
+							</div>
+						</div>
+					</article>
+				</a>
+			</div>
 		</aside>
 
   	</main>
@@ -199,102 +220,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
 		integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script>
-		//Hiệu ứng hiện trang web khi tải xong
-		window.addEventListener("load", () => {
-			const loader = document.getElementById("loader");
-			const hasSeenLoader = localStorage.getItem("hasSeenLoader");
-
-			if (!hasSeenLoader) {
-				// Hiển thị logo trong 2 giây
-				setTimeout(() => {
-					loader.style.opacity = "0";
-					setTimeout(() => {
-						loader.style.display = "none";
-						document.body.classList.add("show");
-						document.body.style.overflow = "auto";
-						localStorage.setItem("hasSeenLoader", "true");
-					}, 1000);
-				}, 2000);
-			} else {
-				// Nếu đã xem loader, bỏ qua và hiển thị web ngay
-				loader.style.display = "none";
-				document.body.classList.add("show");
-				document.body.style.overflow = "auto";
-			}
-		});
-
-		//Hiệu ứng nút go to top
-		$(document).ready(function () {
-			$(window).scroll(function () {
-				if ($(this).scrollTop() > 100) {
-					$(".goTopBtn").fadeIn();
-				} else {
-					$(".goTopBtn").fadeOut();
-				}
-			});
-
-			$(".goTopBtn").click(function () {
-				$("html, body").animate({ scrollTop: 0 }, 0);
-				return false;
-			});
-		});
-
-		// Hiển thị năm hiện tại
-		document.getElementById("year").textContent = new Date().getFullYear();
-
-		// Hiệu ứng thay đổi header khi cuộn trang
-		$(document).ready(function () {
-			$(window).on("scroll", function () {
-				if ($(this).scrollTop() > 100) {
-					$("#mainHeader").addClass("scrolled");
-				} else {
-					$("#mainHeader").removeClass("scrolled");
-				}
-			});
-		});
-
-		// Hiệu ứng thay đổi mục body khi cuộn trang
-		$(document).ready(function () {
-			// Cuộn mượt đến phần nội dung
-			$('.sidebar a').on('click', function (e) {
-				e.preventDefault();
-				const target = $($(this).attr('href'));
-				$('html, body').animate({
-					scrollTop: target.offset().top - 70
-				}, 600);
-			});
-
-			// Highlight đề mục đang xem
-			$(window).on('scroll', function () {
-				const scrollPos = $(document).scrollTop();
-				$('.fade-section').each(function () {
-					const top = $(this).offset().top - 100;
-					const bottom = top + $(this).outerHeight();
-					const id = $(this).attr('id');
-					if (scrollPos >= top && scrollPos <= bottom) {
-						$('.sidebar a').removeClass('active');
-						$('.sidebar a[href="#' + id + '"]').addClass('active');
-					}
-				});
-			});
-
-			// Hiệu ứng fade-in khi cuộn
-			function checkFadeIn() {
-				const scrollBottom = $(window).scrollTop() + $(window).height();
-				$('.fade-section').each(function () {
-					const sectionTop = $(this).offset().top + 100;
-					if (scrollBottom > sectionTop) {
-						$(this).addClass('visible');
-					}
-				});
-			}
-
-			$(window).on('scroll', checkFadeIn);
-			checkFadeIn();
-		});
-
-	</script>
+	<script src="expressway400.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
 		crossorigin="anonymous"></script>
