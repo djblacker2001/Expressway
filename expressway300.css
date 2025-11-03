@@ -8,6 +8,14 @@ body.loaded {
   opacity: 1;
 }
 
+header, main {
+    background-color: #e6e6e6;
+}
+
+.container {
+    background-color: white;
+}
+
 .goTopBtn {
   position: fixed;
   bottom: 20px;

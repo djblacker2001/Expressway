@@ -7,6 +7,14 @@ body.show {
   opacity: 1;
 }
 
+header, main {
+    background-color: #e6e6e6;
+}
+
+.container {
+    background-color: white;
+}
+
 #mainHeader {
   font-family: arial, sans-serif;
   left: 0;
