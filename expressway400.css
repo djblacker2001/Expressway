@@ -67,6 +67,10 @@ body {
   border-radius: 10px;
 }
 
+.sidebar .view {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .sidebar img {
   width: 100%;
 }
@@ -80,14 +84,6 @@ body {
   margin-bottom: 10px;
 }
 
-.sidebar a {
-  text-decoration: none;
-  color: #004b8d;
-}
-
-.sidebar a:hover {
-  text-decoration: none;
-}
 
 body.show {
   opacity: 1;

@@ -27,7 +27,7 @@
 // // });
 
 // //Dữ liệu tin tức xem nhiều nhất
-// const container2 = document.getElementById("view");
+// const container2 = document.getElementById("viewID");
 // newsData2.forEach(news => {
 // container2.innerHTML += `
 //     <a href="${news.link}">
