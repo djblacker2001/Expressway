@@ -1,3 +1,50 @@
+// //Hiển thị dữ liệu tin tức xem nhiều nhất
+// newsData2 [
+//     {
+//         link: "https://vnexpress.net/dieu-chinh-toc-do-tren-cao-toc-tp-hcm-long-thanh-dau-giay-4957746.html",
+//         image: "https://i1-vnexpress.vnecdn.net/2025/10/30/z4304395212480-c407985f271aba6-3190-7513-1761798097.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=VET7N4ci-qeJMbEE3xVvPA",
+//         content: "Điều chỉnh tốc độ trên cao tốc TP HCM - Long Thành - Dầu Giây"
+//     }
+// ];
+
+// //Hiển thị dữ liệu tin tức mới nhất
+// // const container1 = document.getElementById("nearly");
+// // newsData1.forEach(news => {
+// // container1.innerHTML += `
+// //     <a href="${news.link}">
+// //         <article class="nearly">
+// //             <div class="row">
+// //                 <div class="col-md-4 align-self-center">
+// //                     <img src="${news.image}" alt="">
+// //                 </div>
+// //                 <div class="col-md-8">
+// //                     ${news.content}
+// //                 </div>
+// //             </div>
+// //         </article>
+// //     </a>
+// //   `;
+// // });
+
+// //Dữ liệu tin tức xem nhiều nhất
+// const container2 = document.getElementById("view");
+// newsData2.forEach(news => {
+// container2.innerHTML += `
+//     <a href="${news.link}">
+//         <article class="nearly">
+//             <div class="row">
+//                 <div class="col-md-4 align-self-center">
+//                     <img src="${news.image}" alt="">
+//                 </div>
+//                 <div class="col-md-8">
+//                     ${news.content}
+//                 </div>
+//             </div>
+//         </article>
+//     </a>
+//   `;
+// });
+
 //Hiệu ứng hiện trang web khi tải xong
 window.addEventListener("load", () => {
     const loader = document.getElementById("loader");
