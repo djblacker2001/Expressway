@@ -84,6 +84,15 @@ body {
   margin-bottom: 10px;
 }
 
+.sidebar a {
+  text-decoration: none;
+  color: #004b8d;
+}
+
+.sidebar a:hover {
+  text-decoration: none;
+  
+}
 
 body.show {
   opacity: 1;
