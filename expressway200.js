@@ -644,7 +644,7 @@ container1.innerHTML += `
         <a href="${news.link}">
             <article class="expresswayList">
                 <img src="${news.image}">
-                <div class="container">
+                <div class="container-sm">
                     <b>${news.name}</b>
                     <ul>
                         <li>Chiều dài: ${news.length}</li>
@@ -666,7 +666,7 @@ container2.innerHTML += `
         <a href="${news.link}">
             <article class="expresswayList">
                 <img src="${news.image}">
-                <div class="container">
+                <div class="container-sm">
                     <b>${news.name}</b>
                     <ul>
                         <li>Chiều dài: ${news.length}</li>
@@ -688,7 +688,7 @@ container3.innerHTML += `
         <a href="${news.link}">
             <article class="expresswayList">
                 <img src="${news.image}">
-                <div class="container">
+                <div class="container-sm">
                     <b>${news.name}</b>
                     <ul>
                         <li>Chiều dài: ${news.length}</li>
