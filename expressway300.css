@@ -107,6 +107,7 @@ h2 {
 
 .trafficsign .trafficsigns {
   margin-top: 20px;
+  margin-bottom: 20px;
   box-sizing: border-box;
   display: inline-block;
   background: #fff;
@@ -115,6 +116,7 @@ h2 {
   transition: all 0.3s ease;
   cursor: pointer;
   box-shadow: 0 2px 2px rgb(97, 97, 97);
+  height: 95%;
 }
 
 .trafficsign p {
@@ -123,6 +125,9 @@ h2 {
 
 .trafficsign img {
   width: 100%;
+  text-align: center;
+  justify-items: center;
+  justify-content: center;
 }
 
 footer {
