@@ -1,280 +1,273 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CaoTocVN News - Tin tức Đường Cao Tốc Việt Nam</title>
-  <style>
-    body {
-  font-family: "Segoe UI", sans-serif;
-  margin: 0;
-  background: #f4f6f9;
-  color: #222;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biển Báo Đường Cao Tốc Việt Nam</title>
+    <link rel="icon" href="images/expresswayicon.png">
+    <style>
+        /* ======= RESET ======= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
 
-/* HEADER */
-header {
-  background: #004b8d;
-  color: white;
-  padding: 10px 0;
-}
+        body {
+            background-color: #f5f8fa;
+            color: #222;
+            line-height: 1.6;
+        }
 
-.container {
-  width: 90%;
-  margin: auto;
-}
+        /* ======= HEADER ======= */
+        header {
+            background-color: #004aad;
+            color: #fff;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+        header h1 {
+            font-size: 1.6rem;
+            letter-spacing: 0.5px;
+        }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
+        nav a {
+            color: #fff;
+            margin-left: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-.logo span {
-  color: #ffcc00;
-}
+        nav a:hover {
+            color: #ffd500;
+        }
 
-.menu {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  margin: 0;
-}
+        /* ======= HERO SECTION ======= */
+        .hero {
+            background: url('images/highway-banner.jpg') center/cover no-repeat;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            background-attachment: fixed;
+        }
 
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
+        .hero h2 {
+            font-size: 2.2rem;
+            background-color: rgba(0, 0, 0, 0.55);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
 
-.menu a:hover {
-  text-decoration: underline;
-}
+        /* ======= SECTIONS ======= */
+        section {
+            padding: 60px 10%;
+        }
 
-/* HERO */
-.hero {
-  position: relative;
-  margin-top: 10px;
-}
+        h2.section-title {
+            text-align: center;
+            color: #004aad;
+            margin-bottom: 40px;
+            font-size: 1.9rem;
+            position: relative;
+        }
 
-.main-news {
-  position: relative;
-}
+        h2.section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #004aad;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
 
-.main-news img {
-  width: 100%;
-  border-radius: 10px;
-}
+        /* ======= BIỂN BÁO ======= */
+        .signs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
 
-.overlay {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  width: 80%;
-}
+        .sign-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
 
-/* MAIN CONTENT */
-.main-layout {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-}
+        .sign-card:hover {
+            transform: translateY(-6px);
+        }
 
-/* MAIN COLUMN */
-.main-column {
-  flex: 3;
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-}
+        .sign-card img {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 10px;
+        }
 
-.main-column h2 {
-  color: #004b8d;
-}
+        .sign-card h3 {
+            font-size: 1.1rem;
+            color: #004aad;
+            margin-bottom: 8px;
+        }
 
-.article {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
-}
+        /* ======= QUY TẮC ======= */
+        .rules ul {
+            list-style-type: "✅ ";
+            margin-left: 20px;
+        }
 
-.article img {
-  width: 220px;
-  border-radius: 8px;
-}
+        .rules li {
+            margin-bottom: 10px;
+        }
 
-/* SIDEBAR */
-.sidebar {
-  flex: 1;
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-}
+        /* ======= FAQ ======= */
+        .faq-item {
+            background-color: #fff;
+            border-left: 4px solid #004aad;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
 
-.sidebar h3 {
-  color: #004b8d;
-}
+        .faq-item strong {
+            color: #004aad;
+        }
 
-.sidebar img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
+        /* ======= FOOTER ======= */
+        footer {
+            background-color: #002b6d;
+            color: white;
+            text-align: center;
+            padding: 25px 10px;
+            font-size: 0.9rem;
+        }
 
-.sidebar a {
-  text-decoration: none;
-  color: #004b8d;
-}
+        footer a {
+            color: #ffd500;
+            text-decoration: none;
+        }
 
-/* FOOTER */
-footer {
-  background: #003366;
-  color: white;
-  text-align: center;
-  padding: 15px 0;
-  margin-top: 20px;
-}
+        footer a:hover {
+            text-decoration: underline;
+        }
 
-footer a {
-  color: #ffcc00;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-  </style>
+        /* ======= RESPONSIVE ======= */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav a {
+                margin: 10px;
+            }
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container header-content">
-      <div class="logo">🚧 CaoToc<span>VN</span> News</div>
-      <nav>
-        <ul class="menu">
-          <li><a href="#">Trang chủ</a></li>
-          <li><a href="#">Dự án</a></li>
-          <li><a href="#">Bản đồ cao tốc</a></li>
-          <li><a href="#">Chính sách</a></li>
-          <li><a href="#">Tin mới</a></li>
-          <li><a href="#">Liên hệ</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <!-- HEADER -->
+    <header>
+        <h1>Biển Báo Đường Cao Tốc</h1>
+        <nav>
+            <a href="#gioithieu">Giới thiệu</a>
+            <a href="#phanloai">Phân loại</a>
+            <a href="#quytac">Quy tắc</a>
+            <a href="#faq">Hỏi đáp</a>
+        </nav>
+    </header>
 
-  <!-- HERO / TIN NỔI BẬT -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="main-news">
-        <img src="https://picsum.photos/900/450" alt="Cao tốc Bắc Nam">
-        <div class="overlay">
-          <h2>Khánh thành tuyến cao tốc Bắc – Nam đoạn Nha Trang – Cam Lâm</h2>
-          <p>Dự án được đưa vào sử dụng sớm hơn kế hoạch, giúp rút ngắn thời gian di chuyển giữa hai thành phố lớn miền Trung.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MAIN CONTENT -->
-  <main class="container main-layout">
-
-    <section class="main-column">
-      <h2>Tin tức cao tốc mới nhất</h2>
-      <article class="nearly" id="nearlyID">
-        <a href="https://vnexpress.net/dieu-chinh-toc-do-tren-cao-toc-tp-hcm-long-thanh-dau-giay-4957746.html">
-          <div class="row">
-            <div class="col-4 align-self-center">
-              <img src="bienbao/CT01.png" alt="" width="100%">
-            </div>
-            <div class="col-8 align-self-center">
-              <b>Khởi công tuyến cao tốc Hòa Bình – Mộc Châu</b>
-              <p>Dự án dài 85km, tổng vốn đầu tư hơn 20.000 tỷ đồng, hứa hẹn thúc đẩy phát triển du lịch Tây Bắc.</p>
-            </div>
-          </div>
-        </a>
-      </article>
-      <article class="nearly" id="nearlyID">
-        <a href="https://vnexpress.net/dieu-chinh-toc-do-tren-cao-toc-tp-hcm-long-thanh-dau-giay-4957746.html">
-          <div class="row">
-            <div class="col-4 align-self-center">
-              <img src="bienbao/CT01.png" alt="" width="100%">
-            </div>
-            <div class="col-8 align-self-center">
-              <b>Khởi công tuyến cao tốc Hòa Bình – Mộc Châu</b>
-              <p>Dự án dài 85km, tổng vốn đầu tư hơn 20.000 tỷ đồng, hứa hẹn thúc đẩy phát triển du lịch Tây Bắc.</p>
-            </div>
-          </div>
-        </a>
-      </article>
+    <!-- HERO -->
+    <section class="hero">
+        <h2>Hiểu đúng – Tuân thủ đúng – Lái xe an toàn trên cao tốc</h2>
     </section>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-			<h2><b>Tin xem nhiều</b></h2>
-			<div class="view" id="viewID">
-				<a href="https://vnexpress.net/dieu-chinh-toc-do-tren-cao-toc-tp-hcm-long-thanh-dau-giay-4957746.html">
-					<article class="nearly">
-						<div class="row">
-							<div class="col-md-4 align-self-center">
-								<img src="https://i1-vnexpress.vnecdn.net/2025/10/30/z4304395212480-c407985f271aba6-3190-7513-1761798097.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=VET7N4ci-qeJMbEE3xVvPA" alt="">
-							</div>
-							<div class="col-md-8">
-								Điều chỉnh tốc độ trên cao tốc TP HCM - Long Thành - Dầu Giây
-							</div>
-						</div>
-					</article>
-				</a>
-			</div>
-		</aside>
+    <!-- GIỚI THIỆU -->
+    <section id="gioithieu">
+        <h2 class="section-title">Giới thiệu chung</h2>
+        <p>
+            Khi lưu thông trên các tuyến đường cao tốc, việc quan sát và tuân thủ đúng biển báo là yếu tố quan trọng giúp tránh vi phạm luật và đảm bảo an toàn.
+            Dưới đây là tổng hợp các loại biển báo thường gặp trên cao tốc Việt Nam, giúp bạn hiểu rõ hơn về hệ thống giao thông hiện đại này.
+        </p>
+    </section>
 
-  </main>
+    <!-- PHÂN LOẠI BIỂN BÁO -->
+    <section id="phanloai">
+        <h2 class="section-title">Phân loại biển báo</h2>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-content">
-      <p>© 2025 CaoTocVN News | Nguồn: Bộ Giao thông Vận tải Việt Nam</p>
-      <p><a href="#">Giới thiệu</a> | <a href="#">Liên hệ</a> | <a href="#">Chính sách bảo mật</a></p>
-    </div>
-  </footer>
-  <script>
-    newsData1 [
-      {
-          link: "https://vnexpress.net/dieu-chinh-toc-do-tren-cao-toc-tp-hcm-long-thanh-dau-giay-4957746.html",
-          image: "https://i1-vnexpress.vnecdn.net/2025/10/30/z4304395212480-c407985f271aba6-3190-7513-1761798097.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=VET7N4ci-qeJMbEE3xVvPA",
-          name: "jjjj",
-          content: "Điều chỉnh tốc độ trên cao tốc TP HCM - Long Thành - Dầu Giây"
-      }
-    ];
-
-    const container1 = document.getElementById("nearlyID");
-    newsData1.forEach(news => {
-    container1.innerHTML += `
-        <a href="${news.link}">
-            <div class="row">
-                <div class="col-4 align-self-center">
-                    <img src="${news.image}" alt="">
-                </div>
-                <div class="col-8 align-self-center">
-                    <b>${news.name}</b>
-                    <p>${news.content}</p>
-                </div>
+        <div class="signs">
+            <div class="sign-card">
+                <img src="images/bien_cam_101.png" alt="Biển cấm xe đi vào cao tốc">
+                <h3>Biển cấm</h3>
+                <p>Cấm các loại xe không đủ điều kiện đi vào đường cao tốc (xe máy, xe đạp, người đi bộ,...).</p>
             </div>
-        </a>
-      `;
-    });
-  </script>
+            <div class="sign-card">
+                <img src="images/bien_nguyhiem_208.png" alt="Biển nguy hiểm">
+                <h3>Biển nguy hiểm</h3>
+                <p>Báo hiệu đoạn đường cong, tầm nhìn hạn chế, cần giảm tốc độ và giữ khoảng cách.</p>
+            </div>
+            <div class="sign-card">
+                <img src="images/bien_chidang_407a.png" alt="Biển chỉ dẫn cao tốc">
+                <h3>Biển chỉ dẫn</h3>
+                <p>Hướng dẫn lối vào, lối ra, hoặc chỉ hướng đi tiếp theo trên đường cao tốc.</p>
+            </div>
+            <div class="sign-card">
+                <img src="images/bien_dichvu_446.png" alt="Biển trạm dừng nghỉ">
+                <h3>Biển dịch vụ</h3>
+                <p>Báo hiệu trạm xăng dầu, trạm sửa chữa hoặc khu dừng nghỉ gần nhất.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUY TẮC -->
+    <section id="quytac" class="rules">
+        <h2 class="section-title">Quy tắc khi lưu thông trên cao tốc</h2>
+        <ul>
+            <li>Không dừng, đỗ xe trên cao tốc (trừ làn khẩn cấp).</li>
+            <li>Giữ khoảng cách tối thiểu theo biển báo quy định.</li>
+            <li>Không lùi hoặc quay đầu xe trên cao tốc.</li>
+            <li>Tuân thủ tốc độ tối đa và tối thiểu.</li>
+            <li>Sử dụng đèn tín hiệu khi chuyển làn hoặc vượt xe.</li>
+        </ul>
+    </section>
+
+    <!-- HỎI ĐÁP -->
+    <section id="faq">
+        <h2 class="section-title">Câu hỏi thường gặp</h2>
+        <div class="faq-item">
+            <strong>❓ Xe máy có được đi vào cao tốc không?</strong>
+            <p>Không. Xe máy, xe thô sơ và người đi bộ đều bị cấm lưu thông trên cao tốc.</p>
+        </div>
+        <div class="faq-item">
+            <strong>❓ Biển “Kết thúc đường cao tốc” nghĩa là gì?</strong>
+            <p>Đó là điểm chấm dứt phạm vi đường cao tốc. Sau biển này, bạn áp dụng tốc độ theo đường quốc lộ.</p>
+        </div>
+        <div class="faq-item">
+            <strong>❓ Có được dừng xe ở làn khẩn cấp để nghỉ không?</strong>
+            <p>Không. Làn khẩn cấp chỉ dành cho trường hợp xe hỏng hoặc tai nạn cần hỗ trợ.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Giao Thông Việt Nam | Thiết kế bởi <a href="#">Deka</a>
+    </footer>
 
 </body>
 </html>

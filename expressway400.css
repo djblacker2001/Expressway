@@ -1,5 +1,11 @@
 body {
     font-family: Arial, sans-serif;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+body.loaded {
+  opacity: 1;
 }
 
 header, main {
@@ -9,7 +15,6 @@ header, main {
 .container {
     background-color: white;
 }
-
 
 
 #mainHeader {
