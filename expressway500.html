@@ -7,7 +7,7 @@
 	<link rel="icon" type="image/png" href="expresswayicon.png">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-	<link rel="stylesheet" type="text/css" href="expressway200.css">
+	<link rel="stylesheet" type="text/css" href="expressway500.css">
 </head>
 <body>
 	<div class="goTopBtn"><button id="" class="goTopBtn"><i class="fa-solid fa-angle-up"></i></button></div>
@@ -31,7 +31,7 @@
 						<a class="nav-link" href="expressway100.html">Trang chủ</a>
 					</li>
 					<li class="nav-item dropdown">
-						<a class="nav-link active text-decoration-underline" href="expressway200.html">Tuyến đường</a>
+						<a class="nav-link" href="expressway200.html">Tuyến đường</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link" href="expressway300.html">Biển báo</a>
@@ -39,75 +39,35 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link" href="expressway400.html">Tin Tức</a>
 					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link" href="expressway500.html">Liên hệ</a>
+                    <li class="nav-item dropdown">
+						<a class="nav-link active text-decoration-underline" href="expressway500.html">Liên hệ</a>
 					</li>
 				</ul>
 			</div>
 		</nav>
-		<div class="bottom-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-7 p-3">
-						<div id="myCarousel" class="carousel slide" data-bs-touch="true" data-bs-ride="carousel"
-							data-bs-interval="2000">
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<img src="expressway101.jpg" class="d-block" alt="Slide 1">
-								</div>
-								<div class="carousel-item">
-									<img src="expressway102.jpg" class="d-block" alt="Slide 2">
-								</div>
-								<div class="carousel-item">
-									<img src="expressway103.jpg" class="d-block" alt="Slide 3">
-								</div>
-								<div class="carousel-item">
-									<img src="expressway104.jpg" class="d-block" alt="Slide 4">
-								</div>
-							</div>
-							<div class="text-start text">
-								<h1></h1>
-							</div>
-
-							<!-- Chấm chỉ mục -->
-							<div class="carousel-indicators">
-								<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0"
-									class="active"></button>
-								<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
-								<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
-								<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3"></button>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-5 p-3">
-						<img src="expresswayMap.png">
-					</div>
+	</header>
+	<main>
+		<div class="container">
+			<div class="row pt-3">
+				<div class="col-md-6">
+                    <h2><b>Các nhà đầu tư</b></h2>
+                    <article class="investor" id="investorsID">
+                        <div class="row">
+                            <div class="col-3 align-self-center">
+                                <img src="https://www.expressway.com.vn/images/LOGO%20VEC38.jpg">
+                            </div>
+                            <div class="col-9 align-self-center">
+                                <b>${news.name}</b>
+                                <p>${news.content}</p>
+                            </div>
+                        </div>
+                    </article>
+				</div>
+				<div class="col-md-6">
+					
 				</div>
 			</div>
 		</div>
-	</header>
-	<main>
-		<section class="eastern">
-			<div class="container">
-				<h2><b>Đường cao tốc bắc nam phía đông</b></h2>
-				<span><h3>Ký hiệu <img src="bienbao/CT01.png" style="width: 100px;"></h3></span>
-				<div class="row" id="easternID"></div>
-			</div>	
-		</section>
-		<section class="western">
-			<div class="container">
-				<h2><b>Đường cao tốc bắc nam phía tây</b></h2>
-				<span><h3>Ký hiệu <img src="bienbao/CT02.png" style="width: 100px"></h3></span>
-				<div class="row" id="westernID"></div>
-			</div>
-		</section>
-		<section class="differentWays">
-			<div class="container">
-				<h2><b>Một số tuyến đường cao tốc khác</b></h2>
-				<span><h3>Ký hiệu từ <img src="bienbao/CT03.png" style="width: 100px"> đến <img src="bienbao/CT43.png" style="width: 100px"></h3></span>
-				<div class="row" id="differentID"></div>
-			</div>
-		</section>
 	</main>
 	<footer>
 		<div class="footer">
@@ -177,8 +137,8 @@
 		</div>
 	</footer>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="expressway200.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+	<script src="expressway500.js"></script>
 </body>
 </html>
