@@ -1,273 +1,381 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biển Báo Đường Cao Tốc Việt Nam</title>
-    <link rel="icon" href="images/expresswayicon.png">
-    <style>
-        /* ======= RESET ======= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Segoe UI", Arial, sans-serif;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cẩm nang Cao tốc — Thiết kế mẫu</title>
+  <meta name="description" content="Hướng dẫn an toàn khi chạy trên cao tốc, biển báo, tin tức và bộ sưu tập biển báo." />
 
-        body {
-            background-color: #f5f8fa;
-            color: #222;
-            line-height: 1.6;
-        }
+  <style>
+    :root{
+      --bg:#f7fbff;
+      --card:#ffffff;
+      --accent:#0f766e; /* teal-ish */
+      --muted:#64748b;
+      --radius:14px;
+      --maxw:1100px;
+      --gap:20px;
+      --shadow: 0 6px 18px rgba(16,24,40,0.08);
+      --glass: rgba(255,255,255,0.6);
+    }
 
-        /* ======= HEADER ======= */
-        header {
-            background-color: #004aad;
-            color: #fff;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      margin:0;
+      background: linear-gradient(180deg, #f3fbfb 0%, var(--bg) 100%);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:24px;
+      display:flex;
+      justify-content:center;
+    }
 
-        header h1 {
-            font-size: 1.6rem;
-            letter-spacing: 0.5px;
-        }
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+    }
 
-        nav a {
-            color: #fff;
-            margin-left: 25px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      width:52px;
+      height:52px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#0369a1);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      box-shadow:var(--shadow);
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      margin-left:18px;
+      font-weight:600;
+    }
+    nav a.cta{
+      background:var(--accent);
+      color:white;
+      padding:10px 14px;
+      border-radius:10px;
+      box-shadow:var(--shadow);
+    }
 
-        nav a:hover {
-            color: #ffd500;
-        }
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:var(--gap);
+      align-items:center;
+      margin-bottom:28px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    .hero h1{
+      margin:0 0 8px 0;
+      font-size:28px;
+    }
+    .lead{color:var(--muted); margin-bottom:16px}
 
-        /* ======= HERO SECTION ======= */
-        .hero {
-            background: url('images/highway-banner.jpg') center/cover no-repeat;
-            height: 320px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            background-attachment: fixed;
-        }
+    .actions{display:flex;gap:12px; flex-wrap:wrap}
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      border:0;
+    }
+    .btn.primary{background:var(--accent); color:white; box-shadow:0 6px 18px rgba(15,118,110,0.14)}
+    .btn.ghost{background:transparent; border:1px solid #e6eef0; color:var(--accent) }
 
-        .hero h2 {
-            font-size: 2.2rem;
-            background-color: rgba(0, 0, 0, 0.55);
-            padding: 10px 20px;
-            border-radius: 10px;
-        }
+    /* Right: featured card (ảnh biển báo) */
+    .featured{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .featured img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      border-radius:12px;
+      background:#e6eef0;
+    }
+    .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
 
-        /* ======= SECTIONS ======= */
-        section {
-            padding: 60px 10%;
-        }
+    /* sections grid */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:var(--gap);
+      margin-bottom:22px;
+    }
+    .card h3{margin-top:0}
+    .small{
+      font-size:14px;color:var(--muted)
+    }
 
-        h2.section-title {
-            text-align: center;
-            color: #004aad;
-            margin-bottom: 40px;
-            font-size: 1.9rem;
-            position: relative;
-        }
+    /* gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+    }
+    .gallery img{
+      width:100%;
+      border-radius:10px;
+      height:140px;
+      object-fit:cover;
+      display:block;
+    }
 
-        h2.section-title::after {
-            content: "";
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: #004aad;
-            margin: 10px auto;
-            border-radius: 2px;
-        }
+    /* FAQ / content */
+    .content{
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:var(--gap);
+      margin-bottom:28px;
+    }
+    aside.card{position:sticky;top:24px}
 
-        /* ======= BIỂN BÁO ======= */
-        .signs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
+    footer{color:var(--muted);font-size:14px; text-align:center; padding:18px 0}
 
-        .sign-card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
+    /* responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .content{grid-template-columns:1fr}
+      aside.card{position:relative;top:auto}
+    }
+    @media (max-width:600px){
+      body{padding:12px}
+      nav a{display:none}
+      .grid{grid-template-columns:1fr}
+      .gallery img{height:110px}
+      .featured img{height:180px}
+      .logo{width:44px;height:44px}
+      .hero h1{font-size:22px}
+    }
 
-        .sign-card:hover {
-            transform: translateY(-6px);
-        }
-
-        .sign-card img {
-            width: 90px;
-            height: 90px;
-            margin-bottom: 10px;
-        }
-
-        .sign-card h3 {
-            font-size: 1.1rem;
-            color: #004aad;
-            margin-bottom: 8px;
-        }
-
-        /* ======= QUY TẮC ======= */
-        .rules ul {
-            list-style-type: "✅ ";
-            margin-left: 20px;
-        }
-
-        .rules li {
-            margin-bottom: 10px;
-        }
-
-        /* ======= FAQ ======= */
-        .faq-item {
-            background-color: #fff;
-            border-left: 4px solid #004aad;
-            padding: 15px 20px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-        }
-
-        .faq-item strong {
-            color: #004aad;
-        }
-
-        /* ======= FOOTER ======= */
-        footer {
-            background-color: #002b6d;
-            color: white;
-            text-align: center;
-            padding: 25px 10px;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: #ffd500;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* ======= RESPONSIVE ======= */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-            nav a {
-                margin: 10px;
-            }
-            .hero h2 {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .tag{display:inline-block;background:#f0f9f8;border-radius:999px;padding:6px 10px;font-size:13px;color:var(--accent);font-weight:700}
+    .row{display:flex;gap:10px;align-items:center}
+  </style>
 </head>
 <body>
+  <div class="wrap">
 
-    <!-- HEADER -->
     <header>
-        <h1>Biển Báo Đường Cao Tốc</h1>
-        <nav>
-            <a href="#gioithieu">Giới thiệu</a>
-            <a href="#phanloai">Phân loại</a>
-            <a href="#quytac">Quy tắc</a>
-            <a href="#faq">Hỏi đáp</a>
-        </nav>
+      <div class="brand">
+        <div class="logo">CT</div>
+        <div>
+          <div style="font-weight:800">Cẩm nang Cao tốc</div>
+          <div class="small muted">An toàn — Văn minh — Hiệu quả</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#bieb">Biển báo</a>
+        <a href="#huongdan">Hướng dẫn</a>
+        <a href="#tin">Tin tức</a>
+        <a href="#contact" class="cta">Liên hệ</a>
+      </nav>
     </header>
 
-    <!-- HERO -->
     <section class="hero">
-        <h2>Hiểu đúng – Tuân thủ đúng – Lái xe an toàn trên cao tốc</h2>
-    </section>
+      <div class="card">
+        <span class="tag">An toàn giao thông</span>
+        <h1>Nguyên tắc & biển báo trên đường cao tốc</h1>
+        <p class="lead">Tổng hợp quy tắc, biển báo, và chỉ dẫn khi chạy trên cao tốc. Bảo đảm bạn lái an toàn — hiểu biển — lái đúng.</p>
 
-    <!-- GIỚI THIỆU -->
-    <section id="gioithieu">
-        <h2 class="section-title">Giới thiệu chung</h2>
-        <p>
-            Khi lưu thông trên các tuyến đường cao tốc, việc quan sát và tuân thủ đúng biển báo là yếu tố quan trọng giúp tránh vi phạm luật và đảm bảo an toàn.
-            Dưới đây là tổng hợp các loại biển báo thường gặp trên cao tốc Việt Nam, giúp bạn hiểu rõ hơn về hệ thống giao thông hiện đại này.
-        </p>
-    </section>
-
-    <!-- PHÂN LOẠI BIỂN BÁO -->
-    <section id="phanloai">
-        <h2 class="section-title">Phân loại biển báo</h2>
-
-        <div class="signs">
-            <div class="sign-card">
-                <img src="images/bien_cam_101.png" alt="Biển cấm xe đi vào cao tốc">
-                <h3>Biển cấm</h3>
-                <p>Cấm các loại xe không đủ điều kiện đi vào đường cao tốc (xe máy, xe đạp, người đi bộ,...).</p>
-            </div>
-            <div class="sign-card">
-                <img src="images/bien_nguyhiem_208.png" alt="Biển nguy hiểm">
-                <h3>Biển nguy hiểm</h3>
-                <p>Báo hiệu đoạn đường cong, tầm nhìn hạn chế, cần giảm tốc độ và giữ khoảng cách.</p>
-            </div>
-            <div class="sign-card">
-                <img src="images/bien_chidang_407a.png" alt="Biển chỉ dẫn cao tốc">
-                <h3>Biển chỉ dẫn</h3>
-                <p>Hướng dẫn lối vào, lối ra, hoặc chỉ hướng đi tiếp theo trên đường cao tốc.</p>
-            </div>
-            <div class="sign-card">
-                <img src="images/bien_dichvu_446.png" alt="Biển trạm dừng nghỉ">
-                <h3>Biển dịch vụ</h3>
-                <p>Báo hiệu trạm xăng dầu, trạm sửa chữa hoặc khu dừng nghỉ gần nhất.</p>
-            </div>
+        <div class="actions">
+          <button class="btn primary" onclick="scrollToId('huongdan')">Xem hướng dẫn</button>
+          <button class="btn ghost" onclick="scrollToId('bieb')">Xem biển báo</button>
         </div>
+
+        <hr style="margin:16px 0;border:none;border-top:1px solid #eef6f6" />
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div style="flex:1;min-width:160px">
+            <div style="font-weight:700">Tốc độ tối đa</div>
+            <div class="small muted">100–120 km/h (tùy đoạn)</div>
+          </div>
+          <div style="flex:1;min-width:160px">
+            <div style="font-weight:700">Không được</div>
+            <div class="small muted">Dừng/đỗ, lùi, quay đầu</div>
+          </div>
+          <div style="flex:1;min-width:160px">
+            <div style="font-weight:700">Khoảng cách</div>
+            <div class="small muted">Giữ khoảng cách an toàn</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="featured card">
+        <!-- Thay src bằng đường dẫn ảnh biển báo bạn có, ví dụ /assets/bien1.jpg -->
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='500'><rect width='100%' height='100%' fill='%23e6eef0'/><text x='50%' y='50%' font-size='24' dominant-baseline='middle' text-anchor='middle' fill='%2364748b'>Ảnh biển báo</text></svg>" alt="Biển báo" id="featuredImage" />
+
+        <div class="meta">
+          <div>
+            <div style="font-weight:700">Kết thúc đoạn được phép vượt</div>
+            <div class="small muted">Biển chỉ dẫn + biển cấm vượt</div>
+          </div>
+          <div class="small muted">Hình minh họa</div>
+        </div>
+      </aside>
     </section>
 
-    <!-- QUY TẮC -->
-    <section id="quytac" class="rules">
-        <h2 class="section-title">Quy tắc khi lưu thông trên cao tốc</h2>
-        <ul>
-            <li>Không dừng, đỗ xe trên cao tốc (trừ làn khẩn cấp).</li>
-            <li>Giữ khoảng cách tối thiểu theo biển báo quy định.</li>
-            <li>Không lùi hoặc quay đầu xe trên cao tốc.</li>
-            <li>Tuân thủ tốc độ tối đa và tối thiểu.</li>
-            <li>Sử dụng đèn tín hiệu khi chuyển làn hoặc vượt xe.</li>
+    <!-- quick features -->
+    <section class="grid">
+      <div class="card">
+        <h3>Biển báo</h3>
+        <p class="small muted">Thư viện biển báo theo nhóm: chỉ dẫn, cấm, nguy hiểm.</p>
+      </div>
+
+      <div class="card">
+        <h3>Hướng dẫn</h3>
+        <p class="small muted">Nguyên tắc vào/ra, tốc độ, khoảng cách, xử lý sự cố.</p>
+      </div>
+
+      <div class="card">
+        <h3>Kiểm tra nhanh</h3>
+        <p class="small muted">Quiz nhỏ để ôn kiến thức biển báo và luật.</p>
+      </div>
+    </section>
+
+    <!-- gallery -->
+    <section id="bieb" style="margin-bottom:22px">
+      <h2 style="margin:0 0 12px 0">Bộ sưu tập biển báo</h2>
+      <div class="gallery card" id="gallery">
+        <!-- các ảnh sẽ được JS chèn vào -->
+      </div>
+    </section>
+
+    <!-- content + aside -->
+    <section class="content">
+      <div>
+        <div class="card" id="huongdan">
+          <h3>Nguyên tắc chạy trên cao tốc</h3>
+          <ol>
+            <li><strong>Đi đúng làn:</strong> Không chuyển làn đột ngột; bật xi-nhan trước khi chuyển.</li>
+            <li><strong>Giữ khoảng cách:</strong> Theo tốc độ và điều kiện thời tiết.</li>
+            <li><strong>Không dừng/đỗ:</strong> Trừ trường hợp khẩn cấp, chuyển vào làn dừng khẩn.</li>
+            <li><strong>Quan sát biển báo:</strong> Tốc độ, cấm vượt, làn đường, nút giao.</li>
+            <li><strong>Chuẩn bị khi ra:</strong> Vào làn giảm tốc, giảm đều tốc độ.</li>
+          </ol>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>FAQ</h3>
+          <p class="small muted"><strong>Hỏi:</strong> Có được vượt khi có vạch đứt không? <br><strong>Trả lời:</strong> Chỉ khi không có biển cấm vượt và đảm bảo an toàn.</p>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h4>Liên kết nhanh</h4>
+        <ul class="small muted">
+          <li>Luật Giao thông đường bộ</li>
+          <li>Quy định tốc độ</li>
+          <li>Hỗ trợ khẩn cấp</li>
         </ul>
+      </aside>
     </section>
 
-    <!-- HỎI ĐÁP -->
-    <section id="faq">
-        <h2 class="section-title">Câu hỏi thường gặp</h2>
-        <div class="faq-item">
-            <strong>❓ Xe máy có được đi vào cao tốc không?</strong>
-            <p>Không. Xe máy, xe thô sơ và người đi bộ đều bị cấm lưu thông trên cao tốc.</p>
-        </div>
-        <div class="faq-item">
-            <strong>❓ Biển “Kết thúc đường cao tốc” nghĩa là gì?</strong>
-            <p>Đó là điểm chấm dứt phạm vi đường cao tốc. Sau biển này, bạn áp dụng tốc độ theo đường quốc lộ.</p>
-        </div>
-        <div class="faq-item">
-            <strong>❓ Có được dừng xe ở làn khẩn cấp để nghỉ không?</strong>
-            <p>Không. Làn khẩn cấp chỉ dành cho trường hợp xe hỏng hoặc tai nạn cần hỗ trợ.</p>
-        </div>
+    <!-- contact -->
+    <section id="tin" class="card" style="margin-bottom:18px">
+      <h3>Tin tức & tài liệu</h3>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <article style="flex:1;min-width:220px">
+          <h4 style="margin:6px 0">Luật mới 2025</h4>
+          <p class="small muted">Tóm tắt các điểm cập nhật liên quan đến đường cao tốc.</p>
+        </article>
+        <article style="flex:1;min-width:220px">
+          <h4 style="margin:6px 0">Hướng dẫn xử lý sự cố</h4>
+          <p class="small muted">Những điều cần làm khi xe hỏng trên cao tốc.</p>
+        </article>
+      </div>
+
+      <hr style="margin:12px 0;border:none;border-top:1px solid #eef6f6" />
+
+      <div id="contact" style="display:flex;gap:12px;flex-wrap:wrap">
+        <input id="email" placeholder="Email của bạn" style="flex:1;padding:10px;border-radius:8px;border:1px solid #e6eef0" />
+        <button class="btn primary" onclick="subscribe()">Đăng ký</button>
+      </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        © 2025 Giao Thông Việt Nam | Thiết kế bởi <a href="#">Deka</a>
+    <footer class="card">
+      <div>© 2025 Cẩm nang Cao tốc — Thiết kế mẫu · Bạn có thể tùy biến mã nguồn</div>
     </footer>
 
+  </div>
+
+  <script>
+    // small JS: chèn ảnh mẫu vào gallery, xử lý scroll & subscribe
+    const gallery = document.getElementById('gallery');
+
+    // nếu bạn có đường dẫn ảnh trên server, thay mảng dưới bằng đường dẫn thực tế
+    const demoThumbs = [
+      {src:'data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"300\"><rect width=\"100%\" height=\"100%\" fill=\"%23e6eef0\"/><text x=\"50%\" y=\"50%\" dominant-baseline=\"middle\" text-anchor=\"middle\" fill=\"%2364748b\">Biển 1</text></svg>', alt:'Bien 1'},
+      {src:'data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"300\"><rect width=\"100%\" height=\"100%\" fill=\"%23f7f9fc\"/><text x=\"50%\" y=\"50%\" dominant-baseline=\"middle\" text-anchor=\"middle\" fill=\"%2364748b\">Biển 2</text></svg>', alt:'Bien 2'},
+      {src:'data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"300\"><rect width=\"100%\" height=\"100%\" fill=\"%23eef7f6\"/><text x=\"50%\" y=\"50%\" dominant-baseline=\"middle\" text-anchor=\"middle\" fill=\"%2364748b\">Biển 3</text></svg>', alt:'Bien 3'},
+      {src:'data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"300\"><rect width=\"100%\" height=\"100%\" fill=\"%23f3f7ff\"/><text x=\"50%\" y=\"50%\" dominant-baseline=\"middle\" text-anchor=\"middle\" fill=\"%2364748b\">Biển 4</text></svg>', alt:'Bien 4'},
+      {src:'data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"300\"><rect width=\"100%\" height=\"100%\" fill=\"%23f9f6f3\"/><text x=\"50%\" y=\"50%\" dominant-baseline=\"middle\" text-anchor=\"middle\" fill=\"%2364748b\">Biển 5</text></svg>', alt:'Bien 5'},
+      {src:'data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"300\"><rect width=\"100%\" height=\"100%\" fill=\"%23f4fff9\"/><text x=\"50%\" y=\"50%\" dominant-baseline=\"middle\" text-anchor=\"middle\" fill=\"%2364748b\">Biển 6</text></svg>', alt:'Bien 6'}
+    ];
+
+    demoThumbs.forEach(t=>{
+      const img = document.createElement('img');
+      img.src = t.src;
+      img.alt = t.alt;
+      img.loading = 'lazy';
+      img.addEventListener('click', ()=> {
+        // khi click → set ảnh lớn ở featured
+        document.getElementById('featuredImage').src = t.src;
+      });
+      gallery.appendChild(img);
+    });
+
+    function scrollToId(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    function subscribe(){
+      const email = document.getElementById('email').value.trim();
+      if(!email || !email.includes('@')) {
+        alert('Vui lòng nhập email hợp lệ.');
+        return;
+      }
+      alert('Cảm ơn! Email ' + email + ' đã được đăng ký (demo).');
+    }
+
+    // nếu bạn muốn đổi ảnh featured bằng file đã cắt: 
+    // set document.getElementById('featuredImage').src = 'path/to/Bien-Bao-Ket-Thuc-Vuot-Xe.jpg'
+  </script>
 </body>
 </html>
