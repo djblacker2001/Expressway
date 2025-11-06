@@ -1,36 +1,47 @@
-//Hiển thị dữ liệu tin tức xem nhiều nhất
+//Dữ liệu nhà đầu tư
 const newsData1 = [
     {
-        link: "https://vnexpress.net/dieu-chinh-toc-do-tren-cao-toc-tp-hcm-long-thanh-dau-giay-4957746.html",
-        image: "https://i1-vnexpress.vnecdn.net/2025/10/30/z4304395212480-c407985f271aba6-3190-7513-1761798097.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=VET7N4ci-qeJMbEE3xVvPA",
-        name: "Điều chỉnh tốc độ trên cao tốc TP HCM - Long Thành - Dầu Giây",
-        content: "Cao tốc nối TP HCM với Đồng Nai được điều chỉnh tốc độ tối thiểu lên 80 km/h, đồng thời cấm ôtô tải trên 7,5 tấn, xe khách trên 29 chỗ chạy làn sát dải phân cách, từ 10/11."
+        hone: "https://www.duongcaotoc.com.vn/",
+        image: "https://www.duongcaotoc.com.vn/images/LOGO%20VEC38.jpg",
+        name: "TỔNG CÔNG TY ĐẦU TƯ PHÁT TRIỂN ĐƯỜNG CAO TỐC VIỆT NAM (VEC)",
+        content: "Đầu tư, quản lý và vận hành nhiều tuyến cao tốc trọng điểm.",
+        location: "Tầng 2, 3, 4, 5 tòa nhà Central Point, số 219 phố Trung Kính, phường Yên Hòa, quận Cầu Giấy, thành phố Hà Nội",
+        phone: "024 3643 0266",
+        email: "duongcaotoc@tctvec.vn",
+        contact: "https://www.duongcaotoc.com.vn/lien-he/"
     },
     {
-        link: "",
-        image: "",
-        name: "",
-        content: ""
-    },
+        hone: "https://deoca.vn/",
+        image: "https://deoca.vn/file/baiviet/05.11.2021/1637807543-dcg-logo%20(new)-01.png",
+        name: "TẬP ĐOÀN ĐÈO CẢ",
+        content: "Nhà đầu tư Hạ tầng giao thông hàng đầu Việt Nam",
+        location: "32 Thạch Thị Thanh, phường Tân Định, TP. Hồ Chí Minh",
+        phone: "028 3820 3388",
+        email: "info@deoca.vn",
+        contact: "https://deoca.vn/lien-he.html"
+    }
+    
 ];
 
-//Hiển thị dữ liệu tin tức mới nhất
-// const container1 = document.getElementById("nearlyID");
-// newsData1.forEach(news => {
-// container1.innerHTML += `
-//     <a href="${news.link}">
-//         <div class="row">
-//             <div class="col-4 align-self-center">
-//                 <img src="${news.image}" alt="">
-//             </div>
-//             <div class="col-8 align-self-center">
-//                 <b>${news.name}</b>
-//                 <p>${news.content}</p>
-//             </div>
-//         </div>
-//     </a>
-//   `;
-// });
+//Hiển thị dữ liệu các nhà đầu tư
+const container1 = document.getElementById("investorID");
+newsData1.forEach(news => {
+container1.innerHTML += `
+    <div class="row investor">
+        <div class="col-2 align-self-center">
+            <a href="${news.home}"><img src="${news.image}" alt=""></a>
+        </div>
+        <div class="col-10 align-self-center">
+            <h4><b>${news.name}</b></h4>
+            <p>${news.content}</p>
+            <p><i class="fa-solid fa-location-dot"></i>${news.location}</p>
+            <p><i class="fa-solid fa-phone"></i>${news.phone}</p>
+            <p><i class="fa-solid fa-envelope"></i>${news.email}</p>
+            <button type="submit" class="btn btn-success" onclick="window.location.href='${news.contact}'">Liên hệ</button>
+        </div>
+    </div>
+  `;
+});
 
 // Hiển thị năm hiện tại
 document.getElementById("year").textContent = new Date().getFullYear();
