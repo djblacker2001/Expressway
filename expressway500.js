@@ -19,7 +19,17 @@ const newsData1 = [
         phone: "028 3820 3388",
         email: "info@deoca.vn",
         contact: "https://deoca.vn/lien-he.html"
-    }
+    },
+    {
+        hone: "tapdoansonhai.vn",
+        image: "tapdoansonhai.png",
+        name: "TẬP ĐOÀN SƠN HẢI",
+        content: "Nhà thầu công trình hạ tầng duy nhất tại Việt Nam có cam kết bảo hành chất lượng từ 5 đến 10 năm tại các công trình thi công.",
+        location: "117 Đường Hữu Nghị, phường Đồng Hới, Quang Tri",
+        phone: "0232 3825 755",
+        email: "tuyendung@sonhaigroup.vn - tapdoansonhai.vnn@gmail.com",
+        contact: "https://deoca.vn/lien-he.html"
+    },
     
 ];
 
@@ -28,16 +38,16 @@ const container1 = document.getElementById("investorID");
 newsData1.forEach(news => {
 container1.innerHTML += `
     <div class="row investor">
-        <div class="col-2 align-self-center">
+        <div class="col-md-2 align-self-center">
             <a href="${news.home}"><img src="${news.image}" alt=""></a>
         </div>
-        <div class="col-10 align-self-center">
+        <div class="col-md-10 align-self-center">
             <h4><b>${news.name}</b></h4>
             <p>${news.content}</p>
             <p><i class="fa-solid fa-location-dot"></i>${news.location}</p>
             <p><i class="fa-solid fa-phone"></i>${news.phone}</p>
             <p><i class="fa-solid fa-envelope"></i>${news.email}</p>
-            <button type="submit" class="btn btn-success" onclick="window.location.href='${news.contact}'">Liên hệ</button>
+            <button type="submit" class="btn btn-success contact" onclick="window.location.href='${news.contact}'">Liên hệ</button>
         </div>
     </div>
   `;

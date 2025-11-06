@@ -74,11 +74,7 @@ article {
   cursor: pointer;
   box-shadow: 2px 2px 2px 2px rgb(97, 97, 97);
   position: relative;
-}
-
-.investor:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 10px gray;
+  height: 100%;
 }
 
 .investor img{
@@ -88,11 +84,12 @@ article {
   justify-content: center;
 }
 
-button {
+/* .contact {
+  display: block;
   position: absolute;
   bottom: 20px;
   right: 20px;
-}
+} */
 
 h2 {
     color: #0A9646;
@@ -253,4 +250,13 @@ footer {
   .footer-col h3 {
     font-size: 16px;
   }
+}
+
+@media (min-width: 768px) {
+  .contact {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
 }
