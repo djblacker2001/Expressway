@@ -1,9 +1,10 @@
 body {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+    font-family: Arial, sans-serif;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-body.show {
+body.loaded {
   opacity: 1;
 }
 
@@ -15,86 +16,94 @@ header, main {
     background-color: white;
 }
 
+
 #mainHeader {
-  font-family: arial, sans-serif;
-  left: 0;
-  width: 100%;
-  padding: 5px;
-  color: white;
-  background-color: #fff;
-  transition: all 0.5s ease;
-  z-index: 1000;
+    font-family: arial, sans-serif;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    color: white;
+    background-color: #fff;
+    transition: all 0.5s ease;
+    z-index: 1000;
 }
 
 #mainHeader.scrolled {
-  font-family: arial, sans-serif;
-  position: fixed;
-}
-
-#mainBody {
-  top: 100px;
-  margin-top: 1px;
-  z-index: 1000;
-}
-
-#mainBody.scrolled-body {
-  font-family: arial, sans-serif;
-  position: fixed;
-}
-
-#loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 1s ease;
-}
-
-#loader img {
-  width: 160px;
-  height: auto;
-  animation: zoomInOut 1.8s ease-in-out infinite;
-}
-
-@keyframes zoomInOut {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  50% {
-    transform: scale(1.1);
-    opacity: 0.9;
-  }
+    font-family: arial, sans-serif;
+    position: fixed;
 }
 
 .goTopBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #000000;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  text-align: center;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  display: none;
-  z-index: 1000;
-  transition: background-color 0.4s ease, transform 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: none;
+    z-index: 1000;
+    transition: background-color 0.4s ease, transform 0.3s ease;
 }
 
 .goTopBtn button:hover {
-  background-color: #292929;
+    background-color: #292929;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  
+}
+
+article {
+  padding: 10px;
+}
+
+.investor {
+  padding: 10px;
+  margin: 50px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px rgb(97, 97, 97);
+  position: relative;
+  height: 100%;
+}
+
+.investor img{
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .contact {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+} */
+
+h2 {
+    color: #0A9646;
+}
+    
+
+aside img {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+aside a {
+  text-decoration: none;
+  color: black;
 }
 
 .sidebar {
@@ -123,67 +132,13 @@ header, main {
   color: black;
 }
 
-.fade-section h2{
-  color: #0A9646;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-a:hover {
-  color: blue;
-}
 
 
-.bottom-header .text {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 5%;
-  right: 5%;
-  color: white;
-}
-
-.carousel-item {
-  position: relative;
-}
-
-.bottom-header .carousel-indicators [data-bs-target] {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: white;
-  margin: 0 4px;
-  opacity: 0.5;
-  transition: opacity 0.3s, background-color 0.3s;
-}
-
-.bottom-header .carousel-indicators .active {
-  background-color: white;
-  /* Màu khi được chọn */
-  opacity: 1;
-}
-
-.bottom-header img {
-  width: 100%;
-  height: 100%;
-}
-
-section {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding: 30px;
-}
-
-.system img {
-  width: 100%;
-}
 
 footer {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-image: url(footerimg.png);
   color: #fff;
   position: relative;
@@ -282,10 +237,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-  #mainBody {
-    display: none;
-  }
-
   #mainHeader.scrolled {
     position: static;
   }
@@ -301,4 +252,13 @@ footer {
   .footer-col h3 {
     font-size: 16px;
   }
+}
+
+@media (min-width: 768px) {
+  .contact {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
 }

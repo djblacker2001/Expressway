@@ -30,6 +30,26 @@ const newsData1 = [
         email: "tuyendung@sonhaigroup.vn - tapdoansonhai.vnn@gmail.com",
         contact: "https://deoca.vn/lien-he.html"
     },
+    {
+        home: "https://cienco4.vn/",
+        image: "tapdoancienco4.png",
+        name: "TẬP ĐOÀN CIENCO4",
+        content: "Một trong những doanh nghiệp xây dựng hạ tầng giao thông lớn tại Việt Nam",
+        location: "Tầng 10-11, tòa nhà ICON4, Số 243A, Đê La Thành, Láng Thượng, Đống Đa, Hà Nội.",
+        phone: "0436 420 371",
+        email: "cienco4.media@gmail.com",
+        contact: "https://cienco4.vn/lien-he/"
+    },
+    {
+        home: "https://vinaconex.com.vn/public/index.php",
+        image: "https://vinaconex.com.vn/storage/upload/LogoVinaconex.jpg",
+        name: "TẬP ĐOÀN VINACONEX",
+        content: "Tập đoàn kinh tế hàng đầu Việt Nam và khu vực trong lĩnh vực xây dựng và đầu tư kinh doanh bất động sản.",
+        location: "34 Láng Hạ, phường Láng, Hà Nội",
+        phone: "0246 284 9234",
+        email: "info@vinaconex.com.vn",
+        contact: "https://vinaconex.com.vn/lien-he"
+    },
     
 ];
 
@@ -44,9 +64,9 @@ container1.innerHTML += `
         <div class="col-md-10 align-self-center">
             <h4><b>${news.name}</b></h4>
             <p>${news.content}</p>
-            <p><i class="fa-solid fa-location-dot"></i>${news.location}</p>
-            <p><i class="fa-solid fa-phone"></i>${news.phone}</p>
-            <p><i class="fa-solid fa-envelope"></i>${news.email}</p>
+            <p><i class="fa-solid fa-location-dot"></i> ${news.location}</p>
+            <p><i class="fa-solid fa-phone"></i> ${news.phone}</p>
+            <p><i class="fa-solid fa-envelope"></i> ${news.email}</p>
             <button type="submit" class="btn btn-success contact" onclick="window.location.href='${news.contact}'">Liên hệ</button>
         </div>
     </div>
