@@ -18,14 +18,15 @@ header, main {
 
 
 #mainHeader {
-    font-family: arial, sans-serif;
-    left: 0;
-    width: 100%;
-    padding: 5px;
-    color: white;
-    background-color: #fff;
-    transition: all 0.5s ease;
-    z-index: 1000;
+  font-size: 20px;
+  font-family: arial, sans-serif;
+  left: 0;
+  width: 100%;
+  padding: 5px;
+  color: white;
+  background-image: url(nav.png);
+  transition: all 0.5s ease;
+  z-index: 1000;
 }
 
 #mainHeader.scrolled {

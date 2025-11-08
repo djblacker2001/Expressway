@@ -1,399 +1,241 @@
 <!doctype html>
 <html lang="vi">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nhà đầu tư & Liên hệ — Tuyến đường cao tốc</title>
-  <meta name="description"
-    content="Trang danh bạ các tập đoàn, nhà đầu tư và doanh nghiệp tham gia đầu tư, BOT, thi công và vận hành các tuyến đường cao tốc tại Việt Nam." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trang chủ - Đường cao tốc</title>
+  <meta name="description" content="Cổng thông tin đường cao tốc - tin tức, tình trạng giao thông, tải tài liệu, liên hệ">
   <style>
-    :root {
-      --bg: #0f1724;
-      --card: #0b1220;
-      --muted: #93a0b3;
-      --accent: #00b894;
-      --glass: rgba(255, 255, 255, 0.04);
-      --maxw: 1100px;
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    :root{
+      --accent:#0b66ff;
+      --dark:#0b1220;
+      --muted:#707b8a;
+      --card:#ffffff;
+      --bg:#f6f8fb;
+      --maxw:1200px;
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, Arial, sans-serif; margin:0; background:var(--bg); color:var(--dark);}
+    .container{max-width:var(--maxw); margin:0 auto; padding:20px;}
+    header{background:#fff; box-shadow:0 2px 8px rgba(11,17,32,0.06); position:sticky; top:0; z-index:50}
+    .nav{display:flex; align-items:center; gap:18px; padding:14px 20px}
+    .logo{display:flex; align-items:center; gap:12px}
+    .logo img{height:44px}
+    nav ul{display:flex; gap:12px; list-style:none; margin:0; padding:0}
+    nav a{color:var(--dark); text-decoration:none; padding:8px 10px; border-radius:8px}
+    nav a:hover{background:rgba(11,102,255,0.06)}
+    .btn{background:var(--accent); color:#fff; padding:8px 12px; border-radius:8px; text-decoration:none}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1fr 380px; gap:24px; align-items:start; padding:36px 20px}
+    .hero-card{background:linear-gradient(180deg,#fff,#fbfdff); border-radius:16px; padding:28px; box-shadow:0 6px 24px rgba(11,17,32,0.06)}
+    .hero h1{margin:0 0 10px; font-size:28px}
+    .hero p{margin:0 0 18px; color:var(--muted)}
+    .quick-links{display:flex; gap:10px; flex-wrap:wrap}
+    .quick-links a{flex:1 1 45%; background:#f7fbff; padding:12px; border-radius:10px; text-decoration:none; color:var(--dark); display:flex; align-items:center; gap:10px}
+
+    /* Right column: live widgets */
+    .widget{background:#fff; border-radius:12px; padding:12px}
+    .traffic-list{display:flex; flex-direction:column; gap:8px}
+    .traffic-item{display:flex; justify-content:space-between; padding:8px 10px; border-radius:8px}
+
+    /* News + Downloads */
+    .grid-2{display:grid; grid-template-columns:2fr 1fr; gap:20px}
+    .news-list article{background:var(--card); padding:14px; border-radius:10px; margin-bottom:12px; box-shadow:0 4px 16px rgba(11,17,32,0.04)}
+    .download-list a{display:block; padding:10px; background:#fff; border-radius:8px; margin-bottom:10px; text-decoration:none}
+
+    /* Contact */
+    .contact{background:linear-gradient(180deg,#fff,#f8fcff); border-radius:12px; padding:18px}
+    form input, form textarea{width:100%; padding:10px; border-radius:8px; border:1px solid #e6edf5; margin-bottom:8px}
+    form button{padding:10px 14px; border-radius:8px; border:none; background:var(--accent); color:#fff}
+
+    footer{padding:30px 20px; margin-top:28px; color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      nav ul{display:none}
+      .mobile-nav{display:block}
     }
 
-    * {
-      box-sizing: border-box
-    }
-
-    body {
-      margin: 0;
-      background: linear-gradient(180deg, var(--bg), #07111a);
-      color: #e6f0f6;
-      min-height: 100vh
-    }
-
-    .wrap {
-      max-width: var(--maxw);
-      margin: 28px auto;
-      padding: 20px
-    }
-
-    header {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px;
-      border-radius: 14px;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), transparent);
-      box-shadow: 0 4px 18px rgba(2, 6, 23, 0.6);
-      backdrop-filter: blur(6px)
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px
-    }
-
-    .logo {
-      width: 54px;
-      height: 54px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), #2ecc71);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: #012;
-      letter-spacing: 0.6px
-    }
-
-    h1 {
-      font-size: 18px;
-      margin: 0
-    }
-
-    p.lead {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px
-    }
-
-    .controls {
-      display: flex;
-      gap: 12px;
-      align-items: center
-    }
-
-    .search {
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: var(--glass);
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      color: inherit;
-      min-width: 220px
-    }
-
-    .filter {
-      padding: 8px;
-      border-radius: 10px;
-      background: #071925;
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      color: var(--muted)
-    }
-
-    main {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 18px
-    }
-
-    .list {
-      display: grid;
-      gap: 12px
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      display: flex;
-      gap: 12px;
-      align-items: flex-start
-    }
-
-    .avatar {
-      width: 78px;
-      height: 78px;
-      border-radius: 8px;
-      background: linear-gradient(180deg, #07212a, #0b2a3a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700
-    }
-
-    .meta h3 {
-      margin: 0 0 6px 0;
-      font-size: 16px
-    }
-
-    .meta p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px
-    }
-
-    .tags {
-      margin-top: 8px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap
-    }
-
-    .tag {
-      padding: 6px 8px;
-      border-radius: 999px;
-      font-size: 12px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.02);
-      color: var(--muted)
-    }
-
-    .actions {
-      margin-left: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      align-items: flex-end
-    }
-
-    .btn {
-      padding: 8px 12px;
-      border-radius: 10px;
-      background: var(--accent);
-      color: #012;
-      font-weight: 600;
-      border: none;
-      cursor: pointer
-    }
-
-    .ghost {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      color: var(--muted);
-      padding: 8px 10px;
-      border-radius: 10px
-    }
-
-    aside {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-      padding: 14px;
-      border-radius: 12px;
-      height: fit-content;
-      border: 1px solid rgba(255, 255, 255, 0.03)
-    }
-
-    .aside h4 {
-      margin: 0 0 10px 0
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      background: #07151b;
-      border: 1px solid rgba(255, 255, 255, 0.02);
-      color: inherit;
-      margin-bottom: 8px
-    }
-
-    .contact-form button {
-      width: 100%
-    }
-
-    footer {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 13px;
-      text-align: center
-    }
-
-    @media (max-width:880px) {
-      main {
-        grid-template-columns: 1fr
-      }
-
-      aside {
-        order: 2
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start
-      }
-
-      .controls {
-        width: 100%;
-        justify-content: space-between
-      }
-
-      .search {
-        min-width: 140px
-      }
-    }
+    @media (min-width:981px){.mobile-nav{display:none}}
   </style>
 </head>
-
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">ĐCT</div>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <img src="https://via.placeholder.com/140x44?text=Logo" alt="Logo đọc đường">
         <div>
-          <h1>Danh bạ Nhà đầu tư — Đường cao tốc</h1>
-          <p class="lead">Tổng hợp các tập đoàn, doanh nghiệp BOT, nhà thầu & tổ chức tư vấn tham gia đầu tư, thi công
-            và vận hành.</p>
+          <div style="font-weight:700">Cổng thông tin&nbsp;Đường cao tốc</div>
+          <div style="font-size:12px;color:var(--muted)">Thông tin & Hỗ trợ người đi đường</div>
         </div>
       </div>
-      <div class="controls">
-        <input id="q" class="search" placeholder="Tìm theo tên, tuyến, loại..." />
-        <select id="type" class="filter">
-          <option value="">Tất cả loại</option>
-          <option value="state">Tập đoàn/Tổng công ty Nhà nước</option>
-          <option value="private">Tập đoàn tư nhân</option>
-          <option value="bot">Doanh nghiệp BOT</option>
-          <option value="foreign">Tư vấn / ODA / Nước ngoài</option>
-        </select>
-      </div>
-    </header>
 
-    <main>
-      <section class="list" id="list">
-        <!-- Card mẫu được render bởi JS -->
-      </section>
+      <nav style="margin-left:auto">
+        <ul>
+          <li><a href="#">Trang chủ</a></li>
+          <li><a href="#projects">Dự án</a></li>
+          <li><a href="#traffic">Tình trạng</a></li>
+          <li><a href="#downloads">Tải xuống</a></li>
+          <li><a href="#news">Tin tức</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+      </nav>
+
+      <div style="margin-left:12px">
+        <a class="btn" href="#">Báo sự cố</a>
+      </div>
+
+      <div class="mobile-nav" style="margin-left:12px">
+        <button aria-label="menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Thông tin chính thức về đường cao tốc</h1>
+        <p>Cập nhật tình hình giao thông, thông báo thu phí, tiến độ dự án và tất cả tài liệu liên quan — tập trung, chính xác, kịp thời.</p>
+
+        <div class="quick-links">
+          <a href="#traffic">🚦 Tình trạng giao thông</a>
+          <a href="#tolls">💳 Biểu phí & trạm thu</a>
+          <a href="#projects">🏗️ Tiến độ dự án</a>
+          <a href="#contact">📞 Báo sự cố / Hỗ trợ</a>
+        </div>
+
+        <hr style="margin:18px 0">
+        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap">
+          <div style="min-width:150px">
+            <div style="font-size:12px;color:var(--muted)">Nhiệt độ hiện tại</div>
+            <div style="font-weight:700">30°C</div>
+          </div>
+          <div style="min-width:150px">
+            <div style="font-size:12px;color:var(--muted)">Sự cố gần nhất</div>
+            <div style="font-weight:700;color:#d9534f">Tai nạn Km45+200</div>
+          </div>
+          <div style="min-width:160px">
+            <div style="font-size:12px;color:var(--muted)">Thời gian cập nhật</div>
+            <div style="font-weight:700">08:30, 08/11/2025</div>
+          </div>
+        </div>
+      </div>
+
+      <aside style="display:flex; flex-direction:column; gap:12px">
+        <div class="widget">
+          <h3 style="margin:0 0 8px">Tình trạng giao thông (tổng quan)</h3>
+          <div class="traffic-list">
+            <div class="traffic-item"><span>Km 12 - 24</span><span style="color:green">Thông suốt</span></div>
+            <div class="traffic-item"><span>Km 45 - 47</span><span style="color:orange">Chậm</span></div>
+            <div class="traffic-item"><span>Km 100</span><span style="color:red">Phong tỏa</span></div>
+          </div>
+        </div>
+
+        <div class="widget" style="height:220px; display:flex; flex-direction:column; gap:8px">
+          <h3 style="margin:0">Bản đồ & camera</h3>
+          <!-- Placeholder iframe: replace with actual map or camera embed -->
+          <div style="flex:1; background:#eef6ff; border-radius:10px; display:flex; align-items:center; justify-content:center">Bản đồ / Camera (iframe)</div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid-2" id="news">
+      <div>
+        <h2>Tin tức & Thông báo</h2>
+        <div class="news-list">
+          <article>
+            <h3>Thông báo thu phí: điều chỉnh biểu phí từ 01/12/2025</h3>
+            <p style="color:var(--muted); margin:6px 0">Cơ quan quản lý thông báo điều chỉnh biểu phí một số đoạn đường. Xem chi tiết biểu phí ở mục Tải xuống.</p>
+            <a href="#">Xem chi tiết →</a>
+          </article>
+
+          <article>
+            <h3>Hạn chế tải trọng tại Km 78 do cầu sửa chữa</h3>
+            <p style="color:var(--muted); margin:6px 0">Đoạn qua cầu B đang sửa chữa, phương tiện tải trọng lớn cần đi vòng.</p>
+            <a href="#">Xem bản đồ hướng đi →</a>
+          </article>
+        </div>
+      </div>
 
       <aside>
-        <h4>Liên hệ khẩn cấp & nguồn tham khảo</h4>
-        <p class="muted">Tổng đài phản ánh giao thông: <strong>1900 8099</strong></p>
-        <p class="muted">Cục Đường bộ/Công ty quản lý tuyến: hãy liên hệ theo thông tin từng tuyến trong danh sách.</p>
-        <hr />
-        <h4>Gửi yêu cầu / Liên hệ chung</h4>
-        <form class="contact-form" onsubmit="submitForm(event)">
-          <input id="name" placeholder="Họ tên" required />
-          <input id="email" placeholder="Email hoặc số điện thoại" required />
-          <textarea id="message" rows="4" placeholder="Nội dung liên hệ" required></textarea>
-          <button class="btn" type="submit">Gửi liên hệ</button>
-        </form>
+        <h2 id="downloads">Tải xuống nhanh</h2>
+        <div class="download-list">
+          <a href="#">Biểu phí chi tiết (PDF)</a>
+          <a href="#">Hướng dẫn sử dụng trạm thu (PDF)</a>
+          <a href="#">Bản đồ tuyến (SVG)</a>
+        </div>
+
+        <h3 style="margin-top:18px">Thông tin liên hệ</h3>
+        <div style="background:#fff; padding:10px; border-radius:8px">
+          <div style="font-weight:700">Đường cao tốc Quốc gia</div>
+          <div style="color:var(--muted); font-size:13px">Hotline: 1900-XXX-XXX</div>
+          <div style="color:var(--muted); font-size:13px">Email: hotro@duongcaotoc.gov.vn</div>
+        </div>
       </aside>
-    </main>
+    </section>
+
+    <section style="margin-top:20px" id="projects">
+      <h2>Dự án & Tiến độ</h2>
+      <div style="display:flex; gap:12px; flex-wrap:wrap">
+        <div style="flex:1 1 300px; background:#fff; padding:12px; border-radius:10px">Dự án A - Hoàn thành 60%</div>
+        <div style="flex:1 1 300px; background:#fff; padding:12px; border-radius:10px">Dự án B - Kiểm tra kỹ thuật</div>
+        <div style="flex:1 1 300px; background:#fff; padding:12px; border-radius:10px">Dự án C - Giải phóng mặt bằng</div>
+      </div>
+    </section>
+
+    <section style="margin-top:20px" id="contact">
+      <h2>Liên hệ & Báo sự cố</h2>
+      <div style="display:grid; grid-template-columns:1fr 360px; gap:18px">
+        <div class="contact">
+          <p style="color:var(--muted)">Gửi thông tin liên hệ hoặc báo sự cố — chúng tôi sẽ xử lý và phản hồi theo kênh liên lạc bạn để lại.</p>
+          <form id="contactForm" onsubmit="return false">
+            <input type="text" id="name" placeholder="Họ tên" required>
+            <input type="tel" id="phone" placeholder="Số điện thoại" required>
+            <input type="email" id="email" placeholder="Email (không bắt buộc)">
+            <textarea id="message" rows="4" placeholder="Mô tả sự cố / Yêu cầu"></textarea>
+            <div style="display:flex; gap:8px; align-items:center">
+              <button onclick="sendReport()">Gửi</button>
+              <small style="color:var(--muted)">Hoặc gọi hotline: 1900-XXX-XXX</small>
+            </div>
+          </form>
+        </div>
+
+        <aside style="background:#fff; padding:14px; border-radius:10px">
+          <h3>Thông tin nhanh</h3>
+          <p style="color:var(--muted); margin:6px 0">Văn phòng: Số 123, Đường ABC, Thành phố</p>
+          <p style="color:var(--muted); margin:6px 0">Giờ làm việc: 08:00 - 17:00 (T2 - T6)</p>
+          <div style="height:140px; background:#f1f7ff; border-radius:8px; display:flex; align-items:center; justify-content:center">Ảnh / Bản đồ văn phòng</div>
+        </aside>
+      </div>
+    </section>
 
     <footer>
-      © <span id="year"></span> Danh bạ Nhà đầu tư — Đường cao tốc. Thông tin mang tính tham khảo; cập nhật khi cần.
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
+        <div>
+          <strong>© 2025 Cổng thông tin Đường cao tốc</strong>
+          <div style="color:var(--muted); font-size:13px">Địa chỉ | Chính sách bảo mật | Điều khoản sử dụng</div>
+        </div>
+        <div style="color:var(--muted); font-size:13px">Thiết kế & vận hành: Bộ Giao thông</div>
+      </div>
     </footer>
-  </div>
+  </main>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Dữ liệu mẫu — thay thế bằng dữ liệu thực tế
-    const DATA = [
-      {
-        id: 1, name: 'Tổng công ty Đầu tư phát triển đường cao tốc Việt Nam (VEC)',
-        short: 'VEC — Tổng công ty nhà nước', type: 'state', desc: 'Đầu tư, quản lý và vận hành nhiều tuyến cao tốc trọng điểm.',
-        contact: 'Trụ sở: Tầng 7, Nhà D, 80 Trần Hưng Đạo, Hà Nội — Hotline: 024-xxxx-xxxx — Email: info@vec.vn',
-        tags: ['Quản lý', 'Vận hành', 'BOT']
-      },
-      {
-        id: 2, name: 'Tập đoàn Đèo Cả', short: 'Đèo Cả', type: 'private', desc: 'Nhà đầu tư & tổng thầu, mạnh về hầm đường bộ và PPP.',
-        contact: 'Trụ sở: Đà Nẵng — Hotline: 0236-xxxxxxx — Email: contact@deaoca.vn',
-        tags: ['Hầm', 'PPP', 'Thi công']
-      },
-      {
-        id: 3, name: 'Công ty CP BOT Trung Lương – Mỹ Thuận', short: 'BOT Trung Lương', type: 'bot', desc: 'Vận hành và thu phí đoạn Trung Lương – Mỹ Thuận.',
-        contact: 'Trụ sở: Tiền Giang — Hotline: 027-xxxxxxx — Email: info@bot-tl-mt.vn',
-        tags: ['BOT', 'Vận hành']
-      },
-      {
-        id: 4, name: 'Tập đoàn Sơn Hải (ví dụ)', short: 'Sơn Hải', type: 'private', desc: 'Nhà thầu thi công mặt đường, nhiều dự án Bắc – Nam.',
-        contact: 'Trụ sở: Hà Nội — Hotline: 024-xxxxxxx — Email: sales@sonhai.vn',
-        tags: ['Thi công', 'Mặt đường']
-      },
-      {
-        id: 5, name: 'JICA / Tổ chức hỗ trợ ODA (Nhật Bản)', short: 'JICA', type: 'foreign', desc: 'Tư vấn, hỗ trợ vốn ODA cho nhiều dự án.',
-        contact: 'Đại diện tại Việt Nam: Embassy of Japan / JICA Vietnam',
-        tags: ['Tư vấn', 'ODA']
-      }
-    ];
-
-    const list = document.getElementById('list');
-
-    function render(data) {
-      list.innerHTML = '';
-      if (!data.length) { list.innerHTML = '<p style="color:var(--muted)">Không tìm thấy kết quả.</p>'; return }
-      data.forEach(item => {
-        const card = document.createElement('article'); card.className = 'card';
-        card.innerHTML = `
-          <div class="avatar">${item.short.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
-          <div class="meta">
-            <h3>${item.name}</h3>
-            <p>${item.desc}</p>
-            <p style="margin-top:8px;font-size:13px;color:var(--muted)">${item.contact}</p>
-            <div class="tags">${item.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-          </div>
-          <div class="actions">
-            <button class="btn" onclick="copyContact(${item.id})">Sao chép liên hệ</button>
-            <button class="ghost" onclick="viewDetails(${item.id})">Xem chi tiết</button>
-          </div>
-        `;
-        list.appendChild(card);
-      });
-    }
-
-    function copyContact(id) {
-      const it = DATA.find(x => x.id === id);
-      if (!it) return;
-      navigator.clipboard?.writeText(it.contact).then(() => {
-        alert('Đã sao chép thông tin liên hệ:\n' + it.contact);
-      }).catch(() => { prompt('Sao chép thủ công:', it.contact) });
-    }
-
-    function viewDetails(id) {
-      const it = DATA.find(x => x.id === id);
-      if (!it) return;
-      alert(it.name + '\n\n' + it.desc + '\n\n' + it.contact);
-    }
-
-    // Tìm kiếm & filter
-    document.getElementById('q').addEventListener('input', applyFilter);
-    document.getElementById('type').addEventListener('change', applyFilter);
-
-    function applyFilter() {
-      const q = document.getElementById('q').value.trim().toLowerCase();
-      const type = document.getElementById('type').value;
-      const filtered = DATA.filter(it => {
-        const matchQ = !q || (it.name + ' ' + it.desc + ' ' + it.tags.join(' ')).toLowerCase().includes(q);
-        const matchType = !type || it.type === type;
-        return matchQ && matchType;
-      });
-      render(filtered);
-    }
-
-    // Form gửi liên hệ (ví dụ)
-    function submitForm(e) {
-      e.preventDefault();
+    function sendReport(){
       const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
-      // TODO: gửi lên API backend. Hiện hiển thị demo
-      alert('Gửi liên hệ thành công!\nCảm ơn ' + name + '. Chúng tôi sẽ liên hệ qua: ' + email);
-      document.querySelector('.contact-form').reset();
+      if(!name || !phone){ alert('Vui lòng điền họ tên và số điện thoại'); return; }
+      // TODO: replace with real API endpoint
+      console.log('Gửi báo cáo', {name, phone, email, message});
+      alert('Cảm ơn! Thông tin của bạn đã được ghi nhận.');
+      document.getElementById('contactForm').reset();
     }
-
-    // Khởi tạo
-    render(DATA);
   </script>
 </body>
-
 </html>
