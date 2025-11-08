@@ -1,6 +1,22 @@
 // Dữ liệu tuyến đường cao tốc bắc nam phía đông
 const newsData1 = [
     {
+        link: "https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_cao_t%E1%BB%91c_B%E1%BA%AFc_Giang_%E2%80%93_L%E1%BA%A1ng_S%C6%A1n",
+        name: "Đường cao tốc Bắc Giang – Lạng Sơn",
+        image: "tuyenduong/BacGiangLangSon.png",
+        length: "107 km",
+        start: "Nút giao Cửa khẩu Hữu Nghị",
+        end: "Nút giao Dĩnh Trì",
+    },
+    {
+        link: "https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_cao_t%E1%BB%91c_H%C3%A0_N%E1%BB%99i_%E2%80%93_B%E1%BA%AFc_Giang",
+        name: "Đường cao tốc Hà Nội – Bắc Giang",
+        image: "tuyenduong/HaNoiBacGiang.png",
+        length: "48.6 km",
+        start: "Nút giao Dĩnh Trì",
+        end: "Cầu Phù Đổng"
+    },
+    {
         link: "https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_cao_t%E1%BB%91c_Ph%C3%A1p_V%C3%A2n_%E2%80%93_C%E1%BA%A7u_Gi%E1%BA%BD",
         name: "Đường cao tốc Pháp Vân – Cầu Giẽ",
         image: "tuyenduong/PhapVanCauGie.png",    

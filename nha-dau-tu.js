@@ -67,7 +67,7 @@ container1.innerHTML += `
             <p><i class="fa-solid fa-location-dot"></i> ${news.location}</p>
             <p><i class="fa-solid fa-phone"></i> ${news.phone}</p>
             <p><i class="fa-solid fa-envelope"></i> ${news.email}</p>
-            <button type="submit" class="btn btn-success contact" onclick="window.location.href='${news.contact}'">Liên hệ</button>
+            <button type="submit" class="btn btn-outline-success contact" onclick="window.location.href='${news.contact}'">Liên hệ</button>
         </div>
     </div>
   `;
