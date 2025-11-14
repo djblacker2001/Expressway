@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hệ Thống Đường Cao Tốc — Trang chủ (BODY)</title>
+    <style>
+        :root {
+            --accent: #0b63d6;
+            --muted: #6b7280;
+            --bg: #f6f8fb;
+            --card: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: #0f172a;
+            font-size: 16px;
+            line-height: 1.4
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px
+        }
+
+        h1,
+        h2 {
+            margin: 0
+        }
+
+        .btn {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 0;
+            cursor: pointer;
+            font-weight: 600
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid rgba(15, 23, 42, 0.06)
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(180deg, rgba(11, 99, 214, 0.06), rgba(255, 255, 255, 0));
+            border-radius: 12px;
+            padding: 28px;
+            display: flex;
+            gap: 20px;
+            align-items: center
+        }
+
+        .hero-left {
+            flex: 1
+        }
+
+        .hero p {
+            margin: 8px 0;
+            color: var(--muted)
+        }
+
+        .hero .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px
+        }
+
+        .hero-right {
+            width: 360px;
+            height: 160px;
+            background: linear-gradient(90deg, #eaf3ff, #ffffff);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-weight: 600
+        }
+
+        /* REALTIME CARDS */
+        .realtime {
+            display: flex;
+            gap: 12px
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 10px;
+            padding: 12px;
+            box-shadow: 0 1px 6px rgba(2, 6, 23, 0.06);
+            flex: 1
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px
+        }
+
+        .status-ok {
+            background: var(--success)
+        }
+
+        .status-slow {
+            background: var(--warning)
+        }
+
+        .status-bad {
+            background: var(--danger)
+        }
+
+        .card .route {
+            font-weight: 700
+        }
+
+        .card small {
+            color: var(--muted)
+        }
+
+        /* MAP PREVIEW */
+        .map-preview {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex
+        }
+
+        .map-left {
+            flex: 1;
+            background-image: linear-gradient(135deg, #f3f7ff, #ffffff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted)
+        }
+
+        .map-right {
+            width: 300px;
+            padding: 12px;
+            background: var(--card);
+            border-radius: 0 10px 10px 0
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px
+        }
+
+        .tag {
+            padding: 6px 8px;
+            border-radius: 8px;
+            background: #f3f4f6;
+            font-size: 13px
+        }
+
+        /* ETC CARDS */
+        .etc {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px
+        }
+
+        .etc-card {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-height: 120px
+        }
+
+        /* NEWS & SERVICES */
+        .news {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px
+        }
+
+        .news-item {
+            background: var(--card);
+            border-radius: 10px;
+            overflow: hidden
+        }
+
+        .news-thumb {
+            height: 110px;
+            background: linear-gradient(90deg, #eee, #ddd)
+        }
+
+        .news-body {
+            padding: 10px
+        }
+
+        .meta {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px
+        }
+
+        .service {
+            background: var(--card);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        /* TOOLS */
+        .tools {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start
+        }
+
+        .fee-calc {
+            background: var(--card);
+            padding: 16px;
+            border-radius: 10px;
+            width: 360px
+        }
+
+        .fee-calc label {
+            display: block;
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 6px
+        }
+
+        .form-row {
+            display: flex;
+            gap: 8px
+        }
+
+        .form-row input,
+        .form-row select {
+            flex: 1;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #e6edf3
+        }
+
+        /* MISSION */
+        .mission {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06)
+        }
+
+        .mission h2 {
+            margin-bottom: 12px;
+            color: var(--accent)
+        }
+
+        .mission ul {
+            padding-left: 20px;
+            margin: 0;
+            color: #0f172a
+        }
+
+        @media (max-width:1000px) {
+            .hero {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .map-right {
+                display: none
+            }
+
+            .realtime {
+                flex-direction: column
+            }
+
+            .etc {
+                grid-template-columns: 1fr
+            }
+
+            .news {
+                grid-template-columns: 1fr
+            }
+
+            .services {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .tools {
+                flex-direction: column
+            }
+        }
+
+        @media (max-width:600px) {
+            .services {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .hero h1 {
+                font-size: 20px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- HERO -->
+        <section class="hero" aria-label="Hero">
+            <div class="hero-left">
+                <h1>Hệ Thống Đường Cao Tốc Quốc Gia</h1>
+                <p>Thông tin giao thông thời gian thực — An toàn • Tiện lợi • Chính xác</p>
+                <div class="actions">
+                    <button class="btn btn-primary">Xem bản đồ giao thông</button>
+                    <button class="btn btn-ghost">Tra cứu thu phí ETC</button>
+                </div>
+            </div>
+            <div class="hero-right">Bản đồ / Hình ảnh hero</div>
+        </section>
+
+        <!-- Sứ Mệnh -->
+        <section class="mission">
+            <h2>Sứ mệnh của Hệ thống Đường Cao Tốc Quốc Gia</h2>
+            <ul>
+                <li>Đảm bảo an toàn giao thông, giảm thiểu rủi ro tai nạn cho người tham gia.</li>
+                <li>Tăng cường kết nối các vùng miền, thành phố và khu công nghiệp.</li>
+                <li>Nâng cao hiệu quả vận tải, giảm thời gian di chuyển và chi phí logistics.</li>
+                <li>Ứng dụng công nghệ hiện đại: ETC, giám sát thông minh, camera và ITS.</li>
+                <li>Phát triển bền vững, thân thiện với môi trường và đáp ứng nhu cầu xã hội.</li>
+            </ul>
+        </section>
+
+    </div>
+</body>
+
+</html>
