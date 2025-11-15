@@ -1,4 +1,4 @@
-//Hiển thị dữ liệu tin tức xem nhiều nhất
+//Hiển thị dữ liệu tin tức xem mới nhất
 const newsData1 = [
     {
         link: "https://vnexpress.net/dieu-chinh-toc-do-tren-cao-toc-tp-hcm-long-thanh-dau-giay-4957746.html",
@@ -7,10 +7,46 @@ const newsData1 = [
         content: "Cao tốc nối TP HCM với Đồng Nai được điều chỉnh tốc độ tối thiểu lên 80 km/h, đồng thời cấm ôtô tải trên 7,5 tấn, xe khách trên 29 chỗ chạy làn sát dải phân cách, từ 10/11."
     },
     {
+        link: "https://thanhnien.vn/khoi-cong-cao-toc-my-an-cao-lanh-hon-6000-ti-dong-185250726111423878.htm",
+        image: "https://images2.thanhnien.vn/528068263637045248/2025/7/26/dsc01354-1753502748239646989526.jpg",
+        name: "Khởi công cao tốc Mỹ An - Cao Lãnh hơn 6.000 tỉ đồng",
+        content: "Dự án cao tốc Mỹ An - Cao Lãnh sẽ rút ngắn thời gian di chuyển, hình thành trục giao thông huyết mạch nối ĐBSCL với TP.HCM và các vùng kinh tế trọng điểm phía nam.",
+    },
+    {
         link: "",
         image: "",
         name: "",
-        content: ""
+        content: "",
+    },
+    {
+        link: "",
+        image: "",
+        name: "",
+        content: "",
+    },
+    {
+        link: "",
+        image: "",
+        name: "",
+        content: "",
+    },
+    {
+        link: "",
+        image: "",
+        name: "",
+        content: "",
+    },
+    {
+        link: "",
+        image: "",
+        name: "",
+        content: "",
+    },
+    {
+        link: "",
+        image: "",
+        name: "",
+        content: "",
     },
 ];
 
@@ -19,7 +55,7 @@ const container1 = document.getElementById("nearlyID");
 newsData1.forEach(news => {
 container1.innerHTML += `
     <a href="${news.link}">
-        <div class="row">
+        <div class="row p-3">
             <div class="col-4 align-self-center">
                 <img src="${news.image}" alt="">
             </div>

@@ -2,371 +2,206 @@
 <html lang="vi">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Hệ Thống Đường Cao Tốc — Trang chủ (BODY)</title>
+
+    <head>
+        <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Đường cao tốc Việt Nam</title>
+	<link rel="icon" type="text/css" href="expresswayicon.png">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+		integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    </head>
     <style>
-        :root {
-            --accent: #0b63d6;
-            --muted: #6b7280;
-            --bg: #f6f8fb;
-            --card: #ffffff;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-        }
-
-        * {
-            box-sizing: border-box
-        }
-
         body {
-            margin: 0;
-            background: var(--bg);
-            color: #0f172a;
-            font-size: 16px;
-            line-height: 1.4
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 24px
-        }
-
-        .grid {
-            display: grid;
-            gap: 16px
-        }
-
-        h1,
-        h2 {
-            margin: 0
-        }
-
-        .btn {
-            padding: 10px 14px;
-            border-radius: 10px;
-            border: 0;
-            cursor: pointer;
-            font-weight: 600
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #fff
-        }
-
-        .btn-ghost {
-            background: transparent;
-            border: 1px solid rgba(15, 23, 42, 0.06)
-        }
-
-        /* HERO */
-        .hero {
-            background: linear-gradient(180deg, rgba(11, 99, 214, 0.06), rgba(255, 255, 255, 0));
-            border-radius: 12px;
-            padding: 28px;
-            display: flex;
-            gap: 20px;
-            align-items: center
-        }
-
-        .hero-left {
-            flex: 1
-        }
-
-        .hero p {
-            margin: 8px 0;
-            color: var(--muted)
-        }
-
-        .hero .actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 12px
-        }
-
-        .hero-right {
-            width: 360px;
-            height: 160px;
-            background: linear-gradient(90deg, #eaf3ff, #ffffff);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--muted);
-            font-weight: 600
-        }
-
-        /* REALTIME CARDS */
-        .realtime {
-            display: flex;
-            gap: 12px
-        }
-
-        .card {
-            background: var(--card);
-            border-radius: 10px;
-            padding: 12px;
-            box-shadow: 0 1px 6px rgba(2, 6, 23, 0.06);
-            flex: 1
-        }
-
-        .status-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 8px
-        }
-
-        .status-ok {
-            background: var(--success)
-        }
-
-        .status-slow {
-            background: var(--warning)
-        }
-
-        .status-bad {
-            background: var(--danger)
-        }
-
-        .card .route {
-            font-weight: 700
-        }
-
-        .card small {
-            color: var(--muted)
-        }
-
-        /* MAP PREVIEW */
-        .map-preview {
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex
-        }
-
-        .map-left {
-            flex: 1;
-            background-image: linear-gradient(135deg, #f3f7ff, #ffffff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--muted)
-        }
-
-        .map-right {
-            width: 300px;
-            padding: 12px;
-            background: var(--card);
-            border-radius: 0 10px 10px 0
-        }
-
-        .tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 10px
-        }
-
-        .tag {
-            padding: 6px 8px;
-            border-radius: 8px;
-            background: #f3f4f6;
-            font-size: 13px
-        }
-
-        /* ETC CARDS */
-        .etc {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px
-        }
-
-        .etc-card {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            min-height: 120px
-        }
-
-        /* NEWS & SERVICES */
-        .news {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px
-        }
-
-        .news-item {
-            background: var(--card);
-            border-radius: 10px;
-            overflow: hidden
-        }
-
-        .news-thumb {
-            height: 110px;
-            background: linear-gradient(90deg, #eee, #ddd)
-        }
-
-        .news-body {
-            padding: 10px
-        }
-
-        .meta {
-            font-size: 13px;
-            color: var(--muted)
-        }
-
-        .services {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 12px
-        }
-
-        .service {
-            background: var(--card);
-            padding: 14px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 14px
-        }
-
-        /* TOOLS */
-        .tools {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start
-        }
-
-        .fee-calc {
-            background: var(--card);
-            padding: 16px;
-            border-radius: 10px;
-            width: 360px
-        }
-
-        .fee-calc label {
-            display: block;
-            font-size: 13px;
-            color: var(--muted);
-            margin-bottom: 6px
-        }
-
-        .form-row {
-            display: flex;
-            gap: 8px
-        }
-
-        .form-row input,
-        .form-row select {
-            flex: 1;
-            padding: 8px;
-            border-radius: 8px;
-            border: 1px solid #e6edf3
-        }
-
-        /* MISSION */
-        .mission {
-            background: var(--card);
-            border-radius: 12px;
+            font-family: Arial, sans-serif;
             padding: 20px;
-            margin: 24px 0;
-            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06)
         }
 
-        .mission h2 {
-            margin-bottom: 12px;
-            color: var(--accent)
+        .news img {
+            width: 100%;
+            height: 100%;
         }
 
-        .mission ul {
-            padding-left: 20px;
-            margin: 0;
-            color: #0f172a
+        .ticker-container {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 8px;
         }
 
-        @media (max-width:1000px) {
-            .hero {
-                flex-direction: column;
-                align-items: flex-start
-            }
+        .ticker-view {
+            overflow: hidden;
+            flex: 1;
+            white-space: nowrap;
 
-            .map-right {
-                display: none
-            }
-
-            .realtime {
-                flex-direction: column
-            }
-
-            .etc {
-                grid-template-columns: 1fr
-            }
-
-            .news {
-                grid-template-columns: 1fr
-            }
-
-            .services {
-                grid-template-columns: repeat(3, 1fr)
-            }
-
-            .tools {
-                flex-direction: column
-            }
         }
 
-        @media (max-width:600px) {
-            .services {
-                grid-template-columns: repeat(2, 1fr)
-            }
+        .ticker-track {
+            display: inline-flex;
+            gap: 40px;
+            transition: transform 0.3s ease;
+            white-space: nowrap;
+        }
 
-            .hero h1 {
-                font-size: 20px
-            }
+        .news.item {
+            display: inline-block;
+            white-space: nowrap;
+            font-size: 16px;
+        }
+
+        .news button {
+            background: #ccc;
+            color: white;
+            border: 0;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .news button:hover {
+            background: #555;
+        }
+
+        section {
+            padding: 30px;
+        }
+
+        section h2 {
+            color: #0A9646;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <section class="news">
+        <h2><b>Tin tức nổi bật</b></h2>
+        <div class="ticker-container">
+            <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
 
-        <!-- HERO -->
-        <section class="hero" aria-label="Hero">
-            <div class="hero-left">
-                <h1>Hệ Thống Đường Cao Tốc Quốc Gia</h1>
-                <p>Thông tin giao thông thời gian thực — An toàn • Tiện lợi • Chính xác</p>
-                <div class="actions">
-                    <button class="btn btn-primary">Xem bản đồ giao thông</button>
-                    <button class="btn btn-ghost">Tra cứu thu phí ETC</button>
+            <div class="ticker-view">
+                <div id="track" class="ticker-track">
+                    <div class="item">
+                        <a
+                            href="https://thanhnien.vn/het-nam-2025-viet-nam-du-kien-co-3245-km-duong-cao-toc-185251020151700373.htm">
+                            <div class="row p-3">
+                                <div class="col-4">
+                                    <img src="https://images2.thanhnien.vn/528068263637045248/2025/10/20/edit-nguyen-hoa-binh-17609480854332132821882.jpeg"
+                                        alt="">
+                                </div>
+                                <div class="col-8">
+                                    <b>Hết năm 2025, Việt Nam dự kiến có 3.245 km đường cao tốfsdfsdfsdfsdfdddddddc</b>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a
+                            href="https://thanhnien.vn/het-nam-2025-viet-nam-du-kien-co-3245-km-duong-cao-toc-185251020151700373.htm">
+                            <div class="row p-3">
+                                <div class="col-4">
+                                    <img src="https://images2.thanhnien.vn/528068263637045248/2025/10/20/edit-nguyen-hoa-binh-17609480854332132821882.jpeg"
+                                        alt="">
+                                </div>
+                                <div class="col-8">
+                                    <b>Hết năm 2025, Việt Nam dự kiến có 3.245 km đường cao tốc</b>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a
+                            href="https://thanhnien.vn/het-nam-2025-viet-nam-du-kien-co-3245-km-duong-cao-toc-185251020151700373.htm">
+                            <div class="row p-3">
+                                <div class="col-4">
+                                    <img src="https://images2.thanhnien.vn/528068263637045248/2025/10/20/edit-nguyen-hoa-binh-17609480854332132821882.jpeg"
+                                        alt="">
+                                </div>
+                                <div class="col-8">
+                                    <b>Hết năm 2025, Việt Nam dự kiến có 3.245 km đường cao tốc</b>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a
+                            href="https://thanhnien.vn/het-nam-2025-viet-nam-du-kien-co-3245-km-duong-cao-toc-185251020151700373.htm">
+                            <div class="row p-3">
+                                <div class="col-4">
+                                    <img src="https://images2.thanhnien.vn/528068263637045248/2025/10/20/edit-nguyen-hoa-binh-17609480854332132821882.jpeg"
+                                        alt="">
+                                </div>
+                                <div class="col-8">
+                                    <b>Hết năm 2025, Việt Nam dự kiến có 3.245 km đường cao tốc</b>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="hero-right">Bản đồ / Hình ảnh hero</div>
-        </section>
 
-        <!-- Sứ Mệnh -->
-        <section class="mission">
-            <h2>Sứ mệnh của Hệ thống Đường Cao Tốc Quốc Gia</h2>
-            <ul>
-                <li>Đảm bảo an toàn giao thông, giảm thiểu rủi ro tai nạn cho người tham gia.</li>
-                <li>Tăng cường kết nối các vùng miền, thành phố và khu công nghiệp.</li>
-                <li>Nâng cao hiệu quả vận tải, giảm thời gian di chuyển và chi phí logistics.</li>
-                <li>Ứng dụng công nghệ hiện đại: ETC, giám sát thông minh, camera và ITS.</li>
-                <li>Phát triển bền vững, thân thiện với môi trường và đáp ứng nhu cầu xã hội.</li>
-            </ul>
-        </section>
+            <button id="next"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+    </section>
 
-    </div>
+    <script>
+        const track = document.getElementById("track");
+        const nextBtn = document.getElementById("next");
+        const prevBtn = document.getElementById("prev");
+
+        let x = 0;
+
+        // khoảng cuộn mỗi lần
+        const STEP = 200;
+
+        // Hàm cập nhật trạng thái nút
+        function updateButtons() {
+            const trackWidth = track.scrollWidth;
+            const viewWidth = track.parentElement.clientWidth;
+
+            // If đang ở đầu → khóa nút trái
+            prevBtn.disabled = (x >= 0);
+
+            // If đang ở cuối → khóa nút phải
+            nextBtn.disabled = (Math.abs(x) >= trackWidth - viewWidth);
+        }
+
+        nextBtn.onclick = () => {
+            const trackWidth = track.scrollWidth;
+            const viewWidth = track.parentElement.clientWidth;
+
+            x -= STEP;
+
+            // Không cho vượt quá cuối
+            if (Math.abs(x) > trackWidth - viewWidth) {
+                x = -(trackWidth - viewWidth);
+            }
+
+            track.style.transform = `translateX(${x}px)`;
+            updateButtons();
+        };
+
+        prevBtn.onclick = () => {
+            x += STEP;
+
+            // Không cho vượt quá đầu
+            if (x > 0) x = 0;
+
+            track.style.transform = `translateX(${x}px)`;
+            updateButtons();
+        };
+
+        // Khởi động
+        updateButtons();
+
+
+    </script>
+
 </body>
 
 </html>
