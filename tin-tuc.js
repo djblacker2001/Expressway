@@ -13,16 +13,16 @@ const newsData1 = [
         content: "Dự án cao tốc Mỹ An - Cao Lãnh sẽ rút ngắn thời gian di chuyển, hình thành trục giao thông huyết mạch nối ĐBSCL với TP.HCM và các vùng kinh tế trọng điểm phía nam.",
     },
     {
-        link: "",
-        image: "",
-        name: "",
-        content: "",
+        link: "https://plo.vn/tai-sao-cao-toc-lien-khuong-prenn-tiem-an-mat-an-toan-giao-thong-post881571.html",
+        image: "https://image.plo.vn/w2000/Uploaded/2025/slaohuo/2025_11_16/prenn-lien-khuong-5046-5489.jpg.webp",
+        name: "Cao tốc Liên Khương - Prenn tiềm ẩn mất an toàn giao thông",
+        content: "Do đường gom dân sinh 2 bên chưa hoàn thiện nên người dân thường xuyên băng qua cao tốc Liên Khương-Prenn (Lâm Đồng), tiềm ẩn nguy cơ cao mất an toàn giao thông.",
     },
     {
-        link: "",
-        image: "",
-        name: "",
-        content: "",
+        link: "https://nld.com.vn/tay-ninh-khan-truong-giai-phong-mat-bang-du-an-duong-cao-toc-tphcm-moc-bai-196251116104645392.htm",
+        image: "https://nld.mediacdn.vn/291774122806476800/2025/11/16/tay-ninh-17632644779401287959134.jpg",
+        name: "Tây Ninh khẩn trương giải phóng mặt bằng dự án đường cao tốc TPHCM – Mộc Bài",
+        content: "Theo kế hoạch, dự án đường cao tốc TPHCM – Mộc Bài sẽ hoàn thành toàn tuyến để đưa vào khai thác vào năm 2027",
     },
     {
         link: "",
@@ -65,7 +65,7 @@ container1.innerHTML += `
             </div>
         </div>
     </a>
-  `;
+`;
 });
 
 // //Dữ liệu tin tức xem nhiều nhất
