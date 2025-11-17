@@ -25,10 +25,16 @@ const newsData1 = [
         content: "Theo kế hoạch, dự án đường cao tốc TPHCM – Mộc Bài sẽ hoàn thành toàn tuyến để đưa vào khai thác vào năm 2027",
     },
     {
-        link: "",
-        image: "",
-        name: "",
-        content: "",
+        link: "https://vnexpress.net/dong-mot-phan-cao-toc-tp-hcm-long-thanh-trong-30-ngay-4914847.html",
+        image: "https://i1-vnexpress.vnecdn.net/2025/07/16/z6808756573514-b05d16c3cea3b8c-5110-7186-1752634929.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=UF5OiHYugpV4kHZ3X9XNpQ",
+        name: "Đóng một phần cao tốc TP HCM - Long Thành trong 30 ngày",
+        content: "Để sửa khe co giãn trên cầu Long Thành và hệ thống ITS, nhiều vị trí trên cao tốc dài 55 km nối TP HCM - Đồng Nai bị rào chắn một tháng, xe phải hạn chế tốc độ.",
+    },
+    {
+        link: "https://tienphong.vn/xe-cho-thu-bao-boc-chay-du-doi-tren-cao-toc-van-phong-nha-trang-post1796018.tpo",
+        image: "https://cdn.tienphong.vn/images/d0f1655467826b56c655fc988e562cf345619d64e27c6bbf1ac802fe1281088ae9e47686ba0ed51dfb123c7d9de83c3891c395aaa9493e5cdaf349cad3d4a15e/thubao-2.jpg",
+        name: "Xe chở thư báo bốc cháy dữ dội trên cao tốc Vân Phong - Nha Trang",
+        content: "Xe tải chuyên chở thư báo bất ngờ bốc cháy dữ dội khi đang lưu thông trên cao tốc Vân Phong - Nha Trang, hàng hóa bên trong bị thiêu rụi hoàn toàn.",
     },
     {
         link: "",
@@ -42,11 +48,43 @@ const newsData1 = [
         name: "",
         content: "",
     },
+];
+
+const newsData2 = [
     {
-        link: "",
-        image: "",
-        name: "",
-        content: "",
+        link:"",
+        image:"",
+        title:"",
+    },
+    {
+        link:"",
+        image:"",
+        title:"",
+    },
+    {
+        link:"",
+        image:"",
+        title:"",
+    },
+    {
+        link:"",
+        image:"",
+        title:"",
+    },
+    {
+        link:"",
+        image:"",
+        title:"",
+    },
+    {
+        link:"",
+        image:"",
+        title:"",
+    },
+    {
+        link:"",
+        image:"",
+        title:"",
     },
 ];
 
@@ -69,23 +107,23 @@ container1.innerHTML += `
 });
 
 // //Dữ liệu tin tức xem nhiều nhất
-// const container2 = document.getElementById("viewID");
-// newsData2.forEach(news => {
-// container2.innerHTML += `
-//     <a href="${news.link}">
-//         <article class="nearly">
-//             <div class="row">
-//                 <div class="col-md-4 align-self-center">
-//                     <img src="${news.image}" alt="">
-//                 </div>
-//                 <div class="col-md-8">
-//                     ${news.content}
-//                 </div>
-//             </div>
-//         </article>
-//     </a>
-//   `;
-// });
+const container2 = document.getElementById("viewID");
+newsData2.forEach(news => {
+container2.innerHTML += `
+    <a href="${news.link}">
+        <article class="viewer">
+            <div class="row">
+                <div class="col-md-4 align-self-center">
+                    <img src="${news.image}" alt="">
+                </div>
+                <div class="col-md-8">
+                    ${news.title}
+                </div>
+            </div>
+        </article>
+    </a>
+  `;
+});
 
 // Hiển thị năm hiện tại
 document.getElementById("year").textContent = new Date().getFullYear();
