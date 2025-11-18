@@ -37,10 +37,16 @@ const newsData1 = [
         content: "Xe tải chuyên chở thư báo bất ngờ bốc cháy dữ dội khi đang lưu thông trên cao tốc Vân Phong - Nha Trang, hàng hóa bên trong bị thiêu rụi hoàn toàn.",
     },
     {
-        link: "",
-        image: "",
-        name: "",
-        content: "",
+        link: "https://laodong.vn/xa-hoi/cao-toc-20400-ti-dong-tang-toc-ve-dich-hoan-thanh-vao-19122025-1608614.ldo",
+        image: "https://media-cdn-v2.laodong.vn/storage/newsportal/2025/11/13/1608614/176863423_715394998_.jpg?w=660",
+        name: "Cao tốc 20.400 tỉ đồng tăng tốc về đích, hoàn thành vào 19.12.2025",
+        content: "Cao tốc Quảng Ngãi - Hoài Nhơn đang tăng tốc về đích, phấn đấu hoàn thành toàn tuyến vào ngày 19.12.2025 theo chỉ đạo của Thủ tướng Chính phủ.",
+    },
+    {
+        link: "https://baoxaydung.vn/quyet-dua-cao-toc-hoai-nhon-quy-nhon-can-dich-vao-giua-thang-12-192251014164923434.htm",
+        image: "https://baogiaothong.mediacdn.vn/603483875699699712/2025/10/14/z6878216702667acc093c1f80fbc80363b807fbc9abe3b-1760435273886626258253.jpg",
+        name: "Quyết đưa cao tốc Hoài Nhơn - Quy Nhơn cán đích vào giữa tháng 12 năm 2025",
+        content: "Một trong hai gói thầu của cao tốc Hoài Nhơn - Quy Nhơn đã hoàn thành, hiện nhà thầu thi công đang nỗ lực đưa gói thầu còn lại thông xe và về đích đúng tiến độ đề ra.",
     },
     {
         link: "",
@@ -52,34 +58,24 @@ const newsData1 = [
 
 const newsData2 = [
     {
-        link:"",
-        image:"",
-        title:"",
+        link:"https://www.dothanhauto.com/quy-chuan-moi-duong-cao-toc-phai-co-toi-thieu-4-lan-xe",
+        image:"https://www.dothanhauto.com/upload/images/quy-chuan-moi-duong-cao-toc-phai-co-toi-thieu-4-lan-xe%20(1).png",
+        title:"Quy chuẩn mới: Đường cao tốc phải có tối thiểu 4 làn xe",
     },
     {
-        link:"",
-        image:"",
-        title:"",
+        link:"https://tapchixaydung.vn/danh-gia-hieu-qua-khai-thac-cac-tuyenduong-bo-cao-toc-tai-viet-nam-20201224000026409.html",
+        image:"https://media.tapchixaydung.vn/mediav2/upload/userfiles2021/images/nguyencuong/09.2024/dien-tu/le-khanh-linh1_18102024110345_135.jpg",
+        title:"Đánh giá hiệu quả khai thác các tuyến đường bộ cao tốc tại Việt Nam",
     },
     {
-        link:"",
-        image:"",
-        title:"",
+        link:"https://tuoitre.vn/ly-do-nut-giao-dung-quat-noi-cao-toc-da-nang-quang-ngai-chua-hoan-thanh-20241014172647539.htm",
+        image:"https://cdn2.tuoitre.vn/471584752817336320/2024/10/14/nut-giao-dung-quat-17289009460141652960970.png",
+        title:"Lý do nút giao Dung Quất nối cao tốc Đà Nẵng - Quảng Ngãi chưa hoàn thành",
     },
     {
-        link:"",
-        image:"",
-        title:"",
-    },
-    {
-        link:"",
-        image:"",
-        title:"",
-    },
-    {
-        link:"",
-        image:"",
-        title:"",
+        link:"https://laodong.vn/xa-hoi/chay-dua-hoan-thien-ha-tang-ket-noi-san-bay-long-thanh-1595238.ldo",
+        image:"https://media-cdn-v2.laodong.vn/storage/newsportal/2025/10/20/1595238/Long-Thanh-6.jpg?w=660",
+        title:"Chạy đua hoàn thiện hạ tầng kết nối sân bay Long Thành",
     },
     {
         link:"",

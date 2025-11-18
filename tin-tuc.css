@@ -111,7 +111,7 @@ aside {
     backdrop-filter: blur(8px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     padding: 10px;
-
+    height: auto;
 }
 
 h2 {
@@ -128,38 +128,6 @@ aside a {
   text-decoration: none;
   color: black;
 }
-
-.sidebar {
-  position: sticky;
-  top: 100px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(8px);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-}
-
-.sidebar a {
-  text-decoration: none;
-  color: #333;
-  display: block;
-  padding: 10px 15px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  font-weight: 500;
-}
-
-.sidebar a:hover,
-.sidebar a.active {
-  font-weight: 700;
-  color: black;
-}
-
-
-
-
-
-
 
 footer {
   background-position: center;
