@@ -131,6 +131,11 @@ a:hover {
   height: 100%;
 }
 
+.ways {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .news {
   background-color: #e6e6e6;
   border-radius: 10px;
@@ -188,6 +193,8 @@ a:hover {
 
 section {
   padding: 30px;
+  transform: translateY(50px);
+
 }
 
 section h2 {
