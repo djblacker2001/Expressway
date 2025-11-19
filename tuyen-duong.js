@@ -525,7 +525,7 @@ newsData3 = [
     {
         link: "https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_cao_t%E1%BB%91c_Bi%C3%AAn_H%C3%B2a_%E2%80%93_V%C5%A9ng_T%C3%A0u",
         name: "Đường cao tốc Biên Hòa – Vũng Tàu",
-        image: "bienbao/CT28.png",
+        image: "tuyenduong/BienHoaVungTau.png",
         length: "68 km",
         start: "Nút giao Biên Hòa",
         end: "Nút giao Cửa Lấp",

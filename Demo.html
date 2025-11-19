@@ -1,252 +1,538 @@
 <!doctype html>
 <html lang="vi">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Hệ Thống Đường Cao Tốc — Trang chủ (BODY)</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trạng thái giao thông — Google Maps (Realtime)</title>
   <style>
-    /* --- Reset & base --- */
-    :root{
-      --accent:#0b63d6;
-      --muted:#6b7280;
-      --bg:#f6f8fb;
-      --card:#ffffff;
-      --success:#10b981;
-      --warning:#f59e0b;
-      --danger:#ef4444;
-      --glass: rgba(255,255,255,0.7);
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    /* --- Reset + cơ bản --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:#0f172a;font-size:16px;line-height:1.4}
-    a{color:var(--accent);text-decoration:none}
 
-    /* --- Layout --- */
-    .container{max-width:1200px;margin:0 auto;padding:24px}
-    .grid{display:grid;gap:16px}
+    html,
+    body,
+    #app {
+      height: 100%
+    }
 
-    /* --- Hero --- */
-    .hero{background:linear-gradient(180deg, rgba(11,99,214,0.06), rgba(255,255,255,0));border-radius:12px;padding:28px;display:flex;gap:20px;align-items:center}
-    .hero .hero-left{flex:1}
-    .hero h1{margin:0;font-size:28px}
-    .hero p{margin:8px 0;color:var(--muted)}
-    .hero .actions{display:flex;gap:12px;margin-top:12px}
-    .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
-    .btn-primary{background:var(--accent);color:#fff}
-    .btn-ghost{background:transparent;border:1px solid rgba(15,23,42,0.06)}
-    .hero .hero-right{width:360px;height:160px;background:linear-gradient(90deg,#eaf3ff,#ffffff);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600}
+    body {
+      background: #f4f6f8;
+      color: #111
+    }
 
-    /* --- Realtime cards --- */
-    .realtime{display:flex;gap:12px}
-    .card{background:var(--card);border-radius:10px;padding:12px;box-shadow:0 1px 6px rgba(2,6,23,0.06);flex:1}
-    .status-dot{width:12px;height:12px;border-radius:50%;display:inline-block;margin-right:8px}
-    .status-ok{background:var(--success)}
-    .status-slow{background:var(--warning)}
-    .status-bad{background:var(--danger)}
-    .card .route{font-weight:700}
-    .card small{color:var(--muted)}
+    /* --- Layout: sidebar + map --- */
+    .app {
+      display: flex;
+      height: 100vh;
+    }
 
-    /* --- Map preview --- */
-    .map-preview{height:300px;border-radius:10px;overflow:hidden;display:flex}
-    .map-left{flex:1;background-image:linear-gradient(135deg,#f3f7ff,#ffffff);display:flex;align-items:center;justify-content:center;color:var(--muted)}
-    .map-right{width:300px;padding:12px;background:var(--card);border-radius:0 10px 10px 0}
-    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .tag{padding:6px 8px;border-radius:8px;background:#f3f4f6;font-size:13px}
+    .sidebar {
+      width: 360px;
+      max-width: 45%;
+      min-width: 260px;
+      background: #fff;
+      border-right: 1px solid #e6e9ee;
+      padding: 16px;
+      overflow: auto;
+      box-shadow: 0 0 12px rgba(15, 20, 30, 0.04);
+    }
 
-    /* --- ETC cards --- */
-    .etc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .etc-card{display:flex;flex-direction:column;gap:8px;min-height:120px}
+    .map-wrap {
+      flex: 1;
+      position: relative;
+    }
 
-    /* --- News grid --- */
-    .news{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .news-item{background:var(--card);border-radius:10px;overflow:hidden}
-    .news-thumb{height:110px;background:linear-gradient(90deg,#eee,#ddd)}
-    .news-body{padding:10px}
-    .meta{font-size:13px;color:var(--muted)}
+    #map {
+      position: absolute;
+      inset: 0;
+      border-left: 1px solid #e6e9ee
+    }
 
-    /* --- Services grid --- */
-    .services{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-    .service{background:var(--card);padding:14px;border-radius:8px;text-align:center;font-weight:600;font-size:14px}
+    /* --- Controls --- */
+    .controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px
+    }
 
-    /* --- Tools --- */
-    .tools{display:flex;gap:12px;align-items:flex-start}
-    .fee-calc{background:var(--card);padding:16px;border-radius:10px;width:360px}
-    .fee-calc label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
-    .form-row{display:flex;gap:8px}
-    .form-row input,.form-row select{flex:1;padding:8px;border-radius:8px;border:1px solid #e6edf3}
+    .btn {
+      background: #0b63d7;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(11, 99, 215, 0.12);
+    }
+
+    .btn.ghost {
+      background: #fff;
+      color: #0b63d7;
+      border: 1px solid #dbe9ff;
+      box-shadow: none
+    }
+
+    .small {
+      padding: 6px 8px;
+      font-size: 13px;
+      border-radius: 6px
+    }
+
+    /* --- Incident list --- */
+    .incident {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #f1f3f6;
+      margin-bottom: 8px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start
+    }
+
+    .sev {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%
+    }
+
+    .sev.low {
+      background: #2ecc71
+    }
+
+    .sev.med {
+      background: #f1c40f
+    }
+
+    .sev.high {
+      background: #e74c3c
+    }
+
+    .inc-body {
+      flex: 1
+    }
+
+    .inc-title {
+      font-weight: 700;
+      margin-bottom: 6px
+    }
+
+    .inc-time {
+      font-size: 12px;
+      color: #667085
+    }
+
+    .etc-support {
+  background: #f7f9fc;
+  padding: 60px 20px;
+  font-family: Inter, sans-serif;
+}
+
+.etc-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.etc-support h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #1a2b48;
+}
+
+.etc-subtitle {
+  color: #566;
+  margin-bottom: 30px;
+}
+
+.etc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.etc-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  border-left: 5px solid #1e88e5;
+  transition: 0.25s;
+}
+
+.etc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.etc-card h3 {
+  margin-bottom: 12px;
+  color: #1e3a5f;
+}
+
+.etc-card ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 14px;
+}
+
+.etc-btn {
+  margin-top: 8px;
+  padding: 10px 14px;
+  border: none;
+  background: #1e88e5;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s;
+  display: inline-block;
+}
+
+.etc-btn:hover {
+  background: #0d6cd4;
+}
+
+#etc-search {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.etc-result {
+  margin-top: 12px;
+  background: #eef4ff;
+  padding: 12px;
+  border-radius: 8px;
+  display: none;
+}
+
+.etc-contact {
+  margin-top: 40px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
 
     /* --- Responsive --- */
-    @media (max-width:1000px){
-      .hero{flex-direction:column;align-items:flex-start}
-      .map-right{display:none}
-      .realtime{flex-direction:column}
-      .etc{grid-template-columns:1fr}
-      .news{grid-template-columns:1fr}
-      .services{grid-template-columns:repeat(3,1fr)}
-      .tools{flex-direction:column}
-    }
-    @media (max-width:600px){
-      .services{grid-template-columns:repeat(2,1fr)}
-      .hero h1{font-size:20px}
+    @media (max-width:800px) {
+      .sidebar {
+        position: absolute;
+        z-index: 20;
+        left: 8px;
+        top: 8px;
+        max-width: calc(100% - 16px);
+        width: auto;
+        height: auto;
+        box-shadow: 0 8px 24px rgba(10, 20, 40, 0.16)
+      }
+
+      .map-wrap {
+        padding-top: 0
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
+  <section class="etc-support">
+  <div class="etc-container">
+    <h2>Hỗ trợ thu phí tự động (ETC)</h2>
+    <p class="etc-subtitle">Hướng dẫn đăng ký, kiểm tra tài khoản và xử lý các lỗi thường gặp.</p>
 
-    <!-- HERO -->
-    <section class="hero" aria-label="Hero">
-      <div class="hero-left">
-        <h1>Hệ Thống Đường Cao Tốc Quốc Gia</h1>
-        <p>Thông tin giao thông thời gian thực — An toàn • Tiện lợi • Chính xác</p>
-        <div class="actions">
-          <button class="btn btn-primary">Xem bản đồ giao thông</button>
-          <button class="btn btn-ghost">Tra cứu thu phí ETC</button>
-        </div>
-      </div>
-      <div class="hero-right">Bản đồ / Hình ảnh hero</div>
-    </section>
-
-    <div style="height:18px"></div>
-
-    <!-- REALTIME CARDS -->
-    <section aria-label="Realtime traffic">
-      <div class="realtime">
-        <div class="card">
-          <div><span class="status-dot status-ok"></span><span class="route">Cao tốc HCM - Long Thành</span></div>
-          <div style="margin-top:8px"><small>Tốc độ trung bình: 88 km/h • Trạng thái: Thông thoáng</small></div>
-          <div style="text-align:right;margin-top:8px"><a href="#">Chi tiết →</a></div>
-        </div>
-
-        <div class="card">
-          <div><span class="status-dot status-slow"></span><span class="route">Cao tốc Nội Bài - Lào Cai</span></div>
-          <div style="margin-top:8px"><small>Tốc độ trung bình: 48 km/h • Trạng thái: Đông</small></div>
-          <div style="text-align:right;margin-top:8px"><a href="#">Chi tiết →</a></div>
-        </div>
-
-        <div class="card">
-          <div><span class="status-dot status-bad"></span><span class="route">Cao tốc Đà Nẵng - Quảng Ngãi</span></div>
-          <div style="margin-top:8px"><small>Tốc độ trung bình: 20 km/h • Trạng thái: Ùn tắc</small></div>
-          <div style="text-align:right;margin-top:8px"><a href="#">Chi tiết →</a></div>
-        </div>
-      </div>
-    </section>
-
-    <div style="height:18px"></div>
-
-    <!-- MAP + TAGS -->
-    <section class="map-preview" aria-label="Map preview">
-      <div class="map-left">Bản đồ tương tác (placeholder)</div>
-      <aside class="map-right">
-        <div style="font-weight:700">Bản đồ hệ thống</div>
-        <div class="tags">
-          <span class="tag">Trạm dừng nghỉ</span>
-          <span class="tag">Trạm thu phí</span>
-          <span class="tag">Công trình</span>
-          <span class="tag">Camera</span>
-        </div>
-        <div style="margin-top:12px"><button class="btn btn-primary">Mở bản đồ toàn tuyến</button></div>
-      </aside>
-    </section>
-
-    <div style="height:18px"></div>
-
-    <!-- ETC CARDS -->
-    <section>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-        <h2 style="margin:0;font-size:18px">Thu phí & ETC</h2>
-        <a href="#" style="font-size:14px;color:var(--muted)">Xem tất cả</a>
-      </div>
-      <div class="etc">
-        <div class="card etc-card">
-          <div style="font-weight:700">Tra cứu tài khoản ETC</div>
-          <div style="color:var(--muted)">Kiểm tra số dư, lịch sử giao dịch</div>
-          <div style="margin-top:auto"><button class="btn btn-primary">Tra cứu ngay</button></div>
-        </div>
-
-        <div class="card etc-card">
-          <div style="font-weight:700">Biểu phí</div>
-          <div style="color:var(--muted)">Bảng giá theo tuyến và loại phương tiện</div>
-          <div style="margin-top:auto"><button class="btn btn-ghost">Xem chi tiết</button></div>
-        </div>
-
-        <div class="card etc-card">
-          <div style="font-weight:700">Hỗ trợ ETC</div>
-          <div style="color:var(--muted)">Mở tài khoản • Nạp tiền • Khiếu nại</div>
-          <div style="margin-top:auto"><button class="btn btn-primary">Liên hệ hỗ trợ</button></div>
-        </div>
-      </div>
-    </section>
-
-    <div style="height:18px"></div>
-
-    <!-- NEWS & SERVICES -->
-    <section style="display:grid;grid-template-columns:2fr 1fr;gap:12px;align-items:start">
-
-      <div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-          <h2 style="margin:0;font-size:18px">Tin tức & Thông báo</h2>
-          <a href="#" style="font-size:14px;color:var(--muted)">Xem tất cả</a>
-        </div>
-        <div class="news">
-          <article class="news-item">
-            <div class="news-thumb"></div>
-            <div class="news-body">
-              <div style="font-weight:700">Thông báo đóng đường tạm thời tại km45</div>
-              <div class="meta">12/11/2025 • Thông báo</div>
-            </div>
-          </article>
-
-          <article class="news-item">
-            <div class="news-thumb"></div>
-            <div class="news-body">
-              <div style="font-weight:700">Lịch bảo trì camera giao thông tuần này</div>
-              <div class="meta">10/11/2025 • Vận hành</div>
-            </div>
-          </article>
-
-          <article class="news-item">
-            <div class="news-thumb"></div>
-            <div class="news-body">
-              <div style="font-weight:700">Khuyến cáo lái xe dịp lễ cuối năm</div>
-              <div class="meta">05/11/2025 • Khuyến cáo</div>
-            </div>
-          </article>
-        </div>
+    <!-- Cards -->
+    <div class="etc-grid">
+      
+      <!-- Card 1: ETC là gì -->
+      <div class="etc-card">
+        <h3>ETC là gì?</h3>
+        <p>
+          ETC (Electronic Toll Collection) là hệ thống thu phí tự động không dừng, 
+          giúp xe qua trạm nhanh hơn, giảm ùn tắc và tự động trừ tiền trong tài khoản.
+        </p>
       </div>
 
-      <aside>
-        <h2 style="font-size:18px;margin:0 0 10px 0">Dịch vụ tài xế</h2>
-        <div class="services">
-          <div class="service">Trạm dừng nghỉ</div>
-          <div class="service">Cứu hộ</div>
-          <div class="service">Camera trực tuyến</div>
-          <div class="service">Điểm sửa chữa</div>
-          <div class="service">Bãi đỗ</div>
-          <div class="service">Hotline</div>
-        </div>
+      <!-- Card 2: Hướng dẫn đăng ký -->
+      <div class="etc-card">
+        <h3>Hướng dẫn đăng ký</h3>
+        <ul>
+          <li>Chuẩn bị CMND/CCCD + giấy đăng ký xe</li>
+          <li>Chọn nhà cung cấp: VETC hoặc ePass</li>
+          <li>Dán thẻ tại điểm dịch vụ hoặc đăng ký online</li>
+        </ul>
+        <button class="etc-btn">Đăng ký VETC</button>
+        <button class="etc-btn">Đăng ký ePass</button>
+      </div>
 
-        <div style="height:12px"></div>
+      <!-- Card 3: Tra cứu ETC -->
+      <div class="etc-card">
+        <h3>Kiểm tra tài khoản ETC</h3>
+        <p>Nhập biển số hoặc số tài khoản để kiểm tra số dư.</p>
+        <input type="text" id="etc-search" placeholder="Nhập biển số (VD: 51H-123.45)">
+        <button class="etc-btn" onclick="checkETC()">Tra cứu</button>
+        <div id="etc-result" class="etc-result"></div>
+      </div>
 
-        <div class="tools">
-          <div class="fee-calc">
-            <div style="font-weight:700;margin-bottom:8px">Tính phí dự kiến</div>
-            <label>Điểm đi</label>
-            <input type="text" placeholder="Nhập điểm xuất phát (ví dụ: TP.HCM)">
-            <label style="margin-top:8px">Điểm đến</label>
-            <input type="text" placeholder="Nhập điểm đến (ví dụ: Long Thành)">
-            <div style="margin-top:10px;display:flex;gap:8px"><button class="btn btn-primary">Tính phí</button><button class="btn btn-ghost">Đặt lộ trình</button></div>
-          </div>
-        </div>
-      </aside>
+      <!-- Card 4: Lỗi thường gặp -->
+      <div class="etc-card">
+        <h3>Lỗi thường gặp</h3>
+        <ul>
+          <li>Thẻ ETC không được nhận diện</li>
+          <li>Không trừ tiền khi qua trạm</li>
+          <li>Tài khoản sắp hết tiền</li>
+          <li>Thẻ ETC bị bong / mờ</li>
+        </ul>
+      </div>
 
-    </section>
+    </div>
 
-    <div style="height:28px"></div>
-
-    <!-- FOOTER (minimal) -->
-    <footer style="text-align:center;color:var(--muted);padding:16px 0">© 2025 Hệ Thống Đường Cao Tốc • Đơn vị quản lý • Hotline: 1900-XXX-XXX</footer>
+    <!-- Contact -->
+    <div class="etc-contact">
+      <h3>Liên hệ hỗ trợ</h3>
+      <p>📞 VETC: <strong>1900 6010</strong></p>
+      <p>📞 ePass: <strong>1900 1023</strong></p>
+    </div>
 
   </div>
+</section>
+
+  </div>
+
+  <script>
+    // ==============================
+    // CẤU HÌNH: Thay YOUR_GOOGLE_MAPS_API_KEY
+    // ==============================
+  </script>
+
+  <!-- Google Maps JS (callback initMap) -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async
+    defer></script>
+
+  <script>
+    // ---- Globals ----
+    let map;
+    let trafficLayer;
+    let markers = new Map(); // id -> google.maps.Marker
+    let autoRefreshTimer = null;
+    let currentCenter = { lat: 10.762622, lng: 106.660172 }; // fallback: HCMC
+    const INCIDENT_API = '/api/incidents'; // thay bằng endpoint thật của bạn
+
+    // helper: format time
+    function fmtTime(ts) {
+      const d = new Date(ts);
+      return d.toLocaleString('vi-VN', { hour12: false });
+    }
+
+    // initMap: callback của Google Maps
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: currentCenter,
+        zoom: 12,
+        streetViewControl: false,
+        mapTypeControl: false,
+      });
+
+      // Traffic layer
+      trafficLayer = new google.maps.TrafficLayer();
+      trafficLayer.setMap(map); // bật mặc định
+
+      // UI controls
+      document.getElementById('btn-toggle-traffic').addEventListener('click', toggleTraffic);
+      document.getElementById('btn-refresh').addEventListener('click', fetchIncidents);
+      document.getElementById('btn-center').addEventListener('click', locateUser);
+
+      const sel = document.getElementById('refresh-interval');
+      sel.addEventListener('change', () => {
+        startAutoRefresh(parseInt(sel.value, 10));
+      });
+
+      // định vị người dùng nếu cho phép
+      locateUser();
+
+      // lần gọi đầu
+      fetchIncidents();
+
+      // start auto refresh mặc định theo select
+      startAutoRefresh(parseInt(sel.value, 10));
+    }
+
+    // Toggle Traffic layer visibility
+    function toggleTraffic() {
+      const btn = document.getElementById('btn-toggle-traffic');
+      if (trafficLayer.getMap()) {
+        trafficLayer.setMap(null);
+        btn.textContent = 'Bật Traffic';
+        btn.classList.remove('btn'); btn.classList.add('btn', 'ghost');
+      } else {
+        trafficLayer.setMap(map);
+        btn.textContent = 'Tắt Traffic';
+        btn.classList.remove('btn', 'ghost'); btn.classList.add('btn');
+      }
+    }
+
+    // Locate user (geolocation)
+    function locateUser() {
+      if (!navigator.geolocation) {
+        alert('Trình duyệt không hỗ trợ Geolocation.');
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(pos => {
+        const p = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        map.panTo(p);
+        map.setZoom(13);
+        // add a temporary marker
+        new google.maps.Marker({ position: p, map, title: 'Bạn đang ở đây' });
+      }, err => {
+        console.warn('Geolocation error', err);
+      }, { enableHighAccuracy: true, maximumAge: 60_000 });
+    }
+
+    // Start / stop auto-refresh
+    function startAutoRefresh(ms) {
+      if (autoRefreshTimer) {
+        clearInterval(autoRefreshTimer);
+        autoRefreshTimer = null;
+      }
+      if (ms > 0) {
+        autoRefreshTimer = setInterval(fetchIncidents, ms);
+      }
+    }
+
+    // Fetch incidents from API; fallback to sample data if API fails
+    async function fetchIncidents() {
+      let incidents;
+      try {
+        const res = await fetch(INCIDENT_API, { cache: "no-store" });
+        if (!res.ok) throw new Error('No data from API');
+        incidents = await res.json();
+      } catch (e) {
+        // fallback sample (simulate)
+        incidents = sampleIncidents();
+        console.info('Using fallback incidents', e);
+      }
+      // normalize and render
+      if (!Array.isArray(incidents)) incidents = [];
+      updateIncidents(incidents);
+    }
+
+    // Update markers and sidebar from incidents array
+    function updateIncidents(incidents) {
+      const listEl = document.getElementById('incidents-list');
+
+      // Markers: keep ones with same id, remove missing
+      const incomingIds = new Set(incidents.map(i => String(i.id)));
+      // remove markers that are no longer present
+      for (const id of Array.from(markers.keys())) {
+        if (!incomingIds.has(id)) {
+          markers.get(id).setMap(null);
+          markers.delete(id);
+        }
+      }
+
+      listEl.innerHTML = '';
+      incidents.forEach(inc => {
+        const id = String(inc.id);
+        // Add/Update marker
+        if (!markers.has(id)) {
+          const marker = new google.maps.Marker({
+            position: { lat: inc.lat, lng: inc.lng },
+            map,
+            title: inc.title,
+            icon: markerIconBySeverity(inc.severity),
+          });
+
+          const info = new google.maps.InfoWindow({
+            content: `<strong>${escapeHtml(inc.title)}</strong><div style="font-size:13px;margin-top:6px">${escapeHtml(inc.description || '')}</div><div style="font-size:12px;color:#666;margin-top:6px">${fmtTime(inc.time)}</div>`
+          });
+          marker.addListener('click', () => info.open(map, marker));
+          markers.set(id, marker);
+        } else {
+          // update position/icon if needed
+          const marker = markers.get(id);
+          const pos = marker.getPosition();
+          if (pos.lat() !== inc.lat || pos.lng() !== inc.lng) {
+            marker.setPosition({ lat: inc.lat, lng: inc.lng });
+          }
+          marker.setIcon(markerIconBySeverity(inc.severity));
+        }
+
+        // Add to sidebar
+        const el = document.createElement('div');
+        el.className = 'incident';
+        el.innerHTML = `
+          <div class="sev ${sevClass(inc.severity)}" aria-hidden="true"></div>
+          <div class="inc-body">
+            <div class="inc-title">${escapeHtml(inc.title)}</div>
+            <div class="inc-time">${fmtTime(inc.time)} • ${escapeHtml(inc.location || '')}</div>
+            <div style="margin-top:6px;color:#374151;font-size:13px">${escapeHtml(inc.description || '')}</div>
+          </div>
+        `;
+        el.addEventListener('click', () => {
+          const m = markers.get(id);
+          if (m) {
+            map.panTo(m.getPosition());
+            map.setZoom(15);
+            new google.maps.InfoWindow({ content: `<strong>${escapeHtml(inc.title)}</strong><div style="font-size:13px;margin-top:6px">${escapeHtml(inc.description || '')}</div>` }).open(map, m);
+          }
+        });
+        listEl.appendChild(el);
+      });
+    }
+
+    // Helper: small icon by severity
+    function markerIconBySeverity(sev) {
+      // Simple colored circle SVG data URL
+      const color = sev === 'high' ? '#e74c3c' : (sev === 'med' ? '#f1c40f' : '#2ecc71');
+      const svg = encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><circle cx='14' cy='14' r='10' fill='${color}' stroke='#fff' stroke-width='2'/></svg>`);
+      return { url: `data:image/svg+xml;charset=UTF-8,${svg}`, scaledSize: new google.maps.Size(28, 28) };
+    }
+
+    function sevClass(sev) {
+      if (sev === 'high') return 'high';
+      if (sev === 'med') return 'med';
+      return 'low';
+    }
+
+    // XSS safe small escaper
+    function escapeHtml(s) {
+      if (!s && s !== 0) return '';
+      return String(s).replace(/[&<>"'`=\/]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', "/": '&#x2F;', '`': '&#x60;', '=': '&#x3D;' }[c];
+      });
+    }
+
+    // Fallback sample incidents (simulate server)
+    function sampleIncidents() {
+      const now = Date.now();
+      return [
+        { id: '1', lat: 10.7628, lng: 106.6829, title: 'Tắc do tai nạn', description: 'Va chạm 2 xe, đang xử lý', severity: 'high', time: now - 5 * 60 * 1000, location: 'Cầu Sài Gòn' },
+        { id: '2', lat: 10.7765, lng: 106.7006, title: 'Ùn tắc nhẹ', description: 'Mật độ cao', severity: 'med', time: now - 12 * 60 * 1000, location: 'Đường Mai Chí Thọ' },
+        { id: '3', lat: 10.7590, lng: 106.6620, title: 'Thi công', description: 'Đang thi công mở rộng', severity: 'low', time: now - 40 * 60 * 1000, location: 'Xa lộ Hà Nội' },
+      ];
+    }
+
+    // Start by deferring fetchIncidents until maps loaded (initMap will call)
+    // If you want WebSocket real-time: create ws = new WebSocket('wss://...'); ws.onmessage => updateIncidents([...])
+
+    // Optional: if page is left idle, stop auto refresh to save resources
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        if (autoRefreshTimer) clearInterval(autoRefreshTimer);
+      } else {
+        const sel = document.getElementById('refresh-interval');
+        startAutoRefresh(parseInt(sel.value, 10));
+      }
+    });
+  </script>
 </body>
+
 </html>

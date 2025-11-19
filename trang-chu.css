@@ -201,6 +201,12 @@ section h2 {
   color: #0A9646;
 }
 
+.etc {
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
 footer {
   background-position: center;
   background-size: cover;
