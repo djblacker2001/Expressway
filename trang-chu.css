@@ -193,6 +193,8 @@ a:hover {
 
 section {
   padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
   transform: translateY(50px);
 
 }
@@ -203,6 +205,39 @@ section h2 {
 
 .etc {
   margin-top: 20px;
+}
+
+.etc .etc-card {
+  padding: 10px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.etc-btn {
+  margin-top: 8px;
+  padding: 8px 14px;
+  border: none;
+  background: #0A9646;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s;
+  display: inline-block;
+}
+
+.etc-btn:hover {
+  background: #087236;
+}
+
+#etc-search {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccd;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 footer {
