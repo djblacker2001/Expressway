@@ -5,19 +5,19 @@ const newsData1 = [
         title: "Hết năm 2025, Việt Nam dự kiến có 3.245 km đường cao tốc",
     },
     {
-        link: "",
-        image: "",
-        title: "",
+        link: "https://vnexpress.net/khoi-cong-mo-rong-cao-toc-tp-hcm-trung-luong-my-thuan-ngay-19-12-4986788.html",
+        image: "https://i1-vnexpress.vnecdn.net/2025/11/27/doan-tuyen-snapshot3-176421652-3911-3773-1764216694.png?w=680&h=0&q=100&dpr=1&fit=crop&s=pUbFk8r4vWF5sEZPu0jGYg",
+        title: "Khởi công mở rộng cao tốc TP HCM - Trung Lương - Mỹ Thuận",
     },
     {
-        link: "",
-        image: "",
-        title: "",
+        link: "https://vnexpress.net/xay-lai-nut-giao-7-nam-do-dang-tren-cao-toc-da-nang-quang-ngai-4888733.html",
+        image: "https://i1-vnexpress.vnecdn.net/2025/05/21/nut-giao-1-1747804633-2757-1747805231.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=6SRy8CQPCsUia-brpe1R5w",
+        title: "Xây lại nút giao 7 năm dở dang trên cao tốc Đà Nẵng - Quảng Ngãi",
     },
     {
-        link: "",
-        image: "",
-        title: "",
+        link: "https://vnexpress.net/dien-mao-nha-ga-hinh-canh-sen-san-bay-long-thanh-4986592.html",
+        image: "https://i1-vnexpress.vnecdn.net/2025/11/26/DJI-20251126101825-0288-D-1764172264-1764172277.jpg?w=1200&h=0&q=100&dpr=2&fit=crop&s=YwatB4sgPc5-hREBHcfPxA",
+        title: "Diện mạo nhà ga hình cánh sen sân bay Long Thành",
     },
     {
         link: "",
@@ -220,6 +220,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 sections.forEach(section => observer.observe(section));
+
 
 //Kiểm tra ETC
 document.getElementById("checkBtn").addEventListener("click", () => {
