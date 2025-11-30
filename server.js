@@ -10,7 +10,8 @@ app.use(express.json());
 const vehicles = [
     { plate: "30A12345", balance: 500000, status: "Đang hoạt động" },
     { plate: "29B67890", balance: 200000, status: "Đang hoạt động" },
-    { plate: "51C11111", balance: 0, status: "Ngưng hoạt động" }
+    { plate: "51C11111", balance: 0, status: "Ngưng hoạt động" },
+    { plate: "", balance: "", status: ""},
 ];
 
 // API tra cứu theo biển số

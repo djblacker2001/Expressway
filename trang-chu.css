@@ -142,12 +142,15 @@ a:hover {
 }
 
 .ways .item {
-    text-align: center;         /* Căn chữ vào giữa */
+  text-align: center;
+  /* Căn chữ vào giữa */
 }
 
-.ways .item img {              /* Tùy chỉnh kích thước hình */
-    display: block;
-    margin: 0 auto;             /* Đưa hình vào giữa */
+.ways .item img {
+  /* Tùy chỉnh kích thước hình */
+  display: block;
+  margin: 0 auto;
+  /* Đưa hình vào giữa */
 }
 
 .news {
@@ -371,6 +374,10 @@ footer {
 
   #mainHeader.scrolled {
     position: static;
+  }
+
+  .ways {
+    display: block;
   }
 
   footer {
