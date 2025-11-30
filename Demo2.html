@@ -1,336 +1,68 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cao Tốc Việt Nam</title>
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    body{
-        background: #f3f6fa;
-        color: #222;
-    }
-    header{
-        background: #003366;
-        padding: 15px 20px;
-        color: #fff;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    header nav a{
-        color: white;
-        margin: 0 10px;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    .hero{
-        background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1500&q=80') no-repeat center/cover;
-        height: 380px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: #fff;
-        padding: 20px;
-    }
-    .hero h1{
-        font-size: 38px;
-        text-shadow: 0px 2px 5px rgba(0,0,0,0.5);
-    }
-    .btn-primary{
-        margin-top: 15px;
-        padding: 12px 25px;
-        border: none;
-        background: #ffcc00;
-        color: #222;
-        font-weight: bold;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-    .section{
-        padding: 35px 20px;
-        max-width: 1200px;
-        margin: auto;
-    }
-    .info-box, .card{
-        background: #e8f3ff;
-        cursor: pointer;
-        padding: 20px;
-        border-radius: 8px;
-        margin-bottom: 18px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .cards{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 18px;
-    }
-    .card h3{
-        margin-bottom: 8px;
-        color: #003366;
-    }
-    footer{
-        background: #003366;
-        color: white;
-        text-align: center;
-        padding: 15px;
-        margin-top: 30px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Fade-in</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
     }
 
-    .etc-support {
-  background: #f7f9fc;
-  padding: 60px 20px;
-  font-family: Inter, sans-serif;
-}
-
-.etc-container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.etc-support h2 {
-  font-size: 32px;
-  margin-bottom: 8px;
-  font-weight: 700;
-  color: #1a2b48;
-}
-
-.etc-subtitle {
-  color: #566;
-  margin-bottom: 30px;
-}
-
-.etc-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 22px;
-}
-
-.etc-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-  border-left: 5px solid #1e88e5;
-  transition: 0.25s;
-}
-
-.etc-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-}
-
-.etc-card h3 {
-  margin-bottom: 12px;
-  color: #1e3a5f;
-}
-
-.etc-card ul {
-  list-style: disc;
-  padding-left: 20px;
-  margin-bottom: 14px;
-}
-
-.etc-btn {
-  margin-top: 8px;
-  padding: 10px 14px;
-  border: none;
-  background: #1e88e5;
-  color: #fff;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.25s;
-  display: inline-block;
-}
-
-.etc-btn:hover {
-  background: #0d6cd4;
-}
-
-#etc-search {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccd;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.etc-result {
-  margin-top: 12px;
-  background: #eef4ff;
-  padding: 12px;
-  border-radius: 8px;
-  display: none;
-}
-
-.etc-contact {
-  margin-top: 40px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-}
-
-
-    /* Responsive small devices */
-    @media (max-width: 768px){
-        .hero h1 { font-size: 26px; }
+    .section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      opacity: 0;
+      /* ban đầu ẩn */
+      transform: translateY(50px);
+      /* dịch xuống 50px */
+      transition: all 0.8s ease-out;
+      background-color: #f0f0f0;
+      margin: 0;
+      border-bottom: 1px solid #ccc;
     }
-</style>
+
+    /* Khi section xuất hiện */
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-    <h2>Cao Tốc Việt Nam</h2>
-    <nav>
-        <a href="#">Trang chủ</a>
-        <a href="#">Tra cứu</a>
-        <a href="#">Dịch vụ</a>
-        <a href="#">Liên hệ</a>
-    </nav>
-</header>
+  <section class="section">Section 1</section>
+  <section class="section">Section 2</section>
+  <section class="section">Section 3</section>
+  <section class="section">Section 4</section>
 
-<section class="hero">
-    <div>
-        <h1>Thông tin giao thông an toàn & chính xác</h1>
-        <button class="btn-primary">Tra cứu lộ trình</button>
-    </div>
-</section>
+  <script>
+    // Chọn tất cả section
+    const sections = document.querySelectorAll('.section');
 
-<section class="section">
-    <div class="info-box" id="trafficStatus">
-        <h2>🚦 Tình trạng giao thông hiện tại</h2>
-        <p>⚠ Quốc lộ 5 đoạn Km22 - Km28 ùn tắc nhẹ do tai nạn.</p>
-    </div>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show'); // thêm class 'show' khi xuất hiện
+          observer.unobserve(entry.target);   // không quan sát lại nữa
+        }
+      });
+    }, {
+      threshold: 0.1 // 10% section xuất hiện là trigger
+    });
 
-    <div class="cards">
-        <div class="card">
-            <h3>📍 Bản đồ lộ trình</h3>
-            <p>Xem tuyến đường, trạm dừng và lộ trình phù hợp nhất.</p>
-        </div>
-        <div class="card">
-            <h3>💳 Thu phí ETC</h3>
-            <p>Đăng ký, nạp tiền và kiểm tra giao dịch nhanh chóng.</p>
-        </div>
-        <div class="card">
-            <h3>📢 Thông báo</h3>
-            <p>Cập nhật biển báo, quy định và thông tin bảo trì.</p>
-        </div>
-        <div class="card">
-            <h3>📰 Tin tức mới</h3>
-            <p>Xây dựng tuyến cao tốc mới phía Bắc - Trung.</p>
-        </div>
-    </div>
-    <select id="location">
-        <option value="hn">Hà Nội</option>
-        <option value="hcm">HCM</option>
-    </select>
-</section>
+    // Gắn observer cho từng section
+    sections.forEach(section => {
+      observer.observe(section);
+    });
 
-<section class="etc-support">
-  <div class="etc-container">
-    <h2>Hỗ trợ thu phí tự động (ETC)</h2>
-    <p class="etc-subtitle">Hướng dẫn đăng ký, kiểm tra tài khoản và xử lý các lỗi thường gặp.</p>
-
-    <!-- Cards -->
-    <div class="etc-grid">
-      
-      <!-- Card 1: ETC là gì -->
-      <div class="etc-card">
-        <h3>ETC là gì?</h3>
-        <p>
-          ETC (Electronic Toll Collection) là hệ thống thu phí tự động không dừng, 
-          giúp xe qua trạm nhanh hơn, giảm ùn tắc và tự động trừ tiền trong tài khoản.
-        </p>
-      </div>
-
-      <!-- Card 2: Hướng dẫn đăng ký -->
-      <div class="etc-card">
-        <h3>Hướng dẫn đăng ký</h3>
-        <ul>
-          <li>Chuẩn bị CMND/CCCD + giấy đăng ký xe</li>
-          <li>Chọn nhà cung cấp: VETC hoặc ePass</li>
-          <li>Dán thẻ tại điểm dịch vụ hoặc đăng ký online</li>
-        </ul>
-        <button class="etc-btn">Đăng ký VETC</button>
-        <button class="etc-btn">Đăng ký ePass</button>
-      </div>
-
-      <!-- Card 3: Tra cứu ETC -->
-      <div class="etc-card">
-        <h3>Kiểm tra tài khoản ETC</h3>
-        <p>Nhập biển số hoặc số tài khoản để kiểm tra số dư.</p>
-        <input type="text" id="etc-search" placeholder="Nhập biển số (VD: 51H-123.45)">
-        <button class="etc-btn" onclick="checkETC()">Tra cứu</button>
-        <div id="etc-result" class="etc-result"></div>
-      </div>
-
-      <!-- Card 4: Lỗi thường gặp -->
-      <div class="etc-card">
-        <h3>Lỗi thường gặp</h3>
-        <ul>
-          <li>Thẻ ETC không được nhận diện</li>
-          <li>Không trừ tiền khi qua trạm</li>
-          <li>Tài khoản sắp hết tiền</li>
-          <li>Thẻ ETC bị bong / mờ</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- Contact -->
-    <div class="etc-contact">
-      <h3>Liên hệ hỗ trợ</h3>
-      <p>📞 VETC: <strong>1900 6010</strong></p>
-      <p>📞 ePass: <strong>1900 1023</strong></p>
-    </div>
-
-  </div>
-</section>
-
-
-<footer>
-    © 2025 - Hệ thống quản lý đường cao tốc Việt Nam
-</footer>
-<script>
-document.getElementById("trafficStatus").addEventListener("click", function(){
-    alert("Xem chi tiết tình trạng giao thông");
-});
-
-async function loadTrafficData(){
-    // URL API thật sẽ đổi thành backend của bạn
-    const res = await fetch("https://yourapi.com/traffic");
-    const data = await res.json();
-    document.querySelector("#trafficStatus p").innerText = data.message;
-}
-
-// gọi ngay khi vào trang
-loadTrafficData();
-
-// tự cập nhật mỗi 30 giây
-setInterval(loadTrafficData, 30000);
-
-document.getElementById("location").addEventListener("change", function(){
-    let selected = this.value;
-    document.querySelector("#trafficStatus p").innerText =
-        "Đang tải dữ liệu giao thông cho: " + selected.toUpperCase();
-
-    // Gọi API theo khu vực
-    // loadTrafficData(selected);
-});
-const socket = new WebSocket("wss://yourserver.com/traffic");
-
-socket.onmessage = (e) => {
-    let data = JSON.parse(e.data);
-    document.querySelector("#trafficStatus p").innerText = data.status;
-};
-
-</script>
+  </script>
 </body>
+
 </html>

@@ -48,7 +48,7 @@ const newsData1 = [
 
 const container1 = document.getElementById("track");
 newsData1.forEach(news => {
-container1.innerHTML += `
+    container1.innerHTML += `
     <div class="item">
         <a href="${news.link}">
             <div class="row p-3">
@@ -169,42 +169,88 @@ const STEP = 200;
 
 // Hàm cập nhật trạng thái nút
 function updateButtons() {
-const trackWidth = track.scrollWidth;
-const viewWidth = track.parentElement.clientWidth;
+    const trackWidth = track.scrollWidth;
+    const viewWidth = track.parentElement.clientWidth;
 
-// If đang ở đầu → khóa nút trái
-prevBtn.disabled = (x >= 0);
+    // If đang ở đầu → khóa nút trái
+    prevBtn.disabled = (x >= 0);
 
-// If đang ở cuối → khóa nút phải
-nextBtn.disabled = (Math.abs(x) >= trackWidth - viewWidth);
+    // If đang ở cuối → khóa nút phải
+    nextBtn.disabled = (Math.abs(x) >= trackWidth - viewWidth);
 }
 
 nextBtn.onclick = () => {
-const trackWidth = track.scrollWidth;
-const viewWidth = track.parentElement.clientWidth;
+    const trackWidth = track.scrollWidth;
+    const viewWidth = track.parentElement.clientWidth;
 
-x -= STEP;
+    x -= STEP;
 
-// Không cho vượt quá cuối
-if (Math.abs(x) > trackWidth - viewWidth) {
-    x = -(trackWidth - viewWidth);
-}
+    // Không cho vượt quá cuối
+    if (Math.abs(x) > trackWidth - viewWidth) {
+        x = -(trackWidth - viewWidth);
+    }
 
-track.style.transform = `translateX(${x}px)`;
-updateButtons();
+    track.style.transform = `translateX(${x}px)`;
+    updateButtons();
 };
 
 prevBtn.onclick = () => {
-x += STEP;
+    x += STEP;
 
-// Không cho vượt quá đầu
-if (x > 0) x = 0;
+    // Không cho vượt quá đầu
+    if (x > 0) x = 0;
 
-track.style.transform = `translateX(${x}px)`;
-updateButtons();
+    track.style.transform = `translateX(${x}px)`;
+    updateButtons();
 };
 
 // Khởi động
 updateButtons();
 
+
+//Hiệu ứng hiện từng phần
+const sections = document.querySelectorAll('.fade-section');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+sections.forEach(section => observer.observe(section));
+
+//Kiểm tra ETC
+document.getElementById("checkBtn").addEventListener("click", () => {
+    const plate = document.getElementById("etc-search").value.trim();
+    const resultDiv = document.getElementById("etc-result");
+
+    if (!plate) {
+        resultDiv.innerHTML = "<span style='color:red'>Vui lòng nhập biển số xe!</span>";
+        return;
+    }
+
+    // Ví dụ API giả lập
+    // Thực tế bạn cần gọi API của ETC, ví dụ: fetch("https://api.etc.vn/check?plate=" + plate)
+    resultDiv.innerHTML = "Đang kiểm tra...";
+
+    fetch(`http://localhost:3000/api/vehicles/${plate}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                resultDiv.innerHTML = `
+                    <p><strong>Biển số:</strong> ${plate}</p>
+                    <p><strong>Số dư ETC:</strong> ${data.balance} VNĐ</p>
+                    <p><strong>Trạng thái:</strong> ${data.status}</p>
+                `;
+            } else {
+                resultDiv.innerHTML = `<span style='color:red'>Không tìm thấy tài khoản ETC cho biển số này.</span>`;
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            resultDiv.innerHTML = "<span style='color:red'>Lỗi khi kiểm tra ETC. Vui lòng thử lại sau.</span>";
+        });
+});
 

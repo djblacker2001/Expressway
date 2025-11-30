@@ -7,12 +7,13 @@ body.show {
   opacity: 1;
 }
 
-header, main {
-    background-color: #e6e6e6;
+header,
+main {
+  background-color: #e6e6e6;
 }
 
 .container {
-    background-color: white;
+  background-color: white;
 }
 
 #mainHeader {
@@ -54,6 +55,7 @@ header, main {
 }
 
 @keyframes zoomInOut {
+
   0%,
   100% {
     transform: scale(1);
@@ -132,44 +134,56 @@ a:hover {
 }
 
 .ways {
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin-top: 30px;
+}
+
+.ways .item {
+    text-align: center;         /* Căn chữ vào giữa */
+}
+
+.ways .item img {              /* Tùy chỉnh kích thước hình */
+    display: block;
+    margin: 0 auto;             /* Đưa hình vào giữa */
 }
 
 .news {
   background-color: #e6e6e6;
   border-radius: 10px;
 }
-  
+
 
 .news img {
-    width: 100%;
-    height: auto;      
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }
 
 .ticker-container {
-    width: 100%;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-radius: 8px;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
 }
 
 .ticker-view {
-    overflow: hidden;
-    flex: 1;
-    white-space: nowrap;
-    
+  overflow: hidden;
+  flex: 1;
+  white-space: nowrap;
+
 }
 
 .ticker-track {
-    display: inline-flex;
-    gap: 40px;
-    transition: transform 0.3s ease;
-    white-space: nowrap;
+  display: inline-flex;
+  gap: 40px;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
 }
 
 .ticker-view .item {
@@ -178,29 +192,37 @@ a:hover {
 }
 
 .news button {
-    background: #ccc;
-    color: white;
-    border: 0;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.4s ease, transform 0.3s ease;
+  background: #ccc;
+  color: white;
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.4s ease, transform 0.3s ease;
 }
 
 .news button:hover {
-    background: #555;
+  background: #555;
 }
 
-section {
-  padding: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  transform: translateY(50px);
 
-}
 
 section h2 {
   color: #0A9646;
+}
+
+.fade-section {
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .etc {
@@ -208,8 +230,8 @@ section h2 {
 }
 
 .etc .etc-card {
-  padding: 10px;
-  background-color: white;
+  padding: 15px;
+  background-color: rgb(219, 219, 219);
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -217,8 +239,9 @@ section h2 {
 }
 
 .etc-btn {
+  font-size: 13px;
   margin-top: 8px;
-  padding: 8px 14px;
+  padding: 10px;
   border: none;
   background: #0A9646;
   color: #fff;
