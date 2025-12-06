@@ -1,67 +1,258 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="vi">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scroll Fade-in</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tìm tên trong danh sách — Demo</title>
   <style>
+    :root {
+      --bg: #f7fafc;
+      --card: #ffffff;
+      --accent: #0ea5a4;
+      --muted: #64748b
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
     body {
-      margin: 0;
-      font-family: sans-serif;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--bg);
+      color: #0f172a;
+      padding: 28px
     }
 
-    .section {
-      height: 100vh;
+    .wrap {
+      max-width: 800px;
+      margin: 0 auto
+    }
+
+    header {
       display: flex;
-      justify-content: center;
       align-items: center;
-      font-size: 3rem;
-      opacity: 0;
-      /* ban đầu ẩn */
-      transform: translateY(50px);
-      /* dịch xuống 50px */
-      transition: all 0.8s ease-out;
-      background-color: #f0f0f0;
-      margin: 0;
-      border-bottom: 1px solid #ccc;
+      gap: 16px;
+      margin-bottom: 18px
     }
 
-    /* Khi section xuất hiện */
-    .section.show {
-      opacity: 1;
-      transform: translateY(0);
+    h1 {
+      font-size: 20px;
+      margin: 0
+    }
+
+    .search {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      background: var(--card);
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06)
+    }
+
+    input[type="search"] {
+      flex: 1;
+      border: 0;
+      outline: 0;
+      font-size: 16px;
+      padding: 8px 6px
+    }
+
+    .count {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .list {
+      margin-top: 14px;
+      background: var(--card);
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04)
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid transparent
+    }
+
+    .item+.item {
+      margin-top: 6px
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #60a5fa);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 700
+    }
+
+    .meta {
+      flex: 1
+    }
+
+    .name {
+      font-weight: 600
+    }
+
+    .sub {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    mark {
+      background: transparent;
+      color: var(--accent);
+      font-weight: 700
+    }
+
+    .empty {
+      padding: 28px;
+      text-align: center;
+      color: var(--muted)
+    }
+
+    @media (max-width:520px) {
+      body {
+        padding: 16px
+      }
+
+      .search {
+        flex-direction: column;
+        align-items: stretch
+      }
     }
   </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <header>
+      <h1>Tìm tên trong danh sách</h1>
+      <div class="count" id="count">0 kết quả</div>
+    </header>
 
-  <section class="section">Section 1</section>
-  <section class="section">Section 2</section>
-  <section class="section">Section 3</section>
-  <section class="section">Section 4</section>
+    <div class="search">
+      <input id="q" type="search" placeholder="Gõ tên (hỗ trợ bỏ dấu) — ví dụ: nguyen, an, Lê" aria-label="Tìm tên"
+        autofocus>
+      <button id="clear" title="Xóa">✕</button>
+    </div>
+
+    <div class="list" id="list"></div>
+  </div>
 
   <script>
-    // Chọn tất cả section
-    const sections = document.querySelectorAll('.section');
+    // Dữ liệu mẫu — thay bằng dữ liệu thật nếu cần
+    const people = [
+      { name: 'Nguyễn Văn An', sub: 'Hà Nội' },
+      { name: 'Trần Thị Bích', sub: 'Hồ Chí Minh' },
+      { name: 'Lê Minh Hoàng', sub: 'Đà Nẵng' },
+      { name: 'Phạm Quốc Dũng', sub: 'Hải Phòng' },
+      { name: 'Hoàng Thị Lan', sub: 'Cần Thơ' },
+      { name: 'Vũ Anh Nhật', sub: 'Bắc Ninh' },
+      { name: 'Đỗ Thuỷ Tiên', sub: 'Nha Trang' },
+      { name: 'Ngô Văn Hùng', sub: 'Huế' },
+      { name: 'Trịnh Kim Chi', sub: 'Vũng Tàu' },
+      { name: 'Bùi Thị Phượng', sub: 'Quảng Ninh' }
+    ];
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show'); // thêm class 'show' khi xuất hiện
-          observer.unobserve(entry.target);   // không quan sát lại nữa
-        }
+    const $q = document.getElementById('q');
+    const $list = document.getElementById('list');
+    const $count = document.getElementById('count');
+    const $clear = document.getElementById('clear');
+
+    // chuẩn hoá: bỏ dấu, chuyển thường
+    function normalize(str) {
+      return str.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+    }
+
+    // highlight từ khớp bằng <mark>
+    function highlight(name, query) {
+      if (!query) return name;
+      const nName = normalize(name);
+      const nQ = normalize(query);
+      // tìm lần xuất hiện đầu tiên
+      const idx = nName.indexOf(nQ);
+      if (idx === -1) return name;
+      // ánh xạ index trở lại tên gốc bằng cách walk từng ký tự
+      let origStart = -1, origEnd = -1, seen = 0;
+      for (let i = 0; i < name.length; i++) {
+        const ch = name[i];
+        const nCh = normalize(ch);
+        if (nCh.length === 0) continue; // ký tự dấu gộp
+        if (seen === idx) origStart = i;
+        seen += nCh.length;
+        if (seen === idx + nQ.length) { origEnd = i + 1; break }
+      }
+      if (origStart === -1) return name;
+      return name.slice(0, origStart) + '<mark>' + name.slice(origStart, origEnd) + '</mark>' + name.slice(origEnd);
+    }
+
+    function render(list, query) {
+      $list.innerHTML = '';
+      if (list.length === 0) {
+        $list.innerHTML = '<div class="empty">Không tìm thấy kết quả</div>';
+        $count.textContent = '0 kết quả';
+        return;
+      }
+      $count.textContent = list.length + (list.length === 1 ? ' kết quả' : ' kết quả');
+      const frag = document.createDocumentFragment();
+      list.forEach(p => {
+        const el = document.createElement('div');
+        el.className = 'item';
+        el.innerHTML = `
+          <div class="avatar">${p.name.split(' ').map(s => s[0]).slice(-2).join('').toUpperCase()}</div>
+          <div class="meta">
+            <div class="name">${highlight(p.name, query)}</div>
+            <div class="sub">${p.sub}</div>
+          </div>
+        `;
+        frag.appendChild(el);
       });
-    }, {
-      threshold: 0.1 // 10% section xuất hiện là trigger
-    });
+      $list.appendChild(frag);
+    }
 
-    // Gắn observer cho từng section
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+    // tìm kiếm: hỗ trợ nhiều từ (split) — tất cả từ phải khớp
+    function search(q) {
+      const nq = normalize(q.trim());
+      if (!nq) { render(people, ''); return }
+      const terms = nq.split(/\s+/).filter(Boolean);
+      const res = people.filter(p => {
+        const nName = normalize(p.name);
+        // tất cả term phải có trong tên
+        return terms.every(t => nName.includes(t));
+      });
+      render(res, q);
+    }
 
+    // simple debounce
+    function debounce(fn, delay = 200) {
+      let t;
+      return function (...args) {
+        clearTimeout(t);
+        t = setTimeout(() => fn.apply(this, args), delay);
+      }
+    }
+
+    const doSearch = debounce(ev => search($q.value), 180);
+
+    $q.addEventListener('input', doSearch);
+    $q.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { $q.value = ''; search(''); }
+    });
+    $clear.addEventListener('click', () => { $q.value = ''; $q.focus(); search(''); });
+
+    // render initial
+    render(people, '');
   </script>
 </body>
 
