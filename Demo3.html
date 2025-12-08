@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+
+        .goTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .goTopBtn:hover {
+            background-color: gray;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* 3 cột */
+            gap: 20px;
+            max-width: 1200px;
+            /* độ rộng tối đa */
+            margin: 0 auto;
+            /* căn giữa */
+
+        }
+
+        .item {
+            background: #eee;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Tablet */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 cột */
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                /* 1 cột */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button id="goTopBtn" class="goTopBtn">^</button>
+    <div class="grid-container">
+        <div class="item">Box 1</div>
+        <div class="item">Box 2</div>
+        <div class="item">Box 3</div>
+        <div class="item">Box 4</div>
+        <div class="item">Box 5</div>
+        <div class="item">Box 6</div>
+    </div>
+
+    <ul id="list">
+        <li>Hùng</li>
+        <li>An</li>
+        <li>Bảo</li>
+        <li>Ánh</li>
+    </ul>
+</body>
+<script>
+    //Sắp xếp tên theo list
+    const ul = document.getElementById("list");
+    const items = Array.from(ul.querySelectorAll("li"));
+    items.sort((a, b) =>
+        a.innerText.localeCompare(b.innerText, 'vi')
+    );
+    ul.innerHTML = "";
+    items.forEach(li => ul.appendChild(li));
+
+    //Đầu trang không hiện nút gototop 
+    const btn = document.getElementById("goTopBtn");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    };
+
+    // Khi click vào nút, cuộn lên đầu trang
+    document.getElementById("goTopBtn").addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"  // Cuộn mượt
+        });
+    });
+</script>
+
+</html>
