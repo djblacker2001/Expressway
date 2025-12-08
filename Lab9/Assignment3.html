@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form Validation</title>
+	<style type="text/css"></style>
+</head>
+<body>
+	<table border="2" width="600px">
+		<tr>
+			<th><b>Full name*</b></th>
+			<td>
+				<input type="text" id="fullName" name="Name" maxlength="100" required="required">
+				<br><span id="errorName" class="error-message" style="color:red;"></span>
+			</td>
+		</tr>
+		<tr>
+			<th><b>Email*</b></th>
+			<td>
+				<input type="text" id="email" name="Email" maxlength="100" required="required">
+				<br><span id="errorEmail" class="error-message" style="color:red;"></span>
+			</td>
+		</tr>
+		<tr>
+			<th><b>Password*</b></th>
+			<td>
+				<input type="password" name="password" id="password"  maxlength="100" required="required" placeholder ="Enter your password">
+				<br><span id="errorPassword" class="error-message" style="color:red;"></span>
+			</td>
+		</tr>
+		<tr>
+			<th><b>Confirm password*</b></th>
+			<td>
+				<input type="password"id="confirmPassword" name="confirm_password" maxlength="100" required="required" placeholder ="Enter your confirm password">
+				<br><span id="errorConfirm" class="error-message" style="color:red;"></span>
+			</td>
+		</tr>
+		<tr>
+			<th><b>Phone number*</b></th>
+			<td>
+				<input type="text" id="phone" name="Phone" maxlength="10" required="required">
+			</td>
+		</tr>
+		<tr>
+			<th><b>Address</b></th>
+			<td><textarea name="textarea" cols="50" rows="4"></textarea></td>
+		</tr>
+		<tr>
+			<th><b>City</b></th>
+			<td>
+				<input type="text" name="City" maxlength="100" placeholder="Enter your City">
+				<b>State</b>
+				<input type="text" name="State" maxlength="100" placeholder="Enter your State">
+			</td>
+		</tr>
+		<tr>
+			<th><b>Zip/Postal Code</b></th>
+			<td><input type="text" name="Zip/Postal Code" maxlength="100" placeholder="Enter your Zip/Postal Code"></td>
+		</tr>
+		<tr>
+			<th><b>Country</b></th>
+			<td>
+				<select name="Country">
+					<option value="Country">[Select your country]</option>
+					<option value="Country">Vietnam</option>
+					<option value="Country">Laos</option>
+					<option value="Country">Thailand</option>
+					<option value="Country">Brunnei</option>
+					<option value="Country">China</option>
+				</select>
+			</td>
+			
+		</tr>
+		<tr>
+			<th><b>Birthday</b></th>
+			<td><input type="text" name="Birthday" maxlength=20 placeholder="mm/dd/yyyy"></td>
+		</tr>
+		<tr>
+			<th><b>Gender</b></th>
+			<td>
+				<select name="Gender">
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th><b>Stating date</b></th>
+			<td>
+				<input type="radio" name="season" value="Spring">Spring
+				<input type="radio" name="season" value="Summer" checked="">Summer
+			</td>
+		</tr>
+		<tr>
+			<th><b>Comment</b></th>
+			<td><textarea name="textarea" cols="50" rows="4" placeholder="Please send us more information"></textarea></td>
+		</tr>
+		<tr>
+			<th colspan="2"><button type="button" name="Submit" onclick="clickHandler()">Submit</button></th>
+		</tr>
+	</table>
+	<script>
+		function clickHandler() {
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const phone = document.getElementById('phone').value.trim();
+
+      document.getElementById("errorName").innerText = "";
+	    document.getElementById("errorEmail").innerText = "";
+	    document.getElementById("errorPassword").innerText = "";
+	    document.getElementById("errorConfirm").innerText = "";
+
+      if (!fullName) {
+				document.getElementById("errorName").innerText = "Please input your name";
+				return false;
+      }
+	    if (!email) {
+	    	document.getElementById("errorEmail").innerText = "Please input your email";
+	    	return false;
+	    }
+	    if (password.length < 6) {
+	    	document.getElementById("errorPassword").innerText = "Password must be at least 6 characters";
+	    	return false;
+	    }
+	    if (password !== confirmPassword) {
+	    	document.getElementById("errorConfirm").innerText = "It does not match your password";
+	    	return false;
+	    }
+
+	    alert("Form submitted successfully!"); 
+	    
+    }
+	</script>
+
+
+
+</body>
+</html>

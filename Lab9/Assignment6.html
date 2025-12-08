@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Management System</title>
+</head>
+<body>
+  <select id="classDropdown">
+    
+  </select>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Class</th>
+      </tr>
+    </thead>
+    <tbody id="StudentData">
+      
+    </tbody>
+  </table>
+  <script>
+    fetch('http://139.180.213.49/getdata-student.php?Type=Class')
+      .then(response => {
+        if (!response.ok) {
+          console.log("Error");
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        let classes = "";
+        for (let i = 0 ;i<data.length;i++){
+          classes += `<option>${data[i]}</option>`
+        }
+        document.querySelector("#classDropdown").innerHTML=classes;
+      })
+      
+
+    fetch('http://139.180.213.49/getdata-student.php?Type=Student')
+      .then(response => {
+        if (!response.ok) {
+          console.log("Error");
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        let students = "";
+        for(let i = 0;i<data.length;i++) {
+          students += `<tr>
+            <td>${i+1}</td>
+            <td>${data[i].Name}</td>
+            <td>${data[i].Email}</td>
+            <td>${data[i].Class}</td>
+          </tr>`
+        }
+
+        document.querySelector("#StudentData").innerHTML=students;
+      })
+
+      
+
+
+  </script>
+
+</body>
+</html>

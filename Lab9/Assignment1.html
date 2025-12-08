@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gallery</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" type="text/css" href="Assignment1.css">
+</head>
+<body>
+	<div class="thumbnails">
+		<img src="images/screen1.png" alt="Forest View" onclick="showPreview(this)">
+		<img src="images/screen2.png" alt="Snowy Peaks" onclick="showPreview(this)">
+		<img src="images/screen3.png" alt="Mountain Lake" onclick="showPreview(this)">
+		<img src="images/screen4.png" alt="Northern Lights" onclick="showPreview(this)">
+	</div>
+
+
+	<div class="preview" id="previewBox">
+		<button class="close-btn" onclick="closePreview()"><i class="fa-solid fa-xmark"></i></button>
+		<img id="previewImg" src="images/screen1.png" alt="Forest View">
+		<div class="caption" id="captionText">Caption here</div>
+	</div>
+
+
+	<script>
+		function showPreview(imgEl) {
+			const filename = imgEl.getAttribute('src');
+			const caption = imgEl.getAttribute('alt');
+
+			document.getElementById('previewImg').src = filename;
+			document.getElementById('captionText').textContent = caption;
+			document.getElementById('previewBox').style.display = 'block';
+
+			const thumbnails = document.querySelectorAll('.thumbnails img');
+			thumbnails.forEach(img => img.classList.remove('selected'));
+
+			imgEl.classList.add('selected');
+		}
+		function closePreview() {
+			document.getElementById('previewBox').style.display = 'none';
+			
+			// Optional: remove "selected" class from all thumbnails
+			const thumbnails = document.querySelectorAll('.thumbnails img');
+			thumbnails.forEach(img => img.classList.remove('selected'));
+		}
+	</script>
+</body>
+</html>

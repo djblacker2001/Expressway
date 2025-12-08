@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Password</title>
+</head>
+<body>
+	<p><h3>Password:</h3></p>
+	<p><input type="password" id="password"></p>
+	<p><input type="checkbox" id="showPassword">Show Password</p>
+
+	<script>
+		const passwordInput = document.getElementById("password");
+		const showPasswordCheckbox = document.getElementById("showPassword");
+
+		showPasswordCheckbox.addEventListener("click", function () {
+			if (this.checked) {
+				passwordInput.type = "text";
+			} else {
+				passwordInput.type = "password";
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+body {
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.todo-container {
+  width: 400px;
+  overflow: hidden;
+}
+
+.header {
+  background-color: #77aaff;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.input-container {
+  display: flex;
+  padding: 10px;
+  gap: 5px;
+  background: #eef1f5;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-container button {
+  padding: 8px 12px;
+  background: #ccc;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-top: 1px solid #eee;
+  cursor: pointer;
+  position: relative;
+}
+
+li:nth-child(odd) {
+  background-color: white;
+}
+
+li:nth-child(even) {
+  background-color: lightgray;
+}
+
+.task-text {
+  margin-left: 20px;
+}
+
+li.checked {
+  background-color: gray;
+  color: white;
+}
+
+li.checked .task-text {
+  text-decoration: line-through;
+  color: white;
+}
+
+li.checked::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  -webkit-font-smoothing: antialiased;
+  content: '\f00c';
+  position: absolute;
+  font-size: 12px;
+  color: white;
+}
+
+li .icon {
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+}

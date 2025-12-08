@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="Assignment2.css">
+</head>
+<body>
+  <div class="todo-container">
+    <div class="header">My To Do List</div>
+    <div class="input-container">
+      <input type="text" id="taskInput" placeholder="Title...">
+      <button onclick="addTask()">Add</button>
+    </div>
+    <ul id="taskList">
+      <li onclick="toggleChecked(this)"><span class="task-text">Hit the gym</span><i class="fa-solid fa-xmark" onclick="removeTask(event)"></i></li>
+      <li class="checked" onclick="toggleChecked(this)"><span class="task-text">Marry</span><i class="fa-solid fa-xmark" onclick="removeTask(event)"></i></li>
+      <li onclick="toggleChecked(this)"><span class="task-text">Meet Girl Friend</span><i class="fa-solid fa-xmark" onclick="removeTask(event)"></i></li>
+      <li onclick="toggleChecked(this)"><span class="task-text">Buy eggs</span><i class="fa-solid fa-xmark" onclick="removeTask(event)"></i></li>
+      <li onclick="toggleChecked(this)"><span class="task-text">Read a book</span><i class="fa-solid fa-xmark" onclick="removeTask(event)"></i></li>
+      <li onclick="toggleChecked(this)"><span class="task-text">Organize room</span><i class="fa-solid fa-xmark" onclick="removeTask(event)"></i></li>
+    </ul>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const task = input.value.trim();
+      if (task === "") return;
+
+      const li = document.createElement("li");
+      li.onclick = function () { 
+        toggleChecked(li); 
+      };
+
+      const spanText = document.createElement("span");
+      spanText.className = "task-text";
+      spanText.textContent = task;
+
+      const iconClose = document.createElement("i");
+      iconClose.className = "fa-solid fa-xmark";
+      iconClose.onclick = removeTask;
+
+      li.appendChild(spanText);
+      li.appendChild(iconClose);
+      document.getElementById("taskList").appendChild(li);
+      input.value = "";
+    }
+
+    function removeTask(event) {
+      event.stopPropagation();
+      const li = event.target.parentElement;
+      li.remove();
+    }
+
+    function toggleChecked(element) {
+      element.classList.toggle("checked");
+    }
+  </script>
+</body>
+</html>
