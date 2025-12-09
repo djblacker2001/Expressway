@@ -11,6 +11,7 @@
         }
 
         .goTopBtn {
+            display: none;
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -44,6 +45,7 @@
             border-radius: 8px;
         }
 
+
         /* Tablet */
         @media (max-width: 768px) {
             .grid-container {
@@ -74,14 +76,61 @@
     </div>
 
     <ul id="list">
-        <li>Hùng</li>
         <li>An</li>
         <li>Bảo</li>
-        <li>Ánh</li>
+        <li>Hùng</li>
+        <li>Đức</li>
+        <li>Trí</li>
     </ul>
+
+    <div>
+        <button id="sortAZ">Sắp xếp A → Z</button>
+        <button id="sortZA">Sắp xếp Z → A</button>
+    </div>
+
+    <ul id="nameList">
+        <li>An</li>
+        <li>Bảo</li>
+        <li>Hùng</li>
+        <li>Đức</li>
+        <li>Trí</li>
+    </ul>
+
+
+    <table border="1" id="myTable">
+        <thead>
+            <tr>
+                <th class="sortable">Tên</th>
+                <th class="sortable">Tuổi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>An</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>Hùng</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>Bảo</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>Đức</td>
+                <td>19</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="resetTable">Reset danh sách</button>
+
+
+
 </body>
 <script>
-    //Sắp xếp tên theo list
+    //Sắp xếp tên theo list nhanh
     const ul = document.getElementById("list");
     const items = Array.from(ul.querySelectorAll("li"));
     items.sort((a, b) =>
@@ -90,23 +139,91 @@
     ul.innerHTML = "";
     items.forEach(li => ul.appendChild(li));
 
-    //Đầu trang không hiện nút gototop 
-    const btn = document.getElementById("goTopBtn");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            btn.style.display = "block";
-        } else {
-            btn.style.display = "none";
-        }
-    };
+    //Sắp xếp bằng nút bấm
+    const list = document.getElementById("nameList");
+    const item = Array.from(list.getElementsByTagName("li"));
 
-    // Khi click vào nút, cuộn lên đầu trang
-    document.getElementById("goTopBtn").addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"  // Cuộn mượt
+    document.getElementById("sortAZ").addEventListener("click", () => {
+        const sorted = item.sort((a, b) =>
+            a.textContent.localeCompare(b.textContent, "vi")
+        );
+        list.innerHTML = "";
+        sorted.forEach(li => list.appendChild(li));
+    });
+
+    document.getElementById("sortZA").addEventListener("click", () => {
+        const sorted = item.sort((a, b) =>
+            b.textContent.localeCompare(a.textContent, "vi")
+        );
+        list.innerHTML = "";
+        sorted.forEach(li => list.appendChild(li));
+    });
+
+    //Hiệu ứng go to top
+    document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("goTopBtn");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        });
+
+        btn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
         });
     });
+
+    //sắp xếp danh sách dạng table
+    const table = document.getElementById("myTable");
+    const tbody = table.querySelector("tbody");
+    const headers = table.querySelectorAll(".sortable");
+
+    let sortDirection = true;
+
+    // Lưu danh sách ban đầu
+    const originalRows = Array.from(tbody.querySelectorAll("tr"))
+        .map(row => row.cloneNode(true));
+
+    // Sort khi click cột
+    headers.forEach((header, index) => {
+        header.addEventListener("click", () => {
+            sortTable(index);
+            sortDirection = !sortDirection;
+        });
+    });
+
+    function sortTable(colIndex) {
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+
+        const sorted = rows.sort((a, b) => {
+            let A = a.children[colIndex].textContent.trim();
+            let B = b.children[colIndex].textContent.trim();
+
+            if (!isNaN(A) && !isNaN(B)) {
+                return sortDirection ? A - B : B - A;
+            }
+
+            return sortDirection
+                ? A.localeCompare(B, "vi")
+                : B.localeCompare(A, "vi");
+        });
+
+        tbody.innerHTML = "";
+        sorted.forEach(row => tbody.appendChild(row));
+    }
+
+    // Nút Reset
+    document.getElementById("resetTable").addEventListener("click", () => {
+        tbody.innerHTML = "";
+        originalRows.forEach(row => tbody.appendChild(row.cloneNode(true)));
+    });
+
 </script>
 
 </html>

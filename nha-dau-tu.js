@@ -1,7 +1,7 @@
 //Dữ liệu nhà đầu tư
 const newsData1 = [
     {
-        hone: "https://www.duongcaotoc.com.vn/",
+        home: "https://www.duongcaotoc.com.vn/", 
         image: "https://www.duongcaotoc.com.vn/images/LOGO%20VEC38.jpg",
         name: "TỔNG CÔNG TY ĐẦU TƯ PHÁT TRIỂN ĐƯỜNG CAO TỐC VIỆT NAM (VEC)",
         content: "Đầu tư, quản lý và vận hành nhiều tuyến cao tốc trọng điểm.",
@@ -11,7 +11,7 @@ const newsData1 = [
         contact: "https://www.duongcaotoc.com.vn/lien-he/"
     },
     {
-        hone: "https://deoca.vn/",
+        home: "https://deoca.vn/",
         image: "https://deoca.vn/file/baiviet/05.11.2021/1637807543-dcg-logo%20(new)-01.png",
         name: "TẬP ĐOÀN ĐÈO CẢ",
         content: "Nhà đầu tư Hạ tầng giao thông hàng đầu Việt Nam",
@@ -21,7 +21,7 @@ const newsData1 = [
         contact: "https://deoca.vn/lien-he.html"
     },
     {
-        hone: "tapdoansonhai.vn",
+        home: "tapdoansonhai.vn",
         image: "tapdoansonhai.png",
         name: "TẬP ĐOÀN SƠN HẢI",
         content: "Nhà thầu công trình hạ tầng duy nhất tại Việt Nam có cam kết bảo hành chất lượng từ 5 đến 10 năm tại các công trình thi công.",
