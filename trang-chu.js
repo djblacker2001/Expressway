@@ -1,5 +1,10 @@
 const newsData1 = [
     {
+        link: "https://baomoi.com/thong-xe-hang-nghin-km-cao-toc-duong-bo-ven-bien-truoc-19-12-c53998727.epi",
+        image: "https://photo-baomoi.bmcdn.me/w700_r1/2025_12_13_35_53998727/c6c9ba314378aa26f369.jpg.avif",
+        title: "Thông xe hàng nghìn km cao tốc, đường bộ ven biển trước 19/12",
+    },
+    {
         link: "https://thanhnien.vn/het-nam-2025-viet-nam-du-kien-co-3245-km-duong-cao-toc-185251020151700373.htm",
         image: "https://images2.thanhnien.vn/528068263637045248/2025/10/20/edit-nguyen-hoa-binh-17609480854332132821882.jpeg",
         title: "Hết năm 2025, Việt Nam dự kiến có 3.245 km đường cao tốc",
@@ -18,11 +23,6 @@ const newsData1 = [
         link: "https://vnexpress.net/dien-mao-nha-ga-hinh-canh-sen-san-bay-long-thanh-4986592.html",
         image: "https://i1-vnexpress.vnecdn.net/2025/11/26/DJI-20251126101825-0288-D-1764172264-1764172277.jpg?w=1200&h=0&q=100&dpr=2&fit=crop&s=YwatB4sgPc5-hREBHcfPxA",
         title: "Diện mạo nhà ga hình cánh sen sân bay Long Thành",
-    },
-    {
-        link: "",
-        image: "",
-        title: "",
     },
     {
         link: "",
