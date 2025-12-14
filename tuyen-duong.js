@@ -493,7 +493,7 @@ newsData3 = [
     {
         link: "https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_cao_t%E1%BB%91c_Kh%C3%A1nh_H%C3%B2a_%E2%80%93_Bu%C3%B4n_Ma_Thu%E1%BB%99t",
         name: "Đường cao tốc Khánh Hòa – Buôn Ma Thuột",
-        image: "bienbao/CT24.png",
+        image: "tuyenduong/KhanhHoaBuonMaThuot.png",
         length: "117 km",
         start: "Nút giao Nam Vân Phong",
         end: "Nút giao Buôn Ma Thuột",

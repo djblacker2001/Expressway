@@ -1,6 +1,12 @@
 //Hiển thị dữ liệu tin tức xem mới nhất
 const newsData1 = [
     {
+        link: "https://vnexpress.net/cao-toc-dau-tien-khong-co-barie-o-loi-vao-thu-phi-4666404.html",
+        image: "https://i1-vnexpress.vnecdn.net/2023/10/19/xombong-11-3593-1697628671-169-6473-5485-1697686993.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=bYwtR-HbnFosVoL-5GAnGA",
+        name: "Cao tốc đầu tiên không có barie ở lối vào thu phí",
+        content: "Cao tốc Nha Trang - Cam Lâm được Bộ Giao thông Vận tải thí điểm thu phí không dừng bỏ barie và cabin ở lối vào, giúp xe chạy qua nhanh hơn, hạn chế ùn tắc.",
+    },
+    {
         link: "https://vnexpress.net/dieu-chinh-toc-do-tren-cao-toc-tp-hcm-long-thanh-dau-giay-4957746.html",
         image: "https://i1-vnexpress.vnecdn.net/2025/10/30/z4304395212480-c407985f271aba6-3190-7513-1761798097.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=VET7N4ci-qeJMbEE3xVvPA",
         name: "Điều chỉnh tốc độ trên cao tốc TP HCM - Long Thành - Dầu Giây",
