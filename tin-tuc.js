@@ -1,6 +1,36 @@
 //Hiển thị dữ liệu tin tức xem mới nhất
 const newsData1 = [
     {
+        link: "https://baodautu.vn/hue-khoi-cong-du-an-mo-rong-cao-toc-bac---nam-doan-cam-lo---la-son-d464353.html",
+        image: "https://media.baodautu.vn/Images/phamthanh/2025/12/19/Cac_i_biu_bm_nut_khi_cong.jpg",
+        name: "Khởi công Dự án mở rộng cao tốc Bắc - Nam đoạn Cam Lộ - La Sơn",
+        content: "Ngày 19/12, tại TP. Huế, Bộ Xây dựng phối hợp với UBND TP. Huế và UBND tỉnh Quảng Trị tổ chức lễ khởi công Dự án đầu tư xây dựng mở rộng đường bộ cao tốc Bắc - Nam phía Đông đoạn Cam Lộ - La Sơn.",
+    },
+    {
+        link: "https://baodautu.vn/khanh-thanh-cau-day-vang-binh-khanh-tren-tuyen-cao-toc-ben-luc---long-thanh-d463932.html",
+        image: "https://media.baodautu.vn/Images/anhquan/2025/12/19/cau%20binh%20khanh.jpg",
+        name: "Khánh thành cầu dây văng Bình Khánh trên tuyến cao tốc Bến Lức - Long Thành",
+        content: "Sáng 19/12, tại xã Bình Khánh, TP.HCM, Tổng công ty Đầu tư phát triển đường cao tốc Việt Nam (VEC) khánh thành cầu Bình Khánh nằm trên tuyến cao tốc Bến Lức - Long Thành.",
+    },
+    {
+        link: "https://thanhnien.vn/khanh-thanh-cao-toc-quang-ngai-hoai-nhon-20400-ti-dong-18525121915555343.htm",
+        image: "https://images2.thanhnien.vn/528068263637045248/2025/12/19/z7342753569867ba2d03da149ec3670cbc955bf63b1050-1766134109849584636103.jpg",
+        name: "Khánh thành cao tốc Quảng Ngãi - Hoài Nhơn",
+        content: "Sau hơn 1.000 ngày thi công, dự án đường bộ cao tốc Quảng Ngãi - Hoài Nhơn có tổng mức đầu tư hơn 20.400 tỉ đồng chính thức hoàn thành.",
+    },
+    {
+        link: "https://baokhanhhoa.vn/chinh-tri/202512/thongxeky-thuat-20km-dau-tuyen-duong-bo-cao-toc-khanh-hoa-buon-ma-thuot-7e90b2e/",
+        image: "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/122025/7_20251219121732_20251219124201.webp",
+        name: "Thông xe kỹ thuật 20km đầu tuyến đường bộ cao tốc Khánh Hòa - Buôn Ma Thuột",
+        content: "Sáng 19-12, tại công trình đường bộ cao tốc Khánh Hòa - Buôn Ma Thuột, UBND tỉnh Khánh Hòa tổ chức lễ thông xe kỹ thuật 20km đầu tuyến của công trình này.",
+    },
+    {
+        link: "https://baomoi.com/mo-rong-cao-toc-tphcm-trung-luong-my-thuan-hon-36-000-ty-dong-c54050219.epi",
+        image: "https://photo-baomoi.bmcdn.me/w700_r1/2025_12_19_20_54050219/755a0432ec7b05255c6a.jpg.avif",
+        name: "Mở rộng cao tốc TPHCM - Trung Lương - Mỹ Thuận",
+        content: "Ngày 19/12, cùng cả nước, Bộ Xây dựng phối hợp cùng tỉnh Đồng Tháp, liên danh nhà đầu tư tổ chức Lễ khởi công Dự án mở rộng đường cao tốc TPHCM - Trung Lương - Mỹ Thuận theo hình thức BOT, tổng vốn đầu tư hơn 36.000 tỷ đồng.",
+    },
+    {
         link: "https://vnexpress.net/cao-toc-dau-tien-khong-co-barie-o-loi-vao-thu-phi-4666404.html",
         image: "https://i1-vnexpress.vnecdn.net/2023/10/19/xombong-11-3593-1697628671-169-6473-5485-1697686993.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=bYwtR-HbnFosVoL-5GAnGA",
         name: "Cao tốc đầu tiên không có barie ở lối vào thu phí",

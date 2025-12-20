@@ -304,10 +304,10 @@ newsData2 = [
     {
         link: "https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_cao_t%E1%BB%91c_Cao_L%C3%A3nh_%E2%80%93_V%C3%A0m_C%E1%BB%91ng",
         name: "Đường cao tốc Cao Lãnh – Lộ Tẻ",
-        image: "tuyenduong/CaoLanhVamCong.png",
+        image: "tuyenduong/CaoLanhLoTe.png",
         length: "29 km",
         start: "Nút giao An Bình",
-        end: "Nút giao Lô Tẻ",
+        end: "Nút giao Lộ Tẻ",
     },
     {
         link: "https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_cao_t%E1%BB%91c_L%E1%BB%99_T%E1%BA%BB_%E2%80%93_R%E1%BA%A1ch_S%E1%BB%8Fi",
