@@ -123,7 +123,7 @@ const newsData1 = [
     {
         link: "https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_cao_t%E1%BB%91c_La_S%C6%A1n_%E2%80%93_T%C3%BAy_Loan",
         name: "Đường cao tốc La Sơn - Hòa Liên",
-        image: "tuyenduong/LaSonTuyLoan.png",
+        image: "tuyenduong/LaSonHoaLien.png",
         length: "65 km",
         start: "Nút giao La Sơn",
         end: "Nút giao Hòa Liên",
@@ -131,7 +131,7 @@ const newsData1 = [
     {
         link: "https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_cao_t%E1%BB%91c_La_S%C6%A1n_%E2%80%93_T%C3%BAy_Loan",
         name: "Đường cao tốc Hòa Liên – Túy Loan",
-        image: "tuyenduong/LaSonTuyLoan.png",
+        image: "tuyenduong/HoaLienTuyLoan.png",
         length: "11 km",
         start: "Nút giao Hòa Liên",
         end: "Nút giao Túy Loan",
