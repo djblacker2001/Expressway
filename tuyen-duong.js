@@ -645,7 +645,7 @@ newsData3 = [
     {
         link: "https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_cao_t%E1%BB%91c_C%C3%A0_Mau_%E2%80%93_%C4%90%E1%BA%A5t_M%C5%A9i",
         name: "Đường cao tốc Cà Mau – Đất Mũi",
-        image: "bienbao/CT43.png",
+        image: "tuyenduong/CaMauDatMui.png",
         length: "93 km",
         start: "Nút giao Cà Mau",
         end: "Nút giao Đát Mũi",
@@ -707,10 +707,10 @@ function renderList2(data) {
 
 //Hiển thị dữ liệu một số tuyến đường cao tốc khác
 function renderList3(data) {
-const container3 = document.getElementById("differentID");
-container3.innerHTML = "";
-data.forEach(news => {
-    container3.innerHTML += `
+    const container3 = document.getElementById("differentID");
+    container3.innerHTML = "";
+    data.forEach(news => {
+        container3.innerHTML += `
     <div class="col-md-3">
         <a href="${news.link}">
             <article class="expresswayList">
@@ -727,7 +727,7 @@ data.forEach(news => {
         </a>
     </div>
   `;
-});
+    });
 }
 
 
@@ -779,7 +779,11 @@ renderList1(newsData1);
 renderList2(newsData2);
 renderList3(newsData3);
 
-
+function handleEnter(event) {
+    if (event.key === "Enter") {
+        searchHighway();
+    }
+}
 
 //Hiệu ứng nút go to top
 $(document).ready(function () {
