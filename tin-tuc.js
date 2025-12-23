@@ -1,6 +1,30 @@
 //Hiển thị dữ liệu tin tức xem mới nhất
 const newsData1 = [
     {
+        link: "https://congthuong.vn/kien-nghi-khac-phuc-nhung-ton-tai-tren-cao-toc-van-phong-nha-trang-436179.html",
+        image: "https://cdn-i2.congthuong.vn/resize/th/upload/2025/12/23/cao-toc-nha-trang-van-phong-11480036.jpg",
+        name: "Kiến nghị khắc phục những tồn tại trên cao tốc Vân Phong - Nha Trang",
+        content: "Cục Cảnh sát giao thông phối hợp Cục Đường bộ Việt Nam xác định 17 tồn tại, bất hợp lý trên cao tốc Vân Phong - Nha Trang, tiềm ẩn nguy cơ mất an toàn giao thông.",
+    },
+    {
+        link: "https://doanhnhansaigon.vn/cao-toc-vinh-hao-phan-thiet-hoan-thien-he-thong-camera-va-tram-can-tai-trong-331179.html",
+        image: "https://dnsg.1cdn.vn/2025/12/23/cao-toc-1-.jpg",
+        name: "Cao tốc Vĩnh Hảo - Phan Thiết hoàn thiện hệ thống camera và trạm cân tải trọng",
+        content: "Ngày 23/12, ông Nguyễn Khắc Việt - Giám đốc điều hành Dự án cao tốc Vĩnh Hảo - Phan Thiết, cho biết công tác lắp đặt hệ thống giám sát giao thông thông minh và trạm cân tải trọng tại các lối vào tuyến cao tốc đã cơ bản hoàn thành, sẵn sàng phục vụ công tác quản lý, khai thác an toàn trong thời gian tới.",
+    },
+    {
+        link: "https://vnexpress.net/cho-oto-vao-cao-toc-can-tho-hau-giang-tu-sang-22-12-4996495.html",
+        image: "https://i1-vnexpress.vnecdn.net/2025/12/21/cao-toc-ct-hg-moi-1766305164-5-5104-5522-1766307619.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=B0Tbk84UpSrkK_Jm_FtbqQ",
+        name: "Cho ôtô vào cao tốc Cần Thơ - Hậu Giang từ sáng 22/12",
+        content: "9h ngày 22 tháng 12, ôtô được chạy trên gần 38 km cao tốc Cần Thơ – Hậu Giang với tốc độ 60–80 km/h.",
+    },
+    {
+        link: "https://vnexpress.net/khoi-cong-cao-toc-14-400-ty-ket-noi-tp-hcm-da-lat-4995984.html",
+        image: "https://i1-vnexpress.vnecdn.net/2025/12/19/z7342345596452-21a64f63f067351-5935-5208-1766141281.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=ViRSe5zYiO8ZQaQuFX6DdA",
+        name: "Khởi công cao tốc 14.400 tỷ kết nối TP HCM - Đà Lạt",
+        content: "Cao tốc Tân Phú - Bảo Lộc dài 66 km khởi công 19/12, hoàn thành cuối năm 2027, rút ngắn thời gian di chuyển từ TP HCM lên Đà Lạt còn khoảng 3 giờ.",
+    },
+    {
         link: "https://baodautu.vn/hue-khoi-cong-du-an-mo-rong-cao-toc-bac---nam-doan-cam-lo---la-son-d464353.html",
         image: "https://media.baodautu.vn/Images/phamthanh/2025/12/19/Cac_i_biu_bm_nut_khi_cong.jpg",
         name: "Khởi công Dự án mở rộng cao tốc Bắc - Nam đoạn Cam Lộ - La Sơn",
@@ -114,9 +138,9 @@ const newsData2 = [
         title:"Chạy đua hoàn thiện hạ tầng kết nối sân bay Long Thành",
     },
     {
-        link:"",
-        image:"",
-        title:"",
+        link:"https://laodong.vn/xa-hoi/de-nghi-phan-lan-thay-doi-toc-do-xe-chay-tren-8-doan-tuyen-cao-toc-1577646.ldo",
+        image:"https://media-cdn-v2.laodong.vn/storage/newsportal/2025/9/20/1577646/Phan-Lan-Gt1.jpg?w=660",
+        title:"Đề nghị phân làn, thay đổi tốc độ xe chạy trên 8 đoạn tuyến cao tốc",
     },
 ];
 
