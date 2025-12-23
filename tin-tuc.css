@@ -117,6 +117,10 @@ aside {
 h2 {
     color: #0A9646;
 }
+
+#loadMoreNearly {
+  justify-content: center;
+}
     
 
 aside img {

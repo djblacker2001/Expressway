@@ -108,12 +108,12 @@ const newsData1 = [
         name: "Quyết đưa cao tốc Hoài Nhơn - Quy Nhơn cán đích vào giữa tháng 12 năm 2025",
         content: "Một trong hai gói thầu của cao tốc Hoài Nhơn - Quy Nhơn đã hoàn thành, hiện nhà thầu thi công đang nỗ lực đưa gói thầu còn lại thông xe và về đích đúng tiến độ đề ra.",
     },
-    {
-        link: "",
-        image: "",
-        name: "",
-        content: "",
-    },
+    // {
+    //     link: "",
+    //     image: "",
+    //     name: "",
+    //     content: "",
+    // },
 ];
 
 const newsData2 = [
@@ -146,21 +146,43 @@ const newsData2 = [
 
 //Hiển thị dữ liệu tin tức mới nhất
 const container1 = document.getElementById("nearlyID");
-newsData1.forEach(news => {
-container1.innerHTML += `
-    <a href="${news.link}">
-        <div class="row p-3">
-            <div class="col-4 align-self-center">
-                <img src="${news.image}" alt="">
-            </div>
-            <div class="col-8 align-self-center">
-                <b>${news.name}</b>
-                <p>${news.content}</p>
-            </div>
-        </div>
-    </a>
-`;
-});
+const loadMoreBtn = document.getElementById("loadMoreNearly");
+
+let itemsPerLoad = 5;
+let currentIndex = 0;
+
+function renderNews() {
+    const nextItems = newsData1.slice(currentIndex, currentIndex + itemsPerLoad);
+
+    nextItems.forEach(news => {
+        container1.innerHTML += `
+            <a href="${news.link}" target="_blank" class="text-decoration-none text-dark">
+                <div class="row p-3 border-bottom">
+                    <div class="col-4 align-self-center">
+                        <img src="${news.image}" alt="" class="img-fluid rounded">
+                    </div>
+                    <div class="col-8 align-self-center">
+                        <b>${news.name}</b>
+                        <p class="mb-0 small">${news.content}</p>
+                    </div>
+                </div>
+            </a>
+        `;
+    });
+
+    currentIndex += itemsPerLoad;
+
+    // Hết tin thì ẩn nút
+    if (currentIndex >= newsData1.length) {
+        loadMoreBtn.style.display = "none";
+    }
+}
+// Load lần đầu
+renderNews();
+
+// Click xem thêm
+loadMoreBtn.addEventListener("click", renderNews);
+
 
 // //Dữ liệu tin tức xem nhiều nhất
 const container2 = document.getElementById("viewID");

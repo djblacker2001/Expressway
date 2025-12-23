@@ -128,6 +128,16 @@
 
 
 
+    
+
+    <h2>Tin tức giao thông</h2>
+
+    <div id="news-container" class="news-grid"></div>
+
+    <button id="loadMoreBtn">Xem thêm</button>
+
+
+
 </body>
 <script>
     //Sắp xếp tên theo list nhanh
@@ -223,6 +233,57 @@
         tbody.innerHTML = "";
         originalRows.forEach(row => tbody.appendChild(row.cloneNode(true)));
     });
+
+
+
+
+
+
+    const newsData = [
+        { title: "Cao tốc Bắc – Nam thông xe", desc: "Thông xe đoạn mới...", img: "https://picsum.photos/400/200?1" },
+        { title: "Ùn tắc giờ cao điểm", desc: "Kẹt xe kéo dài...", img: "https://picsum.photos/400/200?2" },
+        { title: "Tai nạn trên QL1A", desc: "Va chạm nhẹ...", img: "https://picsum.photos/400/200?3" },
+        { title: "Mở rộng làn đường", desc: "Dự án mở rộng...", img: "https://picsum.photos/400/200?4" },
+        { title: "Cấm xe tải ban ngày", desc: "Áp dụng từ hôm nay...", img: "https://picsum.photos/400/200?5" },
+        { title: "Sửa chữa cầu vượt", desc: "Thời gian sửa chữa...", img: "https://picsum.photos/400/200?6" },
+        { title: "Thêm biển báo mới", desc: "Cập nhật biển báo...", img: "https://picsum.photos/400/200?7" },
+        { title: "Giảm tốc độ khu dân cư", desc: "Giới hạn 40km/h...", img: "https://picsum.photos/400/200?8" }
+    ];
+
+    const container = document.getElementById("news-container");
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+    let itemsPerLoad = 4;
+    let currentIndex = 0;
+
+    function loadNews() {
+        const nextItems = newsData.slice(currentIndex, currentIndex + itemsPerLoad);
+
+        nextItems.forEach(news => {
+            const div = document.createElement("div");
+            div.className = "news-item";
+            div.innerHTML = `
+            <img src="${news.img}">
+            <div class="news-content">
+                <h4>${news.title}</h4>
+                <p>${news.desc}</p>
+            </div>
+        `;
+            container.appendChild(div);
+        });
+
+        currentIndex += itemsPerLoad;
+
+        if (currentIndex >= newsData.length) {
+            loadMoreBtn.style.display = "none";
+        }
+    }
+
+    loadMoreBtn.addEventListener("click", loadNews);
+
+    // Load lần đầu
+    loadNews();
+
 
 </script>
 
