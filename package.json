@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/djblacker2001/Expressway#readme",
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "cors": "^2.8.5",
     "express": "^5.1.0"
   }
